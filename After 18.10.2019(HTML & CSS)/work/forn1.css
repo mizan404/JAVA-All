@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	padding: 0; 
+	margin: 0; 
+}
+#container{
+	width: 900px; 
+	height: 705px; 
+	margin: 50px auto; 
+	position: relative; 
+	
+}
+.header, .footer{
+	width: 800px;
+	height: 100px; 
+	border: 1px solid black; 
+	 
+	
+}
+.hd-right,  .fd-right {
+	width: 498px; 
+	height: 98px; 
+	float: left; 
+	border: 1px solid black; 
+	text-align: center; 
+    position: relative; 
+  
+
+	
+}
+.hd-left, .fd-left{
+	width: 298px; 
+	height: 98px; 
+	float: left; 
+	border: 1px solid black; 
+	text-align: center; 
+}
+.body{
+	width: 800px; 
+	height: 448px; 
+	border: 1px solid black; 
+}
+.bd-left{
+	width: 198px; 
+	height: 448px; 
+	border: 1px solid black; 
+	float: left; 
+}
+.bd-right {
+	width: 598px; 
+	height: 448px; 
+	float: left; 
+	border: 1px solid black; 
+}
+.bd-left1 a, .bd-left2 a, .bd-left3 a, .bd-left4 a{
+	text-decoration: none; 
+	color: blue; 
+	 
+} 
+
+.bd-left1{ width: 198px; height: 112px;  font-size: 36px;text-align: center;} .bd-left1:hover {background-color: gray;}
+.bd-left2{ width: 198px; height: 112px;  font-size: 36px;text-align: center;} .bd-left2:hover {background-color: #99ff00;}
+.bd-left3{ width: 198px; height: 112px;  font-size: 36px;text-align: center;} .bd-left3:hover {background-color: #00dd99;}
+.bd-left4{ width: 198px; height: 112px;  font-size: 36px;text-align: center;} .bd-left4:hover {background-color: #99ff99;}

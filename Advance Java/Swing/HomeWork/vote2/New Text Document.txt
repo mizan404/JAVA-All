@@ -1,0 +1,7 @@
+create table voter(voter_id int(11) primary key auto_increment,
+voter_email varchar(20) not null,
+voter_fathername varchar(20) not null,
+voter_fullname varchar(20) not null,
+voter_cnic varchar(20) not null,
+voter_mobileno varchar(20) not null,
+voter_picture blob);

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> JavaScript </title>
+		  <meta charset="url-8">
+		  <meta http-equiv="refresh" content="5">
+		
+	</head>
+	<body bgcolor="wheat">
+        <script>
+            var tree = new Object(); 
+            tree.size = "Big and taller than Uncle Jim."; 
+            tree.shade = "It keeps us cool in the summer"; 
+            tree.fall="We make gaint leaf pumkins."
+            var display = tree["size"] + "<br>"; 
+            display += tree["shade"] + "<br>"; 
+            display += tree["fall"]; 
+            document.write(display); 
+            document.write("<hr>"); 
+        </script>
+        <script> 
+            var myWord = new String("It is impolite to wink!"); 
+            myWord = myWord.substring(10,22).fontsize(7).italics().fontcolor("red").blink(); 
+            document.write(myWord); 
+            document.write("<hr>"); 
+        </script>
+        <script> 
+            var Mall = new Object(); 
+            Mall.shops= "Vinnys Gun and Medical Supply Shop.";
+            Mall.shopNumber ="244, Kafrul, Dhaka-Cantt., Dhaka."; 
+            Mall.employee = "Male: 20, Female: 5"; 
+            Mall.name ="Mizan's Shop"; 
+            var display = " Owner Name: " + Mall["name"] + "<br>";  
+            display += " Total Employee: " + Mall["employee"]+ "<br>";; 
+            display += " Shop Address: " + Mall["shopNumber"]+ "<br>";; 
+            display += " Product's Name: " + Mall["shops"];
+            document.write(display); 
+        </script>
+        
+	</body>
+
+
+</html>

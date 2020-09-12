@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> </title>
+		<meta charset="url-8">
+		
+		
+	</head>
+	<body>
+	<script> 	
+function validationEmail(){
+    var email=document.forms["myEmail"]["email"].value;
+    var one=email.indexOf("@");
+    var two=email.lastIndexOf(".");
+    if (one+1>two||two<one+2||two+2>=email.length){
+        alert("Not Correct");
+        return false;       
+    }alert("Correct");
+}
+
+</script> 
+
+<form name="myEmail" onSubmit="return validationEmail()" method="post"> 
+        Email: <input type="text" name="email">
+    <input type="submit" value="Send"> 
+</form>
+	</body>
+
+
+</html>

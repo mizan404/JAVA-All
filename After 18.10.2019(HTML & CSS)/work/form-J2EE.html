@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+   
+    <style type="text/css"> 
+        table{
+            width: 500px; 
+		    height: 200px; 
+		}
+        body{
+            background-color: darkgray; 
+            margin: 0; 
+            }
+       
+    </style>
+</head>
+<body> 
+    <div id="main">
+    <p><h2> Give Your Persional Information</h2> <p> 
+   
+    <form>
+        <table>
+        <tr>
+            <td> 
+                <label for="Name"> Name: </label>
+            </td>
+            <td>
+                <input type="select" name="Name" />
+            </td>
+        </tr>
+         <tr>
+            <td> 
+                <label for="Email"> Email: </label>
+            </td>
+            <td>
+                <input type="select" name="Email">
+            </td>
+        </tr>
+         <tr>
+            <td> 
+                <label for="password"> Password: </label>
+            </td>
+            <td>
+                <input type="password" name="Password">
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                <label for="password"> Re-type Password: </label>
+            </td>
+            <td>
+                <input type="password" name="Re-type Password" >
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                <label for="gender"> Gender: </label>
+                    
+            </td>
+            <td>
+                Male <input type="radio" name="Gender"/>
+                Female <input type="radio" name="Gender"/>
+            </td>
+            
+        </tr>
+        <tr>
+			<td>Language:<td>
+					<select>
+					<option>Bangla</option>
+					<option>English</option>
+					<option>Arabic</option>
+					</select> 
+		</tr>
+        <tr>
+			<td>Comment:<td><textarea rows="5px"cols="15px"> </textarea>
+		
+		</tr>
+        <tr>
+			
+			<td>
+			<input type="button"value="Submit"> &nbsp 
+				<button type="button"value="Reset">Reset</button> &nbsp 
+			
+            </td>
+		</tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>

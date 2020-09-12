@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+	<title>  Div Example</title>
+		<style type="text/css">
+		#container{
+			width:600px;
+			height:800px;
+			background-color: gray;
+			margin: 0 auto;	
+		}
+		.Top{
+			width:600px;
+			height:100px;
+			background-color: pink;		
+		}
+		.Center{
+			width:600px;
+			height:450px;
+			background-color: blue;
+		}
+		.upper-bottom{
+			width:600px;
+			height:150px;
+			background-color: pink;
+		}
+		.bottom{
+			width:600px;
+			height:100px;
+			background-color: gold1;
+		}
+		.Top-left{
+			width:100px;
+			height:100px;
+			background-color: pink;
+			float:left;
+		}
+		.Top-center{
+			width:250px;
+			height:100px;
+			background-color: gray;
+			float:left;
+		}
+		.Top-right{
+			width:250px;
+			height:100px;
+			background-color: #56e;
+			float:left;
+		}
+		.Center-left{
+			width:150px;
+			height:450px;
+			background-color: #23a;
+			float:left
+		}
+		.Center-right{
+			width:450px;
+			height:450px;
+			background-color:#001e;
+			float:left
+		}
+		.upper-bottom-left{
+			width:200px;
+			height:150px;
+			background-color: pink;
+			float:left;
+		}
+		.upper-bottom-center{
+			width:200px;
+			height:150px;
+			background-color: white;
+			float:left;
+		}
+		.upper-bottom-right{
+			width:200px;
+			height:150px;
+			background-color: pink;
+			float:left;
+		}
+		</style>
+</head>
+
+<body>
+	<div id="container"> 
+		<div class="Top">
+			<div class="Top-left"> Left </div>
+			<div class="Top-center"> center </div>
+			<div class="Top-right"> right </div>
+		</div>
+		<div class="Center">
+			<div class="Center-left"> Left </div>
+			<div class="Center-right"> Right </div>
+		</div>
+		<div class="upper-bottom">
+			<div class="upper-bottom-left"> Left </div>
+			<div class="upper-bottom-center"> center </div>
+			<div class="upper-bottom-right"> right </div>
+		</div>
+		<div class="bottom"></div>
+	</div>
+</body>
+</html>

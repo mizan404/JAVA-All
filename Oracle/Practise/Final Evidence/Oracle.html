@@ -1,0 +1,55 @@
+connect sys as sysdba
+
+1.
+create user eid identified by eid;
+
+grant unlimited tablespace to eid;
+create role eidx;
+grant eidx to eid;
+grant dba to eidx; 
+
+2.
+create table department (dept_id number(4) primary key, dept_name varchar2(20));
+
+create table employee (emp_id number(4) primary key, emp_name varchar2(20), mobile varchar2(14) unique, 
+salary number(7,2) check (salary > 10000), joining_date DATE default sysdate, country varchar2(20) default 'BD', 
+dept_id number(4) not null, foreign key(dept_id) references department(dept_id) );
+
+desc department;
+desc employee; 
+
+
+create table employee_backup as select * from employee; 
+
+
+create or replace trigger employee_after_insert AFTER insert ON employee
+for each row
+declare 
+begin
+insert into employee_backup values(:new.emp_id, :new.emp_name, :new.mobile, :new.salary, :new.joining_date, :new.country, :new.dept_id); 
+dbms_output.put_line('Records successfully inserted into employee_backup table'); 
+end; 
+/
+
+create or replace trigger employee_after_update AFTER UPDATE ON employee
+for each row
+declare 
+begin
+update employee_backup set country =:new.country where emp_id = :old.emp_id
+dbms_output.put_line('Records successfully update into employee_backup table'); 
+end; 
+/ 
+
+
+create or replace trigger employee_after_delete AFTER DATELE ON employee
+for each row
+declare 
+begin
+delete employee_backup where emp_id = :old.emp_id
+dbms_output.put_line('Records successfully delete into employee_backup table'); 
+end; 
+/  
+
+
+
+3.

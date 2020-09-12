@@ -1,0 +1,37 @@
+create table Bangladesh(
+id number(5) primary key,
+name varchar2(15) not null,
+continent varchar2(15) default 'Asia'
+);
+
+CREATE OR REPLACE PROCEDURE insertBangladesh(
+p_id in bangladesh.id%type,
+p_name in bangladesh.name%type,
+p_continent in bangladesh.continent%type
+)
+IS 
+begin
+insert into bangladesh1 (id, name, continent)
+values (p_id, p_name, p_continent);
+end; 
+/
+
+begin 
+insertBangladesh1 (100, 'Ramin','America');
+end; 
+
+ create or replace procedure deleteBangladesh(
+ p_id IN bangladesh.id%type)
+ IS
+ BEGIN
+ delete from bangladesh where id=p_id;
+ commit;
+ end;
+
+
+
+  begin
+  deleteBangladesh(100);
+  end;
+  
+

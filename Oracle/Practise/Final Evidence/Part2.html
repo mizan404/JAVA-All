@@ -1,0 +1,277 @@
+
+
+
+connect sys as sysdba
+_____________________________________________________________________________________________________________
+create user emp_user identified by emp;
+
+grant unlimited tablespace to emp_user; 
+
+grant dba to emp_user; 
+_____________________________________________________________________________________________________________
+
+connect emp_user;
+1. 
+create table emp(eid number(4), ename varchar2(20), salary number(7,2), hire_date DATE, address varchar2(20)); 
+2.
+alter table emp add constraint emp_eid_pk primary key(eid);  
+_____________________________________________________________________________________________________________
+3.
+insert into emp (eid, ename, salary, hire_date, address) values( &eid, '&ename', &salary, '&hire_date', '&address'); 
+
+after insert 5 data....
+ EID ENAME                    SALARY HIRE_DATE ADDRESS
+---------- -------------------- ---------- --------- --------------------
+       101 mizan                     10000 10-JAN-20 Mirpur
+       102 Rahman                    10000 10-JAN-20 Dhaka
+       103 Ramin                     10000 10-JAN-20 Kafrul
+       104 Zareen                    12000 10-JAN-20 Ibrahimpur
+       105 Sultana                   15000 10-JAN-20 Mohamadpur
+
+
+_____________________________________________________________________________________________________________
+4.
+alter table emp add (phone varchar2(14) unique, job_title varchar2(20), dept_no number(4)); 
+desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EID                                       NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(20)
+ SALARY                                             NUMBER(7,2)
+ HIRE_DATE                                          DATE
+ ADDRESS                                            VARCHAR2(20)
+ PHONE                                              VARCHAR2(14)
+ JOB_TITLE                                          VARCHAR2(20)
+ DEPT_NO                                            NUMBER(4)
+_____________________________________________________________________________________________________________
+
+select * from emp;
+
+       EID ENAME      				 SALARY HIRE_DATE ADDRESS  PHONE          JOB_TITLE               DEPT_NO
+-------------- -------------------- ----------
+       101 mizan                     10000 10-JAN-20 Mirpur
+
+
+       102 Rahman                    10000 10-JAN-20 Dhaka
+
+
+       103 Ramin                     10000 10-JAN-20 Kafrul
+
+
+
+       
+       104 Zareen                    12000 10-JAN-20 Ibrahimpur
+
+
+       105 Sultana                   15000 10-JAN-20 Mohamadpur
+_____________________________________________________________________________________________________________
+
+to update  sultana's address .........
+
+update emp set address= 'Dhaka' where eid=105;
+
+EID ENAME                    SALARY HIRE_DATE ADDRESS PHONE          JOB_TITLE               DEPT_NO
+
+ 105 Sultana                  15000 10-JAN-20 Dhaka
+
+_____________________________________________________________________________________________________________
+5.
+select ename, job_title, salary, salary+(salary*.30) "review_salary" from emp; 
+OR
+select ename, job_title, salary, salary+(salary*.30) as review_salary from emp;
+
+
+ENAME                JOB_TITLE                SALARY review_salary
+-------------------- -------------------- ---------- -------------
+mizan                                          10000         13000
+Rahman                                         10000         13000
+Ramin                                          10000         13000
+Zareen                                         12000         15600
+Sultana                                        15000         19500
+
+_____________________________________________________________________________________________________________
+6.
+select ename, salary from emp where salary= (select min(salary) from emp); 
+
+ENAME                    SALARY
+-------------------- ----------
+mizan                     10000
+Rahman                    10000
+Ramin                     10000
+
+_____________________________________________________________________________________________________________
+7.
+select ename, salary from emp where salary=(select max(salary) from emp);
+
+ENAME                    SALARY
+-------------------- ----------
+Sultana                   15000
+_____________________________________________________________________________________________________________
+8. 
+select dept_no, Max(salary) from emp group by dept_no having max(salary)>12000; 
+
+   DEPT_NO MAX(SALARY)
+---------- -----------
+                 15000
+_____________________________________________________________________________________________________________
+9. 
+update emp set job_title='manager'
+
+EID ENAME          SALARY HIRE_DATE ADDRESS PHONE          JOB_TITLE               DEPT_NO
+
+101 mizan           10000 10-JAN-20 Mirpur       			manager
+
+102 Rahman          10000 10-JAN-20 Dhaka	  	 			manager
+
+103 Ramin           10000 10-JAN-20 Kafrul       			manager
+
+104 Zareen          12000 10-JAN-20 Ibrahimpur   			manager
+
+105 Sultana         15000 10-JAN-20 Dhaka        			manager
+
+_____________________________________________________________________________________________________________
+10.
+create view emp_view as select * from emp; 
+
+desc emp_view;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENAME                                              VARCHAR2(20)
+ JOB_TITLE                                          VARCHAR2(20)
+ SALARY                                             NUMBER(7,2)
+ review_salary                                      NUMBER
+
+select * from emp_view;
+
+ENAME                JOB_TITLE                SALARY review_salary
+-------------------- -------------------- ---------- -------------
+mizan                manager                   10000         13000
+Rahman               manager                   10000         13000
+Ramin                manager                   10000         13000
+Zareen               manager                   12000         15600
+Sultana              manager                   15000         19500
+_____________________________________________________________________________________________________________
+11. 
+create SEQUENCE emp_seq increment by 1 start with 100 maxvalue 10000 nocycle nocache;
+_____________________________________________________________________________________________________________
+12. 
+create index emp_idx on emp(dept_no)
+OR
+CREATE INDEX emp_id_idx ON emp(dept_no);
+
+_____________________________________________________________________________________________________________
+13.
+Create or replace procedure insertEmp( 
+p_eid IN emp.eid%type, 
+p_ename IN emp.ename%type,
+p_salary IN emp.salary%type,
+p_hire_date IN emp.hire_date%type,
+p_address IN emp.address%type)
+IS
+BEGIN 
+insert into emp(eid, ename, salary, hire_date, address) values (p_id, p_ename, p_hire_date, p_address); 
+commit;
+end;
+/ 
+
+BEGIN 
+insertEmp(101, 'Mizan', 1000.00, '10-Jan-20', 'Dhaka');
+end;
+/
+_______________
+Create or replace procedure updateEmp( 
+p_id IN emp.eid%type, 
+p_ename IN emp.ename%type)
+
+IS
+BEGIN 
+update emp set name=p_ename where eid=p_id; 
+commit;
+end;
+/ 
+
+BEGIN 
+updateEmp (105, 'Dhaka')
+end;
+/
+________________________
+Create or replace procedure deleteEmp( 
+p_id IN emp.eid%type)
+IS
+BEGIN 
+delete emp where eid=p_id; 
+commit;
+end;
+/ 
+
+BEGIN 
+deleteEmp (105); 
+end;
+/
+_____________________________________________________________________________________________________________
+14.
+create table emp_backup as select * from emp;
+
+
+create or replace trigger emp_after_insert AFTER INSERT ON emp
+for each row
+declare 
+BEGIN
+insert into emp_backup values(:new.emp_eid, :new.emp_ename, :new.emp_salary, :new.emp_hire_date, :new.emp_address);
+dbms_output.put_line('Record successfully insertd into emp_backup table');
+end;
+/ 
+
+insert into emp values(101,'Mizan', 10001, '01-Jan-2019', 'Bangladesh');
+
+
+________________
+create or replace trigger emp_after_update AFTER UPDATE ON emp
+for each row
+declare 
+BEGIN
+update emp_backup set emp_eid=:new.emp_eid where emp_eid = :old.emp_eid; 
+dbms_output.put_line('Record successfully insertd into emp_backup table');
+end;
+/ 
+
+update emp_backup set id=1101 where id=105;
+________________
+create or replace trigger emp_after_delete AFTER DELETE ON emp
+for each row
+declare 
+BEGIN
+delete emp_backup where eid =:old.eid; 
+dbms_output.put_line('Record successfully insertd into emp_backup table');
+end;
+/ 
+
+delete emp_backup where id=105;
+_____________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

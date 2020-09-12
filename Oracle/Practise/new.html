@@ -1,0 +1,348 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Wed Dec 18 23:50:59 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect hr
+Enter password:
+Connected.
+SQL> create table bangladesh(
+  2  id number(5) primary key,
+  3  name varchar2(15) not null,
+  4  continent varchar2(15) default 'Asia'
+  5  );
+
+Table created.
+
+SQL> create or replace procedure insertBanladesh(
+  2  p_id in bangladesh.id%type,
+  3  p_name in bangladesh.name%type,
+  4  p_continent in bangladesh.continent%type
+  5  )
+  6  IS
+  7  BEGIN
+  8  insert into bangladesh(id, name, continent)
+  9  values (p_id, p_name, p_continent)
+ 10  end;
+ 11  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> create or replace procedure insertBangladesh(
+  2  p_id in bangladesh.id%type,
+  3  p_name in bangladesh.name%type,
+  4  p_continent in bangladesh.continent%type
+  5  )
+  6  IS
+  7  BEGIN
+  8  insert into bangladesh(id, name, continent)
+  9  values (p_id, p_name, p_continent)
+ 10  end;
+ 11  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> drop bangladesh;
+drop bangladesh
+     *
+ERROR at line 1:
+ORA-00950: invalid DROP option
+
+
+SQL> drop table bangladesh;
+
+Table dropped.
+
+SQL> create table bangladesh(
+  2  id number(5) primary key,
+  3  name varchar2(15) not null,
+  4  continent varchar2(15) default 'Asia'
+  5  );
+
+Table created.
+
+SQL> CREATE OR REPLACE PROCEDURE insertBangladesh(
+  2  p_id in bangladesh.id%type,
+  3  p_name in bangladesh.name%type,
+  4  p_continent in bangladesh.continent%type
+  5  )
+  6  IS
+  7  begin
+  8  insert into bangladesh (id, name, continent)
+  9  values (p_id, p_name, p_continent);
+ 10  end;
+ 11  /
+
+Procedure created.
+
+SQL> begin
+  2  insertBnagladesh(1,'Jihad','Europe');
+  3  end;
+  4  /
+insertBnagladesh(1,'Jihad','Europe');
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1:
+PLS-00201: identifier 'INSERTBNAGLADESH' must be declared
+ORA-06550: line 2, column 1:
+PL/SQL: Statement ignored
+
+
+SQL> begin
+  2  insertBangladesh(1,'Jihad','Europe');
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> begin
+  2  insertBangladesh(2,'Munar','Africa');
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> begin
+  2  insertBangladesh(3,'Zareen','North America');
+  3  insertBangladesh(4,'Amrin','South America');
+  4  insertBangladesh(5,'Ramin','Asia');
+  5  end;
+  6  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from bangladesh;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+         1 Jihad           Europe
+         2 Munar           Africa
+         3 Zareen          North America
+         4 Amrin           South America
+         5 Ramin           Asia
+
+SQL> create or replace procedure updateBangladesh(
+  2  p_id in bangladesh.id%type,
+  3  p_name in bangladesh.name%type
+  4  )
+  5  is
+  6  begin
+  7  update bangladesh set name=p_name where id=p_id;
+  8  commit;
+  9  end;
+ 10  /
+
+Procedure created.
+
+SQL> begin
+  2  updateBangladeah(1,'Jihad Ahmed');
+  3  updateBangladeah(2,'Estiyak Nur Munar');
+  4  updateBangladeah(3,'Noumi Jahan Amrin');
+  5  updateBangladeah(4,'Meher Sultana Zareen');
+  6  updateBangladeah(5,'Mehek Sultana Ramin');
+  7  end;
+  8  /
+updateBangladeah(1,'Jihad Ahmed');
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 2, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 3, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 3, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 4, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 4, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 5, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 5, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 6, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 6, column 1:
+PL/SQL: Statement ignored
+
+
+SQL> begin
+  2  updateBangladeah(10,'Jihad Ahmed');
+  3  updateBangladeah(20,'Estiyak Nur Munar');
+  4  updateBangladeah(30,'Noumi Jahan Amrin');
+  5  updateBangladeah(40,'Meher Sultana Zareen');
+  6  updateBangladeah(50,'Mehek Sultana Ramin');
+  7  end;
+  8  /
+updateBangladeah(10,'Jihad Ahmed');
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 2, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 3, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 3, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 4, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 4, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 5, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 5, column 1:
+PL/SQL: Statement ignored
+ORA-06550: line 6, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 6, column 1:
+PL/SQL: Statement ignored
+
+
+SQL> begin
+  2  updateBangladeah(10,'Jihad Ahmed');
+  3  end;
+  4  /
+updateBangladeah(10,'Jihad Ahmed');
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1:
+PLS-00201: identifier 'UPDATEBANGLADEAH' must be declared
+ORA-06550: line 2, column 1:
+PL/SQL: Statement ignored
+
+
+SQL> begin
+  2  updateBangladesh(10,'Jihad Ahmed');
+  3  updateBangladesh(20,'Estiyak Nur Munar');
+  4  updateBangladesh(30,'Noumi Jahan Amrin');
+  5  updateBangladesh(40,'Meher Sultana Zareen');
+  6  updateBangladesh(50,'Mehek Sultana Ramin');
+  7  end;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from bangladesh;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+         1 Jihad           Europe
+         2 Munar           Africa
+         3 Zareen          North America
+         4 Amrin           South America
+         5 Ramin           Asia
+
+SQL> begin
+  2    updateBangladesh(10,'Jihad Ahmed');
+  3    updateBangladesh(20,'Estiyak Nur Munar');
+  4    updateBangladesh(30,'Noumi Jahan Amrin');
+  5    updateBangladesh(40,'Meher Sultana Zareen');
+  6    updateBangladesh(50,'Mehek Sultana Ramin');
+  7    end;
+  8    /
+
+PL/SQL procedure successfully completed.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from Bnagladesh;
+select * from Bnagladesh
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from Bangladesh;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+         1 Jihad           Europe
+         2 Munar           Africa
+         3 Zareen          North America
+         4 Amrin           South America
+         5 Ramin           Asia
+
+SQL> begin
+  2    updateBangladesh(10,'Jihad Ahmed');
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from Bangladesh;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+         1 Jihad           Europe
+         2 Munar           Africa
+         3 Zareen          North America
+         4 Amrin           South America
+         5 Ramin           Asia
+
+SQL> create or replace procedure deleteBangladesh(
+  2  p_id in bangladesh.id%type
+  3  )
+  4  is
+  5  begin
+  6  delete from bangladesh where id=p_id;
+  7  commit;
+  8  end;
+  9  /
+
+Procedure created.
+
+SQL> begin
+  2  deleteBangladesh(1);
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from Bangladesh;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+         2 Munar           Africa
+         3 Zareen          North America
+         4 Amrin           South America
+         5 Ramin           Asia
+
+SQL> begin
+  2  deleteBangladesh(2);
+  3  deleteBangladesh(3);
+  4  deleteBangladesh(4);
+  5  deleteBangladesh(5);
+  6  end;
+  7  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from Bangladesh;
+
+no rows selected
+
+SQL> create table bangladesh_backup as select * from bangladesh;
+
+Table created.
+
+SQL> create or replace trigger bangladesh_after_insert
+  2  after insert on bangladesh
+  3  for each row
+  4  declare
+  5  begin
+  6  insert into bangladesh_backup values(:new.id, :new.name, :new.continent);
+  7  dbms_output.put_line('Record successfully inserted into bangaldesh_backup table');
+  8  end;
+  9  /
+
+Trigger created.
+
+SQL>

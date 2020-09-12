@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+    <meta charset="url-8">
+    <style type="text/css">
+        body {
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #DBEFF0;
+			font-size: 18px;
+        }
+       .main {
+            width: 400px;
+			height: 400px;
+            padding: 50px;
+            padding-left: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: black;
+			border: 2px solid white;
+            border-radius: 30px;
+        }
+		label {
+            color: red;
+
+        }
+        input[type=text] {
+            width: 200px;
+            padding-left: 10px; 
+            border: 2px solid #2ecc71;
+            border-radius: 15px;
+            background: none;
+            color: #fff;
+			font-size: 18px;
+        }
+		select {
+            width: 200px;
+            border: 2px solid #2ecc71;
+            color: #fff;
+            background: none;
+            border-radius: 15px;
+			font-size: 18px;
+        }
+		textarea {
+            width: 200px;
+            height: 70px;
+            padding: 5px;
+			border: 2px solid #2ecc71;
+            border-radius: 15px;
+            background: none;
+            color: #fff;
+			font-size: 18px;
+        }
+        h1{
+            color: red;
+            text-align: center; 
+        }
+    </style>
+    
+</head>
+
+<body>
+    <h1> Form Validation</h1>
+	<div class="main"> 
+		<form name="myForm"> 
+			<table  cellpadding="10" > 
+				<tr> 
+					<td> Name:</td> 
+
+					<td> <input type="text" name="fname" >
+						<label id="fnamex"> </label> 
+					</td> 
+				</tr>
+				
+				<tr> 
+					<td> Gender: </td> 
+
+					<td> <input type="radio" name="gender" value="Male"> Male
+					 <input type="radio" name="gender" value="Female"> Female
+						<label id="gender"> </label> 
+					</td> 
+				</tr>
+				<tr> 
+					<td> Education: </td> 
+
+					<td> <input type="checkbox" name="ssc" value="SSC"> SSC
+						<input type="checkbox" name="hsc" value="HSC"> HSC
+						<label id="education"> </label> 
+					</td> 
+				</tr>
+				<tr> 
+					<td> Round: </td> 
+
+					<td> 
+						<select name="round"> 
+							<option value="Select A Round" selected="selected"> Select A Round </option>
+							<option value="41">41 </option>
+							<option value="42"> 42</option>
+							<option value="43"> 43</option>
+						</select> 
+						<label id="round"> </label> 
+					</td> 
+				</tr>
+				<tr> 
+					<td>  </td> 
+
+					<td> 
+						<textarea name="msg" placeholder="Enter At Least 10 Characters"> </textarea>  
+						<label id="msg"> </label> 
+					</td> 
+				</tr>
+				<tr> 
+					<td>  </td> 
+
+					<td> 
+						<input type="reset" value="Reset">  
+						<label id="msg"> </label> 
+					</td> 
+				</tr>
+
+			</table> 
+		</form> 
+		<button onclick="openWindow()"> Opne Window</button> 
+		<button onClick="validationForm()"> Submit </button> 
+		<button onClick="closeWindow()">Close Window </button> 
+	</div> 
+<script> 
+    var win; 
+    function openWindow(){
+        win= window.open("","","width=500");
+        win.document.write("<h2> <center> Form Output </center> </h2>"+"<hr>"); 
+    }
+    function closeWindow(){
+        win.close(); 
+    }
+    function validationForm(){
+        var fname = document.forms["myForm"]["fname"].value; 
+        
+        var gender = document.forms["myForm"]["gender"].value; 
+        var education =""; 
+        if(document.forms["myForm"].ssc.checked){
+            education +=document.forms["myForm"]["ssc"].value;
+        }if(document.forms["myForm"].hsc.checked){
+            education +=document.forms["myForm"]["hsc"].value;
+        }
+        var round = document.forms["myForm"]["round"].value;
+        var msg = document.forms["myForm"]["msg"].value;
+        
+        if (fname==""){
+            document.getElementById("fnamex").innerHTML= "Name must be filled out"; 
+            return false; 
+        } else if (fname.length<3){
+            document.getElementById("fnamex").innerHTML= "Name must be 3 letters"; 
+            return false; 
+        } else{
+            document.getElementById("fnamex").innerHTML= ""; 
+        }
+        
+        if (gender== ""){
+            document.getElementById("gender").innerHTML= "Gender must be filled out"; 
+            return false; 
+         
+        } else{
+            document.getElementById("gender").innerHTML= ""; 
+        }if (!document.forms["myForm"].ssc.checked && !document.forms["myForm"].hsc.checked){
+            document.getElementById("education").innerHTML= "Education must be filled out"; 
+            return false; 
+         
+        } else{
+            document.getElementById("education").innerHTML= ""; 
+        }
+        if (round== "Select A Round"){
+            document.getElementById("round").innerHTML= "Round must be filled out"; 
+            return false; 
+        
+        } else{
+            document.getElementById("round").innerHTML= ""; 
+        }
+        if (msg.length<10){
+            document.getElementById("msg").innerHTML= "msg must be filled out"; 
+            return false; 
+        
+        } else{
+            document.getElementById("msg").innerHTML= "";
+            win.document.write("Name: "+fname +"<br>");
+            win.document.write("Gender: "+ gender+"<br>");
+            win.document.write("Education: "+ education+"<br>");
+            win.document.write("Round: "+ round +"<br>");
+            win.document.write("Comments: "+ msg+"<br>");
+            win.document.write("<hr/>"); 
+        }
+        
+    }
+    
+    
+</script>
+
+
+</body>
+
+</html>

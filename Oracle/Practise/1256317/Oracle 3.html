@@ -1,0 +1,136 @@
+connect sys as sysdba
+
+create user mmr identified by mmr
+
+grant unlimited tablespace to mmr
+
+grant dba to mmr
+
+connect mmr
+
+create table emp (eid number(4), ename varchar2(20), salary number(7,2), hire_date DATE, address varchar2(20));
+
+alter table emp add constraint emp_eid_pk primary key(eid);
+
+insert into emp(eid, ename, salary, hire_date, address) values(&eid, '&ename', &salary, '&hire_date', '&address');
+
+alter table emp add (phone varchar2(14) unique, job_title varchar2(20), dept_no number(4));
+
+select ename, job_title, salary, salary+(salary*.30) "review salary" from emp; 
+
+select ename, salary from emp where salary = (select min(salary) from emp); 
+select ename, salary from emp where salary = (select max(salary) from emp); 
+
+select dept_no, MAX(salary) from emp group by dept_no having max(salary)>12000; 
+selecr dept_no, MAX(salary) from emp group by dept_no having max(salary)>12000;
+
+update emp set job_title='manager'; 
+
+create view emp_view as select * from emp; 
+
+create sequence emp_seq increment by 1 start with 10 maxvalue 10000 nocycle nocache; 
+
+create index emp_idx ON emp(dept_no); 
+
+
+create or replace procedure insertEmp(
+p_eid IN emp.eid%type,
+p_ename IN emp.ename%type,
+p_salary IN emp.salary%type,
+p_hire_date IN emp.hire_date%type,
+p_address IN emp.address%type,
+p_phone IN emp.phone%type,
+p_job_title IN emp.job_title%type,
+p_dept_no IN emp.dept_no%type)
+IS
+BEGIN
+insert into emp(eid, ename, salary, hire_date, address, phone, job_title, dept_no) 
+values (p_eid, p_ename, p_salary, p_hire_date, p_address, p_phone, p_job_title, p_dept_no);
+COMMIT;
+END;
+/
+
+BEGIN
+insertEmp(6, 'A', 11000.2, '14-Jan-2020', 'Dhaka', '01612345678', 'Manager', 1102);
+END;
+/
+
+
+
+CREATE OR REPLACE PROCEDURE updateEmp(
+p_eid IN emp.eid%type,
+p_salary IN emp.salary%type)
+IS
+BEGIN
+update emp set salary=p_salary where eid=p_eid; 
+commit; 
+END;
+/
+
+BEGIN
+updateEmp (12000, 101);
+END;
+/ 
+
+
+
+create or replace procedure deleteEmp(
+p_eid IN emp.eid%type)
+IS
+BEGIN
+delete emp where eid=p_eid;
+END;
+/
+
+BEGIN
+deleteEmp (101);
+END; 
+/ 
+
+
+create table emp_backup as select * from emp; 
+
+create or replace trigger emp_after_insert AFTER INSERT ON emp
+for each row
+declare
+BEGIN
+insert into emp_backup values(:new.eid, :new.ename, :new.salary, :new.hire_date, :new.address, :new.phone, :new.job_title, :new.dept_no);
+dbms_output.put_line('Records successfully inserted into emp_backup table');
+END;
+/ 
+
+insert into emp values(101, 'A', 1000.00, '14-Jan-2020', 'Dhaka', '01612345678', 'Manager', 1101);
+
+
+create or replace trigger emp_after_update AFTER UPDATE ON emp
+for each row
+declare
+BEGIN
+update emp_backup set  ename=:old.ename where eid=:old.eid; 
+dbms_output.put_line('Records successfully updated into emp_backup table');
+END;
+/ 
+
+update emp_backup set ename= 'AA' where eid=101; 
+
+
+Create or replace trigger emp_after_delete AFTER DELETE ON emp
+for each row
+declare
+BEGIN
+delete emp_backup where eid=:old.eid; 
+dbms_output.put_line('Records successfully deleted into emp_backup table');
+END;
+/ 
+
+delete emp_backup where eid=101; 
+
+ 
+
+
+ 
+
+
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> </title>
+		<meta charset="url-8">
+		
+		
+	</head>
+	<body>
+	<script>
+	function validateEmail() {
+  
+    var email = document.forms["coderbd"]["email"].value;
+    var atpos = email.indexOf("@");
+    var dotpos = email.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }else{    
+    alert("Email address is valid");
+    }
+}
+	
+	</script> 
+	<form name="coderbd" action="#" onsubmit="return validateEmail()" method="post">
+	Email: <input type="text" name="email">
+	<input type="submit" value="Send">
+	</form>
+	
+	</body>
+
+
+</html>

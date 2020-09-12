@@ -1,0 +1,25 @@
+Open command prompt
+For Export Type---
+
+1.exp
+2.Username: hr@orcl
+3.Password: hr
+4.Enter array fetch buffer size:4096 >
+5.Export file: EXPDAT.DMP > C:\Users\User\Desktop\a.dump
+6.(2)U(sers), or (3)T(ables): (2)U >
+7.Export grants (yes/no): yes >
+8.Export table data (yes/no): yes >
+9.Compress extents (yes/no): yes >
+
+
+Import Process:
+Now you import all objects of hr to another user say xyz. For this purpose
+
+create user xyz identified by xyz;
+grant dba to xyz;
+
+First create the user xyz.
+Then enter in cammand prompt and type imp.
+Then type username and password of the user on which you want to import objects.
+Then type location of dump file (C:\Users\User\Desktop\a.dump)
+Enter dump options

@@ -1,0 +1,170 @@
+1. create user eid identified by eid;
+	grant dba to eid;
+		OR
+	grant create table, create trigger, create sequence, create session, 
+	 create procedure, create view, create synonym, unlimited tablespace to eid;
+
+2. A) create table department (dep_id number(5) primary key, department_name varchar2(25));
+	[-alter table department add constraint dep_id_pk primary key (dep_id);]
+
+   B) create table employee (emp_id number(5) primary key, emp_name varchar2(30), 
+   mobile varchar2 (14) unique, salary number(9,2) check (salary > 10000), 
+joining_date DATE default sysdate, country varchar2(30) default 'BD', dep_id number(5) not null, 
+foreign key (dep_id) references department (dep_id));
+
+  C) desc department; 
+     desc employee;
+
+  D) create table employee_backup as select * from employee;
+
+CREATE OR REPLACE TRIGGER employee_after_insert AFTER INSERT ON employee
+FOR EACH ROW
+DECLARE
+BEGIN
+INSERT INTO employee_backup values (:new.emp_id, :new.emp_name, :new.mobile, :new.salary,:new.joining_date, :new.country, :new.dept_id);
+DBMS_OUTPUT.PUT_LINE ('Records successfully inserted into employee_backup table');
+END;
+/
+
+CREATE OR REPLACE TRIGGER employee_after_update AFTER UPDATE ON employee
+FOR EACH ROW
+DECLARE
+BEGIN
+update employee_backup set country = :new.country where emp_id =:old.emp_id;
+DBMS_OUTPUT.PUT_LINE ('Records successfully updated into employee table');
+END;
+/
+
+CREATE OR REPLACE TRIGGER employee_after_delete AFTER DELETE ON employee
+FOR EACH ROW
+DECLARE
+BEGIN
+delete employee_backup where dep_id = :old.dep_id;
+DBMS_OUTPUT.PUT_LINE ('Records successfully updated into employee_backup table');
+END;
+/
+
+3. A) create sequence dep_id_seq
+   increment by 10
+   start with 10
+   maxvalue 10000
+   nocycle nocache;
+
+   B) create sequence emp_id_seq
+   increment by 5
+   start with 10
+   maxvalue 10000
+   nocycle nocache;
+
+   C) select sequence_name from user_sequences;
+
+4. A) select index_name from user_indexes;
+   B) create index dep_name_idx on department (department_name);
+   C) select index_name from user_indexes;
+
+   D) 
+CREATE OR REPLACE PROCEDURE insert_department (
+p_dep_id IN department.dep_id%type,
+p_department_name IN department.department_name%type)
+IS 
+BEGIN
+insert into department (dep_id, department_name) values (P_dep_id, P_department_name);
+COMMIT;
+END;
+/
+
+
+BEGIN
+ INSERT INTO department values (dep_id_seq.nextval, 'ADMIN');
+END;
+/
+
+BEGIN
+ INSERT INTO department values (dep_id_seq.nextval, 'SOFTWARE');
+END;
+/
+
+BEGIN
+ INSERT INTO department values (dep_id_seq.nextval, 'MARKETING');
+END;
+/
+  
+   E) create view department_view as select * from department;
+   F) select view_name from user_views;
+   G) create synonym dept for department;	
+      create synonym syn_dept_view for department_view;
+   H) select * from department_view;
+      select * from dept;
+      select * from syn_dept_view;
+
+5. Employee Table:
+
+   A) select index_name from user_indexes;
+   B) create index emp_name_idx on employee (emp_name);
+   C) select index_name from user_indexes;
+
+   D) 
+CREATE OR REPLACE PROCEDURE insert_employee (
+p_emp_id IN employee.emp_id%type,
+p_emp_name IN employee.emp_name%type,
+p_mobile IN employee.mobile%type,
+p_salary IN employee.salary%type,
+p_joining_date IN employee.joining_date%type,
+p_country IN employee.country%type,
+p_dep_id IN employee.dep_id%type)
+IS
+BEGIN
+INSERT INTO employee (emp_id, emp_name, mobile, salary, joining_date, country, dep_id) 
+values (p_emp_id, p_emp_id, p_mobile, p_salary, p_joining_date, p_country, p_dep_id);
+COMMIT;
+END;
+/
+
+BEGIN
+insert_employee (emp_id_seq.nextval, 'Sam', '+880176', 82000, '05-May-2005', 
+'UAE', 10);
+END;
+/
+
+BEGIN
+insert_employee (emp_id_seq.nextval, 'Sam', '+880177', 82000, '05-May-2005', 
+'UAE', 20);
+END;
+/
+
+BEGIN
+insert_employee (emp_id_seq.nextval, 'Sam', '+880178', 82000, '05-May-2005', 
+'UAE', 30);
+END;
+/
+
+BEGIN
+insert_employee (emp_id_seq.nextval, 'Sam', '+8801710', 82000, '05-May-2005', 
+'UAE', 10);
+END;
+/
+
+BEGIN
+insert_employee (emp_id_seq.nextval, 'Sam', '+8801711', 82000, '05-May-2005', 
+'UAE', 20);
+END;
+/
+
+   E) create view emp_view as select * from employee;
+   F) select view_name from user_views;
+   G) create synonym emp for employee;
+   H) create synonym syn_emp_view for emp_view;
+   I) select * from emp_view;
+      select * from emp;
+      select * from syn_emp_view;
+
+6. A) update department set department_name = 'SALES' where department_name = 'MARKETING';
+   B) alter table employee add email varchar2(25) unique;
+   C) update employee set dep_id = (select dep_id from department where dep_name = 'Mizan') where rownum = 1;
+
+
+
+
+
+
+

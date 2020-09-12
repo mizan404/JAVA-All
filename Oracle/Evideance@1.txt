@@ -1,0 +1,193 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Tue Dec 17 15:12:16 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> create user rahim&sons identified by r&s;
+Enter value for sons:
+Enter value for s:
+old   1: create user rahim&sons identified by r&s
+new   1: create user rahim identified by r
+
+User created.
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> drop user rahim;
+
+User dropped.
+
+SQL> drop user rahim&sons
+  2  drop user rahim&sons;
+Enter value for sons: 0
+old   1: drop user rahim&sons
+new   1: drop user rahim0
+Enter value for sons: /
+old   2: drop user rahim&sons
+new   2: drop user rahim/
+drop user rahim/
+*
+ERROR at line 2:
+ORA-00921: unexpected end of SQL command
+
+
+SQL> drop user rahim0;
+drop user rahim0
+          *
+ERROR at line 1:
+ORA-01918: user 'RAHIM0' does not exist
+
+
+SQL> create user rahim and sons inc indetified by rahim;
+create user rahim and sons inc indetified by rahim
+                  *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> create user rahims indetified by rahim;
+create user rahims indetified by rahim
+                   *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> create user rahims indentified by rahim;
+create user rahims indentified by rahim
+                   *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> show user;
+USER is "SYS"
+SQL> create user Rsons indentified by Rsons;
+create user Rsons indentified by Rsons
+                  *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> create user Rsons identified by Rsons;
+
+User created.
+
+SQL> grant role manager;
+grant role manager
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> create role manager;
+create role manager
+            *
+ERROR at line 1:
+ORA-01921: role name 'MANAGER' conflicts with another user or role name
+
+
+SQL> drop role manager;
+
+Role dropped.
+
+SQL> create role manager;
+
+Role created.
+
+SQL> grant dba to manager;
+
+Grant succeeded.
+
+SQL> create role supervisors;
+
+Role created.
+
+SQL> grant create table, create view, create sequence to supervisors;
+
+Grant succeeded.
+
+SQL> create role marketing-officers;
+create role marketing-officers
+                     *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> create role marketing_officers;
+
+Role created.
+
+SQL> grant only view to marketing_officers;
+grant only view to marketing_officers
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> grant to  view to marketing_officers;
+grant to  view to marketing_officers
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> grant create view to marketing_officers;
+
+Grant succeeded.
+
+SQL> create table department(id number(3) primary key, dep_name varchar2(15) unique);
+
+Table created.
+
+SQL> create table contact(id number(3), mobile number(11) unique, country varchar2(15) default 'Bangladesh');
+
+Table created.
+
+SQL> create table employee(id number(5) primary key, emp_name varchar2(50) not null, salary number(9,2) check (salary >= 25000), joining_date date check (joining_date < '01-JAN-2000'), department_id number(5) not null, contact_id number(5) unique, foreign key (department_id) references department(id), foreign key (contact_id) references contact(id))
+  2  ;
+create table employee(id number(5) primary key, emp_name varchar2(50) not null, salary number(9,2) check (salary >= 25000), joining_date date check (joining_date < '01-JAN-2000'), department_id number(5) not null, contact_id number(5) unique, foreign key (department_id) references department(id), foreign key (contact_id) references contact(id))
+                                                                                                                                                                                                                                                                                                                                                      *
+ERROR at line 1:
+ORA-02270: no matching unique or primary key for this column-list
+
+
+SQL> create table employee(id number(5) primary key, emp_name varchar2(50) not null, salary number(9,2) check (salary >= 25000), joining_date date check (joining_date < '01-JAN-2000'), department_id number(5) not null, contact_id number(5) unique, foreign key (department_id) references department(id), foreign key (contact_id) references contact(id));
+create table employee(id number(5) primary key, emp_name varchar2(50) not null, salary number(9,2) check (salary >= 25000), joining_date date check (joining_date < '01-JAN-2000'), department_id number(5) not null, contact_id number(5) unique, foreign key (department_id) references department(id), foreign key (contact_id) references contact(id))
+                                                                                                                                                                                                                                                                                                                                                      *
+ERROR at line 1:
+ORA-02270: no matching unique or primary key for this column-list
+
+
+SQL> alter table contact modify id number(3) primary key;
+
+Table altered.
+
+SQL> desc contact;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(3)
+ MOBILE                                             NUMBER(11)
+ COUNTRY                                            VARCHAR2(15)
+
+SQL> create table employee(id number(5) primary key, emp_name varchar2(50) not null, salary number(9,2) check (salary >= 25000), joining_date date check (joining_date < '01-JAN-2000'), department_id number(5) not null, contact_id number(5) unique, foreign key (department_id) references department(id), foreign key (contact_id) references contact(id));
+
+Table created.
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(5)
+ EMP_NAME                                  NOT NULL VARCHAR2(50)
+ SALARY                                             NUMBER(9,2)
+ JOINING_DATE                                       DATE
+ DEPARTMENT_ID                             NOT NULL NUMBER(5)
+ CONTACT_ID                                         NUMBER(5)
+
+SQL> revoke create

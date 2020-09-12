@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://www.studytonight.com/dbms/set-operation-in-sql.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set Operations in SQL - Union, Union All, Intersect and Minus | Studytonight</title>
+<meta name="description" content="SQL supports few SET operations to be performed on table data like Union, Union all, Intersect and Minus. In this tutorial we will learn about SQL query with SET operations.">
+<link rel="canonical" href="https://www.studytonight.com/dbms/set-operation-in-sql.php">
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link href="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/bootstrap.v2.1575988656.css" rel="stylesheet">
+<link href="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/prism.1575988656.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="https://www.studytonight.com/css/resource/favicon.png">
+<script type="text/javascript" defer="" async="" src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/uaest.js.download"></script><script type="text/javascript" async="" src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/ga.js.download"></script><script type="text/javascript" src="https://cdn.thisiswaldo.com/static/js/3359.js"></script><style>@font-face{font-family:uc-nexus-iconfont;src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}</style><style type="text/css">
+:root .adsbygoogle
+{ display: none !important; }
+:root *[ev247sv][hidden] { display: none !important; }</style></head>
+<body>
+
+<div class="navbar varela">
+<div style="margin:0px 15px;">
+<div class="navbar-header">
+<a class="navbar-brand" href="https://www.studytonight.com/">
+<img style="max-height:48px;" id="brand-icon" src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/st-icon-dark.png" alt="studytonight.com" title="Take me Home">
+</a>
+</div>
+<ul class="nav navbar-nav hide-on-small">
+<li id="hero-dropdown">
+<a href="https://www.studytonight.com/library/">Tutorials&nbsp;<span style="position:relative;top:-2px;"><img src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/Navbar-Arrow-Down.png" style="width:15px;height:auto"></span></a>
+<div class="nav-hero-dropdown">
+<div class="white-container" style="border-radius:2px;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)">
+<div class="row">
+<div class="col-12">
+<p class="varela dark-grey nav-heading">PROGRAMMING</p>
+<div class="row nav-row">
+<div class="col-4">
+<a href="https://www.studytonight.com/java/" class="inverted" alt="Core Java Tutorial">
+<p><span class="jewel malibu-container"></span>Core Java</p>
+</a>
+<a href="https://www.studytonight.com/cpp/" class="inverted" alt="C++ Tutorial">
+<p><span class="jewel yellow-container"></span>C++</p>
+</a>
+<a href="https://www.studytonight.com/c/" class="inverted" alt="C Language Tutorial">
+<p><span class="jewel cream-container"></span>C Language</p>
+</a>
+<a href="https://www.studytonight.com/network-programming-in-python/" class="inverted" alt="Network Programming with Python Tutorial">
+<p><span class="jewel marine-container"></span>Network Programming</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/python/" class="inverted" alt="Python Tutorial">
+<p><span class="jewel marine-container"></span>Python</p>
+</a>
+<a href="https://www.studytonight.com/data-structures/" class="inverted" alt="Data Structure Tutorial">
+<p><span class="jewel malibu-light-container"></span>Data Structure</p>
+</a>
+
+<a href="https://www.studytonight.com/android/" class="inverted" alt="Android Tutorial">
+<p><span class="jewel malibu-container"></span>Android</p>
+</a>
+<a href="https://www.studytonight.com/php/" class="inverted" alt="PHP Tutorial">
+<p><span class="jewel light-purple-container"></span>PHP</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/ruby/" class="inverted" alt="Ruby Tutorial">
+<p><span class="jewel yellow-container"></span>Ruby</p>
+</a>
+<a href="https://www.studytonight.com/servlet/" class="inverted" alt="Servlet Tutorial">
+<p><span class="jewel cream-container"></span>Servlet</p>
+</a>
+<a href="https://www.studytonight.com/jsp/" class="inverted" alt="JSP Tutorial">
+<p><span class="jewel silver-container"></span>JSP</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr style="margin:0">
+<div class="row">
+<div class="col-12">
+<p class="varela dark-grey nav-heading">WEB</p>
+<div class="row nav-row">
+<div class="col-4">
+<a href="https://www.studytonight.com/code/" class="inverted" alt="HTML Tutorial">
+<p>HTML Course</p>
+</a>
+<a href="https://www.studytonight.com/code/playground/" class="inverted" alt="Practice HTML and CSS">
+<p>Web Playground</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/cascading-style-sheet/" class="inverted" alt="CSS Tutorial">
+<p><span class="jewel pink-container"></span>CSS</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/rest-web-service/" class="inverted" alt="REST Web Service Tutorial">
+<p><span class="jewel malibu-light-container"></span>REST Web Service</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr style="margin:0">
+<div class="row">
+<div class="col-12">
+<p class="varela dark-grey nav-heading">COMPUTER</p>
+<div class="row nav-row">
+<div class="col-4">
+<a href="https://www.studytonight.com/computer-networks/" class="inverted" alt="Computer Network Tutorial">
+<p><span class="jewel tree-green-container"></span>Computer Network</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/operating-system/" class="inverted" alt="Operating System Tutorial">
+<p><span class="jewel light-purple-container"></span>Operating System</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/computer-architecture/" class="inverted" alt="Computer Architecture Tutorial">
+<p><span class="jewel shamrock-container"></span>Computer Architecture</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr style="margin:0">
+<div class="row">
+<div class="col-12">
+<p class="varela dark-grey nav-heading">GAME DEVELOPMENT</p>
+<div class="row nav-row">
+<div class="col-12">
+<a href="https://www.studytonight.com/game-development-in-2D/" class="inverted" alt="Game Development with Unity Tutorial">
+<p><span class="jewel yellow-container"></span>Game Development with Unity Engine</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr style="margin:0">
+<div class="row">
+<div class="col-12">
+<p class="varela dark-grey nav-heading">DB</p>
+<div class="row nav-row">
+<div class="col-4">
+<a href="https://www.studytonight.com/dbms/" class="inverted" alt="DBMS and SQL Tutorial">
+<p><span class="jewel light-purple-container"></span>DBMS</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/mongodb/" class="inverted" alt="MongoDB Tutorial">
+<p><span class="jewel tree-green-container"></span>MongoDB</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/plsql/" class="inverted" alt="PL/SQL Tutorial"><p><span class="jewel malibu-light-container"></span>PL/SQL</p></a>
+</div>
+</div>
+</div>
+</div>
+<hr style="margin:0">
+<div class="row">
+<div class="col-12">
+<p class="varela dark-grey nav-heading">MISCELLANEOUS</p>
+<div class="row nav-row">
+<div class="col-4">
+<a href="https://www.studytonight.com/github/" class="inverted" alt="GIT Tutorial">
+<p><span class="jewel studio-container"></span><span class="jewel-double"></span>GIT</p>
+</a>
+<a href="https://www.studytonight.com/scrum-framework/" class="inverted" alt="Scrum Tutorial">
+<p><span class="jewel light-purple-container"></span>Scrum Framework</p>
+</a>
+</div>
+<div class="col-4">
+<a href="https://www.studytonight.com/jenkins/" class="inverted" alt="Jenkins Tutorial">
+<p><span class="jewel malibu-container"></span>Jenkins</p>
+</a>
+<a href="https://www.studytonight.com/maven/" class="inverted" alt="Maven Tutorial">
+<p><span class="jewel shamrock-container"></span>Maven</p>
+</a>
+</div>
+ <div class="col-4">
+<a href="https://www.studytonight.com/apache-cordova/" class="inverted" alt="Apache Cordova Tutorial">
+<p><span class="jewel studio-container"></span>Apache Cordova</p>
+</a>
+<a href="https://www.studytonight.com/drools/" class="inverted" alt="Drools Tutorial">
+<p><span class="jewel malibu-light-container"></span>Drools</p>
+</a>
+</div>
+</div>
+<br>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li><a href="https://www.studytonight.com/tests/">Tests</a></li>
+<li><a href="https://www.studytonight.com/code/">HTML Course</a></li>
+<li><a href="https://www.studytonight.com/curious/">Curious</a></li>
+<li><a href="https://www.studytonight.com/code/playground/">Practice Coding <sup class="malibu">NEW</sup></a></li>
+</ul>
+<ul class="nav navbar-nav pull-right hide-on-med-large">
+<input type="checkbox" name="mobile-menu-toggle" id="mobile-menu-toggle" value="Hello">
+<label for="mobile-menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></label>
+<div class="mobile-menu">
+<a href="https://www.studytonight.com/library" class="inverted">
+<div class="mobile-menu-option">
+<div class="mobile-menu-option-title">Library</div>
+</div>
+</a>
+<a href="https://www.studytonight.com/tests" class="inverted">
+<div class="mobile-menu-option">
+<div class="mobile-menu-option-title">Tests</div>
+</div>
+</a>
+
+<a href="https://www.studytonight.com/code/html" class="inverted">
+<div class="mobile-menu-option">
+<div class="mobile-menu-option-title">HTML Course</div>
+</div>
+</a>
+<a href="https://www.studytonight.com/curious" class="inverted">
+<div class="mobile-menu-option">
+<div class="mobile-menu-option-title">Curious</div>
+</div>
+</a>
+<a href="https://www.studytonight.com/login.php" class="inverted">
+<div class="mobile-menu-option-last">
+<div class="mobile-menu-option-title">Sign in</div>
+</div>
+</a>
+</div>
+</ul>
+<div class="navbar-form navbar-right hide-on-med-small">
+<a style="position:relative;top:-10px;color:#000000;padding:5px;border:solid 2px #000;border-radius:20px;" href="https://www.studytonight.com/career/">We are Hiring!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span title="Subscribe to Studytonight Youtube Channel"><a href="https://www.youtube.com/c/Studytonight" target="_blank"><span class="youtube"></span></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span title="Download Studytonight Android App"><a href="https://play.google.com/store/apps/details?id=com.studytonight.app" target="_blank"><span class="android-logo"></span></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="position:relative;top:-10px;" href="https://www.studytonight.com/login.php"><b>Sign in</b></a>
+</div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-12 center margin-10">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block; display: none !important;" data-ad-client="ca-pub-6137246359299957" data-ad-slot="1965829825" data-ad-format="auto" data-full-width-responsive="true" ev247sv="" hidden=""></ins>
+<script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+</div>
+</div>
+</div>
+<div class="row tutorial">
+<div class="col-3">
+<div class="mobile-sidebar-button pull-right fixed">
+<a id="slide-in-sidebar" class="btn btn-success"><img class="img-24" src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/line-menu.svg" alt="See the Tutorial List"></a>
+</div>
+<div id="sidebar-sliding-menu">
+<div id="left-sidebar">
+<div class="center hide-on-large" style="padding:5px;">
+<span class="varela" style="position:relative;top:-10px;left:-5px">Available on:&nbsp;&nbsp;</span>
+<span title="Subscribe to Studytonight Youtube Channel"><a href="https://www.youtube.com/c/Studytonight" target="_blank"><span class="youtube"></span></a></span>&nbsp;&nbsp;&nbsp;
+<span title="Download Studytonight Android App"><a href="https://play.google.com/store/apps/details?id=com.studytonight.app" target="_blank"><span class="android-logo"></span></a></span>
+</div>
+<ul class="sidebar-list">
+<li class="main">
+<h4>Database Concept <span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/overview-of-dbms.php">Overview of DBMS</a></li>
+<li><a href="https://www.studytonight.com/dbms/components-of-dbms.php">Components of DBMS</a></li>
+<li><a href="https://www.studytonight.com/dbms/architecture-of-database.php">Database Architecture</a></li>
+<li><a href="https://www.studytonight.com/dbms/database-model.php">Types of Database Model</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>DBMS - ER Model <span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/er-model-concepts.php">ER Model: Basic Concepts</a></li>
+<li><a href="https://www.studytonight.com/dbms/er-diagram.php">ER Model: Creating ER Diagram </a></li>
+<li><a href="https://www.studytonight.com/dbms/generalization-and-specialization.php">ER Model: Generalization and Specialization</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>DBMS - Relational Model <span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/codd-rule.php">Codd's 12 rule of RDBMS</a></li>
+<li><a href="https://www.studytonight.com/dbms/rdbms-concept.php">Basic Concepts of RDBMS</a></li>
+<li><a href="https://www.studytonight.com/dbms/relational-algebra.php">Relational Algebra</a></li>
+<li><a href="https://www.studytonight.com/dbms/relational-calculus.php">Relational Calculus</a></li>
+<li><a href="https://www.studytonight.com/dbms/er-to-relational-model.php">ER Model to Relational Model</a></li>
+<li><a href="https://www.studytonight.com/dbms/database-key.php">Types of Database Key</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>Database Normalization <span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/database-normalization.php">Database Normalization</a></li>
+<li><a href="https://www.studytonight.com/dbms/first-normal-form.php">First Normal Form (1NF)</a></li>
+<li><a href="https://www.studytonight.com/dbms/second-normal-form.php">Second Normal Form (2NF)</a></li>
+<li><a href="https://www.studytonight.com/dbms/third-normal-form.php">Third Normal Form (3NF)</a></li>
+<li><a href="https://www.studytonight.com/dbms/boyce-codd-normal-form.php">Boyce-Codd Normal Form (BCNF)</a></li>
+<li><a href="https://www.studytonight.com/dbms/fourth-normal-form.php">Fourth Normal Form (4NF)</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>SQL Concept <span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/introduction-to-sql.php">SQL Introduction</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>DDL Command<span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/create-query.php">Create query</a></li>
+<li><a href="https://www.studytonight.com/dbms/alter-query.php">Alter query</a></li>
+<li><a href="https://www.studytonight.com/dbms/truncate-drop-rename-query.php">Truncate, Drop and Rename query</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>DML Command<span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/dml-command.php">INSERT command</a></li>
+<li><a href="https://www.studytonight.com/dbms/dml-update-command.php">UPDATE command</a></li>
+<li><a href="https://www.studytonight.com/dbms/dml-delete-command.php">DELETE command</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>TCL Command<span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/tcl-command.php">All TCL Command</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>DCL Command<span class="glyphicon glyphicon-chevron-right pull-right"></span></h4>
+<ul class="sidebar-sublist closed">
+<li><a href="https://www.studytonight.com/dbms/dcl-command.php">All DCL Command</a></li>
+<li><a href="https://www.studytonight.com/dbms/select-query.php">SELECT query</a></li>
+<li><a href="https://www.studytonight.com/dbms/where-clause.php">WHERE clause</a></li>
+<li><a href="https://www.studytonight.com/dbms/like-clause.php">LIKE clause</a></li>
+<li><a href="https://www.studytonight.com/dbms/orderby-clause.php">ORDER BY clause</a></li>
+<li><a href="https://www.studytonight.com/dbms/groupby-clause.php">Group BY clause</a></li>
+<li><a href="https://www.studytonight.com/dbms/having-clause.php">Having clause</a></li>
+<li><a href="https://www.studytonight.com/dbms/distinct-keyword.php">DISTINCT keyword</a></li>
+<li><a href="https://www.studytonight.com/dbms/sql-and-or-operator.php">AND &amp; OR operator</a></li>
+</ul>
+</li>
+<ul class="sidebar-list">
+<li class="main">
+<h4>Advance SQL<span class="glyphicon pull-right glyphicon-chevron-down"></span></h4>
+<ul class="sidebar-sublist open">
+<li><a href="https://www.studytonight.com/dbms/sql-constraints.php">SQL Constraints</a></li>
+<li><a href="https://www.studytonight.com/dbms/sql-function.php">SQL function</a></li>
+<li><a href="https://www.studytonight.com/dbms/joining-in-sql.php">SQL Join</a></li>
+<li><a href="https://www.studytonight.com/dbms/sql-alias.php">SQL Alias</a></li>
+<li class="active"><a href="https://www.studytonight.com/dbms/set-operation-in-sql.php">SQL SET operation</a></li>
+<li><a href="https://www.studytonight.com/dbms/sql-sequences.php">SQL Sequences</a></li>
+<li><a href="https://www.studytonight.com/dbms/sql-views.php">SQL Views</a></li>
+</ul>
+</li>
+</ul>
+</ul></ul></ul></ul></ul></ul></ul></ul></ul></div>
+</div>
+<div class="hide-on-med-small">
+<div class="scroller_anchor"></div>
+<div class="scroller" style="position: relative; top: 0px;">
+<div id="waldo-tag-3360"></div>
+</div>
+</div>
+
+<div class="hide-on-med-small">
+<div class="scroller_anchor"></div>
+<div class="scroller" style="position: relative; top: 0px;">
+<div id="waldo-tag-3360"></div>
+</div>
+</div>
+</div><div class="col-6">
+<div id="body-content">
+<h1>SET Operations in SQL</h1>
+<p>SQL supports few Set operations which can be performed on the table data. These are used to get meaningful results from data stored in the table, under different special conditions.</p>
+<p>In this tutorial, we will cover 4 different types of SET operations, along with example:</p>
+<ol class="content">
+<li>UNION</li>
+<li>UNION ALL</li>
+<li>INTERSECT</li>
+<li>MINUS</li>
+</ol>
+<hr>
+<h2>UNION Operation</h2>
+<p><b>UNION</b> is used to combine the results of two or more <code>SELECT</code> statements. However it will eliminate duplicate rows from its resultset. In case of union, number of columns and datatype must be same in both the tables, on which UNION operation is being applied.</p>
+<p class="center"><img src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/sql-union.jpg" alt="union set operation in sql"></p>
+<hr>
+<h4>Example of UNION</h4>
+<p>The <b>First</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>Name</th></tr>
+<tr><td>1</td><td>abhi</td></tr>
+<tr><td>2</td><td>adam</td></tr>
+</tbody></table>
+<p>The <b>Second</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>Name</th></tr>
+<tr><td>2</td><td>adam</td></tr>
+<tr><td>3</td><td>Chester</td></tr>
+</tbody></table>
+<p>Union SQL query will be,</p>
+<pre class="none language-sql"><code class=" language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">First</span> 
+<span class="token keyword">UNION</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Second<span class="token punctuation">;</span></code></pre>
+<p>The resultset table will look like,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>1</td><td>abhi</td></tr>
+<tr><td>2</td><td>adam</td></tr>
+<tr><td>3</td><td>Chester</td></tr>
+</tbody></table>
+<hr>
+<h2>UNION ALL</h2>
+<p>This operation is similar to Union. But it also shows the duplicate rows.</p>
+<p class="center"><img src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/sql-union-all.jpg" alt="union all set operation in sql"></p>
+<h4>Example of Union All</h4>
+<p>The <b>First</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>1</td><td>abhi</td></tr>
+<tr><td>2</td><td>adam</td></tr>
+</tbody></table>
+<p>The <b>Second</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>2</td><td>adam</td></tr>
+<tr><td>3</td><td>Chester</td></tr>
+</tbody></table>
+<p>Union All query will be like,</p>
+<pre class="none language-sql"><code class=" language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">First</span> 
+<span class="token keyword">UNION</span> <span class="token keyword">ALL</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Second<span class="token punctuation">;</span></code></pre>
+<p>The resultset table will look like,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>1</td><td>abhi</td></tr>
+<tr><td>2</td><td>adam</td></tr>
+<tr><td>2</td><td>adam</td></tr>
+<tr><td>3</td><td>Chester</td></tr>
+</tbody></table>
+<div><div class="center">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block; display: none !important;" data-ad-client="ca-pub-6137246359299957" data-ad-slot="1566023420" data-ad-format="auto" data-full-width-responsive="true" ev247sv="" hidden=""></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+<hr>
+<h2>INTERSECT</h2>
+<p>Intersect operation is used to combine two <code>SELECT</code> statements, but it only retuns the records which are common from both <code>SELECT</code> statements. In case of <b>Intersect</b> the number of columns and datatype must be same.</p>
+<p></p><blockquote><b>NOTE:</b> MySQL does not support INTERSECT operator.</blockquote><p></p>
+<p class="center"><img src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/sql-intersect.jpg" alt="intersect set operatoin in sql"></p>
+<h4>Example of Intersect</h4>
+<p>The <b>First</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>1</td><td>abhi</td></tr>
+<tr><td>2</td><td>adam</td></tr>
+</tbody></table>
+<p>The <b>Second</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>2</td><td>adam</td></tr>
+<tr><td>3</td><td>Chester</td></tr>
+</tbody></table>
+<p>Intersect query will be,</p>
+<pre class="none language-sql"><code class=" language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">First</span> 
+<span class="token keyword">INTERSECT</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Second<span class="token punctuation">;</span></code></pre>
+<p>The resultset table will look like</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>2</td><td>adam</td></tr>
+</tbody></table>
+<hr>
+<h2>MINUS</h2>
+<p>The Minus operation combines results of two <code>SELECT</code> statements and return only those in the final result, which belongs to the first set of the result.</p>
+<p class="center"><img src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/minus.jpg" alt="minus set operation in sql"></p>
+<h4>Example of Minus</h4>
+<p>The <b>First</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>1</td><td>abhi</td></tr>
+<tr><td>2</td><td>adam</td></tr>
+</tbody></table>
+<p>The <b>Second</b> table,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>2</td><td>adam</td></tr>
+<tr><td>3</td><td>Chester</td></tr>
+</tbody></table>
+<p>Minus query will be,</p>
+<pre class="none language-sql"><code class=" language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">First</span> 
+MINUS
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Second<span class="token punctuation">;</span></code></pre>
+<p>The resultset table will look like,</p>
+<table class="table table-bordered table-striped">
+<tbody><tr><th>ID</th><th>NAME</th></tr>
+<tr><td>1</td><td>abhi</td></tr>
+</tbody></table>
+<hr>
+<div>
+<ul class="pager">
+<li class="previous">
+<a href="https://www.studytonight.com/dbms/sql-alias.php">← Prev</a>
+</li>
+<li class="next">
+<a href="https://www.studytonight.com/dbms/sql-sequences.php">Next →</a>
+</li>
+</ul></div>
+<hr>
+
+<div class="center">
+<div id="waldo-tag-4103"></div>
+</div></div>
+</div>
+<div class="col-3">
+<div id="right-sidebar">
+<div class="right-sidebar-link margin-b10">
+<a href="https://www.studytonight.com/tests/?subject=dbms" target="_blank">
+<h4><span class="glyphicon glyphicon-check"></span>&nbsp; DBMS &amp; SQL Tests</h4>
+</a>
+</div>
+<div class="right-sidebar-link margin-b10">
+<a href="https://www.studytonight.com/plsql/" target="_blank">
+<h4><span class="glyphicon glyphicon-log-out"></span>&nbsp; PL/SQL Tutorial</h4>
+</a>
+</div>
+<div class="margin-b10">
+
+
+<div>
+<div id="waldo-tag-4846"></div>
+</div> </div>
+<div class="margin-b10" style="height:500px;">
+<iframe src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/posts.html" height="100%" width="100%" style="border-width: 0" __idm_frm__="48"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="border-top" id="footer">
+<div class="container margin-30">
+<div class="row darkest-grey roboto">
+<div class="col-3  hide-on-med-small">
+<p>What is Studytonight?</p>
+<div>
+<p><a href="https://www.studytonight.com/about">About Us</a></p>
+
+<p><a href="https://www.studytonight.com/authors">Authors</a></p>
+<p><a href="https://www.studytonight.com/collaborate">Collaborate</a></p>
+<p><a href="https://www.studytonight.com/testimonials">Testimonials</a></p>
+<p><a href="https://www.studytonight.com/privacy">Privacy Policy</a></p>
+<p><a href="https://www.studytonight.com/terms">Terms</a></p>
+<p><a href="https://www.studytonight.com/contact">Contact Us</a></p>
+<p><a href="https://www.studytonight.com/suggest">Suggest</a></p>
+
+</div>
+</div>
+<div class="col-3">
+<p>Tutorials</p>
+<div>
+<p><a href="https://www.studytonight.com/android">Android</a></p>
+<p><a href="https://www.studytonight.com/java">Core Java</a></p>
+<p><a href="https://www.studytonight.com/cpp">C++</a></p>
+<p><a href="https://www.studytonight.com/data-structures">Data Structures</a></p>
+<p><a href="https://www.studytonight.com/python">Python</a></p>
+<p><a href="https://www.studytonight.com/network-programming-in-python">Network Programming</a></p>
+<p><a href="https://www.studytonight.com/dbms">DBMS &amp; SQL</a></p>
+<p><a href="https://www.studytonight.com/servlet">Servlet</a></p>
+<p><a href="https://www.studytonight.com/library">More...</a></p>
+</div>
+</div>
+<div class="col-3">
+<p>Tests</p>
+<div>
+<p><a href="https://www.studytonight.com/tests">Core Java</a></p>
+<p><a href="https://www.studytonight.com/tests/?subject=android">Android</a></p>
+<p><a href="https://www.studytonight.com/tests?/?subject=cpp">C++</a></p>
+<p><a href="https://www.studytonight.com/tests?/?subject=dbms">DBMS</a></p>
+<p><a href="https://www.studytonight.com/tests?/?subject=c">C Language</a></p>
+<p><a href="https://www.studytonight.com/tests">More...</a></p>
+</div>
+</div>
+<div class="col-3  hide-on-med-small">
+<p>Learn to Code</p>
+<div>
+<p><a href="https://www.studytonight.com/code/html">HTML</a></p>
+<p><a href="https://www.studytonight.com/cascading-style-sheet/">CSS</a></p>
+<p><a href="https://www.studytonight.com/code/playground">Website Development</a></p>
+</div>
+<p class="margin-20  hide-on-med-small">Interview Questions</p>
+<div>
+<p><a href="https://www.studytonight.com/flashcards/Java">Java Interview Question</a></p>
+<p><a href="https://www.studytonight.com/flashcards/Cpp">C++ Interview Question</a></p>
+<p><a href="https://www.studytonight.com/flashcards/OS">OS Interview Question</a></p>
+<p><a href="https://www.studytonight.com/flashcards/Sql">DBMS Interview Question</a></p>
+<p><a href="https://www.studytonight.com/flashcards" target="blank">More...</a>
+</p></div>
+</div>
+</div>
+<div class="row margin-20 roboto  hide-on-med-small">
+<div class="col-12">
+<p style="margin-left:-10px;">
+<a href="https://facebook.com/Studytonight" target="_blank"><span class="facebook"></span></a>&nbsp;
+<a href="https://twitter.com/studytonight" target="_blank"><span class="twitter"></span></a>&nbsp;
+<a href="https://plus.google.com/+Studytonight/" target="_blank"><span class="google-plus"></span></a>&nbsp;
+<a href="https://www.instagram.com/study.tonight/" target="_blank"><span class="instagram"></span></a>&nbsp;
+<a href="https://www.linkedin.com/company/studytonight" target="_blank"><span class="linkedin"></span></a>
+</p>
+<p class="pull-right" style="margin-right:10px;">Made with <span class="glyphicon glyphicon-heart malibu"></span> by <a class="inverted" href="https://www.instagram.com/ahlawat.abhishek/" target="_blank">Abhishek Ahlawat</a></p>
+<p>© 2019 Studytonight. &nbsp; <small>All rights reserved.</small></p>
+<p><a href="https://www.dmca.com/Protection/Status.aspx?ID=3075061c-0e86-4754-964b-d319a50d06af&amp;refurl=https://www.studytonight.com/dbms/set-operation-in-sql.php" title="DMCA.com Protection Status" class="dmca-badge"> <img src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/dmca-badge-w100-5x1-01.png" alt="DMCA.com Protection Status"></a> <script src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/DMCABadgeHelper.min.js.download"> </script></p>
+</div>
+</div>
+<div class="center"><div id="waldo-tag-3364"></div></div>
+<br>
+</div>
+</div>
+<script src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/jquery.1575988656.js.download"></script>
+<script src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/sidebar.min.1575988657.js.download"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39722043-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script src="./Set Operations in SQL - Union, Union All, Intersect and Minus _ Studytonight_files/prism.1575988657.js.download"></script>
+
+</body></html>

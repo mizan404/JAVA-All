@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Exam</title>
+</head>
+
+<body>
+<center><img src="pic.jpg"/> </center>
+	<script>
+		var country = ["Bangladesh", "USA", "Russia", "Iran", "Uk"]; 
+			document.write(country + "<hr/>"); 
+		country.push("Canada");
+			document.write(country + "<hr/>"); 
+		document.write(country.slice(2)+ "<hr/>"); 
+			document.write(country[3] + "<hr/>");
+		 
+		var newCountry = ["Iran"]; 
+		newCountry.unshift("Bangladesh"); 
+			document.write(newCountry + "<hr/>");
+		
+			document.write(typeof country + "<hr/>");
+	 
+		var nation = country.join("")
+		 	document.write(typeof nation + "<hr/>"); 
+		var westenCountry = ["France", "Germany"]; 
+		
+		var allCountry = country.concat(westenCountry);
+			document.write(allCountry+ "<hr/>");
+			document.write(allCountry.length); 
+		document.write( "<hr/>");
+		var arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+			arr.splice(2, 3, 'M'); 
+		
+		document.write(arr); 
+		
+		document.write("<hr/>"); 
+		////////////// Ternary Operator
+		var n1 = 10; 
+		var n2 = 5; 
+		var rss = n1 < n2 ? 'Yes..........' : 'No.......'; 
+		document.write(rss); 
+		document.write("<hr/>"); 
+		 var i = 1;
+		 while(i<=50){
+			 document.write(i+",");
+			 i++; 
+		 }
+		document.write("<hr/>"); 
+		 var i = 50;
+		 while(i >=1){
+			 document.write(i+",");
+			 i--; 
+		 }
+		document.write("<hr/>"); 
+		function printNumbers(sn, en){
+			while(sn >=en){
+				document.write(sn+",");
+				sn--; 
+			}
+		}
+		printNumbers(10,1);
+		////////////////
+		document.write("<hr/>"); 
+		function printNumber(sn, en){
+			while(sn <=en){
+				document.write(sn+",");
+				sn++; 
+			}
+		}
+		printNumber (1,10);
+		
+		
+		 
+	
+	</script>
+	
+</body>
+</html>

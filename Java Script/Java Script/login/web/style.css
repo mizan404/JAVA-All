@@ -1,0 +1,83 @@
+body{
+	background-image: url(images/index.jpg);
+	height: 100%;
+	width: 100%;
+}
+h2{
+color: #1D68CA;
+padding: 30px 35px;
+margin: -10px -50px;
+text-align:center;
+border-radius: 10px 10px 0 0;
+}
+hr{
+margin: 10px -50px;
+border: 0;
+border-top: 1px solid #ccc;
+margin-bottom: 40px;
+}
+div.container{
+
+margin:10% 32%;
+font-family: 'Raleway', sans-serif;
+}
+div.main{
+width: 300px;
+padding: 30px 80px 55px;
+border: 2px solid #1D68CA;
+border-radius: 10px;
+font-family: raleway;
+float:left;
+margin-top:50px;
+background: url(images/IMG_8635.jpg);
+position: fixed;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+
+
+
+}
+input[type=text],input[type=password]{
+width: 100%;
+height: 40px;
+padding: 5px;
+margin-bottom: 25px;
+margin-top: 5px;
+border: 2px solid #1D68CA;
+color: black;
+font-size: 16px;
+border-radius: 5px;
+}
+label{
+color: #1D68CA;
+font-size: 14px;
+font-weight: bold;
+}
+center{
+font-size:32px;
+}
+.back{
+text-decoration: none;
+border: 1px solid rgb(0, 143, 255);
+background-color: rgb(0, 214, 255);
+padding: 3px 20px;
+border-radius: 2px;
+color: black;
+}
+input[type=button]{
+font-size: 16px;
+background: #5E9BEC;
+border: 1px solid #1D68CA;
+color: white;
+font-weight: bold;
+cursor: pointer;
+width: 104%;
+border-radius: 5px;
+padding: 10px 0;
+outline:none;
+margin-top: 10px;
+}
+input[type=button]:hover{
+background: linear-gradient(#5E9BEC 5%, #1D68CA 100%);
+}

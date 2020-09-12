@@ -1,0 +1,196 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Wed Dec 18 15:55:29 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> create table Bangladesh (
+  2  id number(5) primary key,
+  3  name varchar2(15) not null,
+  4  continent varchar2(15) default 'Asia'
+  5  );
+SP2-0640: Not connected
+SQL> connect hr
+Enter password:
+Connected.
+SQL> create table Bangladesh (
+  2  id number(5) primary key,
+  3  name varchar2(15) not null,
+  4  continent varchar2(15) default 'Asia'
+  5  )
+  6  ;
+
+Table created.
+
+CREATE OR REPLACE PROCEDURE insertBangladesh(
+p_id in bangladesh.id%type,
+p_name in bangladesh.name%type,
+p_continent in bangladesh.continent%type
+)
+IS
+begin
+insert into bangladesh (id, name, continent)
+values (p_id, p_name, p_continent);
+end;
+/
+
+Warning: Procedure created with compilation errors.
+
+SQL> grant create procedure to hr;
+grant create procedure to hr
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> drop table bangladesh;
+
+Table dropped.
+
+SQL> connect hr
+Enter password:
+Connected.
+SQL> desc bangladesh;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(5)
+ NAME                                      NOT NULL VARCHAR2(15)
+ CONTINENT                                          VARCHAR2(15)
+
+SQL> select * from bangaldesh;
+select * from bangaldesh
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from bangladesh;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+       100 Ramin           America
+
+SQL> CREATE OR REPLACE PROCEDURE deleteBangladesh(
+  2     p_id IN bangladesh.id%TYPE)
+  3  IS
+  4  BEGIN
+  5
+  6    delete from bangaladesh where id=p_id;
+  7
+  8    COMMIT;
+  9
+ 10  END;/
+ 11  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> CREATE OR REPLACE PROCEDURE deleteBangladesh(
+  2     p_id IN bangladesh.id%TYPE)
+  3  IS
+  4  BEGIN
+  5
+  6    delete from bangaladesh where id=p_id;
+  7
+  8    COMMIT;
+  9
+ 10  END;
+ 11  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> CREATE OR REPLACE PROCEDURE deleteBangladesh(
+  2     p_id IN bangladesh.id%TYPE)
+  3  IS
+  4  BEGIN
+  5
+  6    delete from bangaladesh where id=p_id;
+  7
+  8    COMMIT;
+  9
+ 10  END;
+ 11
+ 12  Begin
+ 13  deleteBangladesh(100);
+ 14  end;
+ 15  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> create or replace procedure deleteBangladesh(
+  2  p_id IN bangladesh.id%type)
+  3  IS
+  4  BEGIN
+  5  delete from bangladesh where id=p_id;
+  6  commit;
+  7  end;
+  8  /
+
+Procedure created.
+
+SQL> begin
+  2  deleteBangladesh(100);
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from bangladesh;
+
+no rows selected
+
+SQL> create table bangladesh_backup as select * from bangladesh;
+
+Table created.
+
+SQL> desc bangladesh_backup;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(5)
+ NAME                                      NOT NULL VARCHAR2(15)
+ CONTINENT                                          VARCHAR2(15)
+
+SQL> create or replace trigger bangladesh_after_insert after insert on bangladesh
+   for each row
+   declare
+   begin
+   insert into bangladesh_backup values(:new.id, :new.name, :new.continent);
+   dbms_output.put_line('Record successfully inserted into bangladesh_backup table');
+   end;
+   /
+
+Trigger created.
+
+SQL> insert into bangladesh values(1, 'Ramin', 'America');
+
+1 row created.
+
+SQL> select * from bangladesh_backup;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+         1 Ramin           America
+
+SQL> create or replace trigger bangladesh_after_update after update on bangladesh
+  2  for each row
+  3  declare
+  4  begin
+  5  update bangladesh_backup
+  6  set id = :new.id
+  7  where id=:old.id;
+  8  dbms_output.put_line('Record successfully updated into bangladesh table');
+  9  end;
+ 10  /
+
+Trigger created.
+
+SQL> update bangladesh set id =100
+  2  where id=1;
+
+1 row updated.
+
+SQL> select * from bangladesh_backup;
+
+        ID NAME            CONTINENT
+---------- --------------- ---------------
+       100 Ramin           America
+
+SQL>

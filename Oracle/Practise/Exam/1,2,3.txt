@@ -1,0 +1,90 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Thu Dec 19 23:22:19 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> create user mmr identified mmr;
+create user mmr identified mmr
+                           *
+ERROR at line 1:
+ORA-00924: missing BY keyword
+
+
+SQL> create user mmr identified by mmr;
+
+User created.
+
+SQL> grant dba to mmr;
+
+Grant succeeded.
+
+SQL> connect mmr
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> connect mmr
+Enter password:
+Connected.
+SQL> create table department(dep_id number(5) primary key, dep_name varchar2(30));
+
+Table created.
+
+SQL> create table employee(emp_id number(5) primary key, emp_name varchar2(30) not null, mobile varchar2(14) unique, salary number(9,2) check (salary >10000), joining_date DATE default sysdate, country varchar2(20) default 'BD', dep_id number(5) not null, foreign key (dep_id) references department(dep_id));
+
+Table created.
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+DEPARTMENT
+EMPLOYEE
+
+SQL> create table emp_backup as select * from employee;
+
+Table created.
+
+SQL> create or replace trigger employee_after_insert
+  2  after insert on employee
+  3  for each row
+  4  declare
+  5  begin
+  6  insert into emp_backup values(:new.emp_id, :new.emp_name, :new.mobile, :new.salary, :new.joining_date, :new.country, :new.dep_id);
+  7  dbms_output.put_line('Record successfully inserted into emp_backup table');
+  8  end;
+  9  /
+
+Trigger created.
+
+SQL> create or replace trigger employee_after_update after update on employee
+  2  for each row
+  3  declare
+  4  begin
+  5  update emp_backup
+  6  set emp_id=:new.emp_id
+  7  where emp_id=:old.emp_id;
+  8  dbms_output.put_line('Record successfully update into emp_backup table');
+  9  end;
+ 10  /
+
+Trigger created.
+
+SQL> create or replace trigger employee_after_delete after delete on employee
+  2  for each row
+  3  declare
+  4  begin
+  5  delete emp_backup
+  6  where emp_id=:old.emp_id;
+  7  dbms_output.put_line('Record successfully delete into emp_backup table');
+  8  end;
+  9  /
+
+Trigger created.
+
+SQL>

@@ -1,0 +1,200 @@
+connect sys as sysdba
+
+create user mmr identified by mmr;
+
+grant dba to mmr;
+
+connect mmr
+
+create table department(dep_id number(5) primary key, dep_name varchar2(30)); 
+
+create table employee(emp_id number(5) primary key, emp_name varchar2(30) not null,
+ mobile varchar2(14) unique, salary number(9,2) check (salary >10000), 
+ joining_date DATE default sysdate, country varchar2(20) default 'BD', 
+ dep_id number(5) not null, foreign key (dep_id) references department(dep_id));
+
+select table_name from user_tables; 
+
+create table emp_backup as select * from employee;
+
+create or replace trigger employee_after_insert 
+after insert on employee 
+for each row
+declare
+begin 
+insert into emp_backup values(:new.emp_id, :new.emp_name, :new.mobile, :new.salary, :new.joining_date, :new.country, :new.dep_id); 
+dbms_output.put_line('Record successfully inserted into emp_backup table'); 
+end; 
+/ 
+
+insert into employees values(1,'Mizan', 01680225343, 10001, '01.12.2019', 'Bangladesh', 101);
+
+
+create or replace trigger employee_after_update after update on employee
+for each row
+declare
+begin
+update emp_backup
+set emp_id=:new.emp_id
+where emp_id=:old.emp_id;
+dbms_output.put_line('Record successfully update into emp_backup table'); 
+end; 
+/ 
+
+
+update emp_backup set id=11
+where id=1;
+
+create or replace trigger employee_after_delete after delete on employee
+for each row
+declare
+begin
+delete emp_backup
+where emp_id=:old.emp_id;
+dbms_output.put_line('Record successfully delete into emp_backup table'); 
+end; 
+/ 
+
+delete emp_backup where id = 1;
+
+
+create sequence dep_id_seq 
+increment by 10
+start with 5
+maxvalue 100
+nocache
+nocycle;
+
+create sequence emp_id_seq 
+increment by 5
+start with 5
+maxvalue 100
+nocache
+nocycle;
+
+
+select sequence_name from user_sequences;
+
+
+select index_name from user_indexes; 
+
+
+create index dep_id_idx ON department(dep_name);
+
+create or replace procedure insertDepartment(
+p_id IN department.dep_id%type,
+p_name IN department.dep_name%type)
+IS
+begin
+insert into department(dep_id, dep_name) values(p_id, p_name);
+end; 
+/
+
+
+
+begin
+insertDepartment(dep_id_seq.nextval, 'Admin');
+insertDepartment(dep_id_seq.nextval, 'Software');
+insertDepartment(dep_id_seq.nextval, 'Marketing');
+end; 
+/ 
+ 
+ 
+create or replace procedure updateDepartment(
+p_id IN department.dep_id%type,
+p_name IN department.dep_name%type)
+IS
+begin
+update department set name=p_name where id=p_id;
+commit; 
+end; 
+/
+
+
+
+begin
+updateDepartment(25,'Sales'); 
+end; 
+/ 
+
+
+create or replace procedure deleteDepartment(
+p_id IN department.dep_id%type)
+IS
+begin
+delete from department where id=p_id;
+commit; 
+end; 
+/
+
+
+
+begin
+deleteDepartment(25); 
+end; 
+/ 
+
+
+create view dep_view as select dep_id, dep_name from department; 
+
+
+create synonym dep_sys for department; 
+
+create synonym dep_view_sys for dep_view; 
+
+select * from dep_view_sys; 
+select * from dep_sys;
+select * from dep_view
+
+create index emp_name_idx ON employee(emp_name); 
+
+
+create or replace procedure insertEmployee(
+p_id IN employee.emp_id%type, 
+p_name IN employee.emp_name%type, 
+p_mob IN employee.mobile%type, 
+p_sal IN employee.salary%type, 
+p_jd IN employee.joining_date%type, 
+p_country IN employee.country%type, 
+p_fk IN employee.dep_id%type
+)
+IS
+begin 
+insert into employee (emp_id, emp_name, mobile, salary, joining_date, country, dep_id) 
+values(p_id, p_name, p_mob, p_sal, p_jd, p_country, p_fk);
+commit; 
+end; 
+/ 
+
+begin 
+insertEmployee(emp_id_seq.nextval, 'Mizan');
+end; 
+/ 
+
+create view emp_view as select emp_id, emp_name, mobile, salary, joining_date, country, dep_id from employee; 
+
+
+create synonym emp_sys for employee; 
+
+create synonym emp_view_sys for employee;
+
+select * from emp_view_sys; 
+select * from emp_sys;
+select * from emp_view; 
+
+
+
+update department set dep_name= 'Sales'
+where dep_id= 25; 
+
+
+alter table employee add email varchar2(30) unique;  
+
+
+select * from department where rowrun=1; 
+
+
+
+
+
+

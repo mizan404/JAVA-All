@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<title>Introduction to Java Programming</title>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<meta content="Introduction to Java Programming, Java Multiple-choice questions" name="description">
+<meta content="Java Multiple-choice questions, Test, Java, Liang, Y. Daniel Liang, Introduction to Java Programming, Brief, Comprehensive" name="keywords">
+<link rel="stylesheet" type="text/css" href="Introduction%20to%20Java%20Programming13_files/intro6e.css">
+<link rel="stylesheet" type="text/css" href="Introduction%20to%20Java%20Programming13_files/intro6eselftest.css">
+  <style> 
+    @media print {
+      body {font-size: 12px}
+      h3 {font-size: 13px}
+    }      
+  </style>
+
+<script type="text/javascript" src="Introduction%20to%20Java%20Programming13_files/jquery-1.js"></script>
+
+</head>
+
+<body>
+
+<div style="text-align: center; margin-bottom: 0em">
+	<h3 style="text-align: center; margin-bottom: 0.2em; color: navy; font-family: Verdana, Helvetica, sans-serif">
+	Introduction to Java Programming, Includes Data Structures, Eleventh Edition, 
+	<a href="http://www.pearsonhighered.com/liang" style="text-decoration: none; color: green">Y. Daniel Liang</a></h3>
+</div>
+<div id="subtabextendline">
+</div>
+<div style="margin-top:0.2em; text-align: center;">This quiz is for students to practice. A large number 
+of additional quiz questions is available for instructors from the Instructor's Resource Website.
+</div>
+<!-- main content -->
+<div id="maincontentstyle" ;="" style="margin-top: -1em; text-align : center; color: #edc100">
+	<div id="boxstyle" style="width: 90%; max-width: 800px; margin-left: auto; margin-right: auto;
+       text-align: left; border-color: #edc100">
+<style> 
+#sectiontitle {background-color: yellow; color: navy; font-style: italic; padding-left: 0.7em}#question {font-family: "Courier New", Courier, Verdana, Helvetica, sans-serif; font-size: 100%; 
+color: #8000f0; color: black; margin-left: 2.15em}
+#questionstatement {font-family: 
+Times New Roman, monospace, Courier, Verdana, Helvetica, sans-serif; font-size: 85%; color: #8000f0; 
+color: black; margin-left:0.5em; margin-top:0.5em; margin-bottom:0.5em;  }
+#choicemargin {margin-left:45px;text-indent:-45px;}
+#choicestatement {margin-left:5px; text-indent:-90px;}
+#choices {font-family: Times New Roman, monospace, Verdana, Helvetica, sans-serif; font-size: 85%; 
+color: #8000f0; color: black; margin-left:25.0pt; margin-left:0.5em; margin-bottom:0.5em; }
+.preBlock {margin-left:0px;text-indent:0.0px; font-family:monospace; font-size: 120%}
+.keyword {color: #000fd6 !important; font-weight: bold;}
+.comment {color: #005500 !important;}
+.literal {color: #007d9f !important;}
+.constant {color: #007d9f !important;}
+#h3style {color: white; font-family: Helvetica, sans-serif;  border-color: #6193cb; text-align: center;margin-bottom: 0.5em; background-color: #6193cb;}  </style>
+
+<h3 id="h3style">Chapter 13 Abstract Classes and Interfaces</h3>
+<div style="text-align: center"> <img src="Introduction%20to%20Java%20Programming13_files/selftest11e.gif"></div>
+<div style="text-align: center; color: navy; ">Please send suggestions and errata to Dr. Liang at <a href="mailto:y.daniel.liang@gmail.com" style="text-decoration: none; color: green">y.daniel.liang@gmail.com</a>. Indicate which book and edition you are using. Thanks!</div>
+<br><span id="sectiontitle">Section 13.2 Abstract Classes</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.1</em>&nbsp;	Which of the following class definitions defines a legal abstract class?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q0"> <span id="choicelabel">A.</span> <span id="choicestatement"> class A { abstract void unfinished() {     } }</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q0"> <span id="choicelabel">B.</span> <span id="choicestatement"> class A { abstract void unfinished(); }</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q0" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement"> abstract class A { abstract void unfinished(); }</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q0"> <span id="choicelabel">D.</span> <span id="choicestatement"> public class abstract A { abstract void unfinished(); }</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a0" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a0").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  In A and B, abstract keyword is missing for the class. In D, class and abstract are in a wrong order. The correct answer is C.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.2</em>&nbsp; 	Which of the following declares an abstract method in an abstract Java class?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q1"> <span id="choicelabel">A.</span> <span id="choicestatement">	public abstract method(); </span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q1" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement">	public abstract void method(); </span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q1"> <span id="choicelabel">C.</span> <span id="choicestatement">	public void abstract method(); </span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q1"> <span id="choicelabel">D.</span> <span id="choicestatement">	public void method() {} </span><br>
+</div><div id="choicemargin"><input type="radio" value="E" name="Q1"> <span id="choicelabel">E.</span> <span id="choicestatement">	public abstract void method() {} </span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a1" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a1").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  In A, the method has no return type. In C, void and abstract are in a wrong order. In D, the abstract keyword is missing. In E, the body {} should be removed. The correct answer is B.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.3</em>&nbsp; Which of the following statements regarding abstract methods is false?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q2" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement"> An abstract class can have instances created using the constructor of the abstract class.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q2"> <span id="choicelabel">B.</span> <span id="choicestatement"> An abstract class can be extended.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q2"> <span id="choicelabel">C.</span> <span id="choicestatement"> A subclass of a non-abstract superclass can be abstract.  </span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q2"> <span id="choicelabel">D.</span> <span id="choicestatement"> A subclass can override a concrete method in a superclass to declare it abstract.</span><br>
+</div><div id="choicemargin"><input type="radio" value="E" name="Q2"> <span id="choicelabel">E.</span> <span id="choicestatement"> An abstract class can be used as a data type.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a2" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a2").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  A is wrong because you cannot create an instance using the constructor from an abstract class.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.4</em>&nbsp; Which of the following statements regarding abstract methods is false?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q3"> <span id="choicelabel">A.</span> <span id="choicestatement"> Abstract classes have constructors.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q3"> <span id="choicelabel">B.</span> <span id="choicestatement"> A class that contains abstract methods must be abstract.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q3"> <span id="choicelabel">C.</span> <span id="choicestatement"> It is possible to declare an abstract class that contains no abstract methods. </span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q3"> <span id="choicelabel">D.</span> <span id="choicestatement"> An abstract method cannot be contained in a nonabstract class. </span><br>
+</div><div id="choicemargin"><input type="radio" value="E" name="Q3" checked="checked"> <span id="choicelabel">E.</span> <span id="choicestatement"> A data field can be declared abstract.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a3" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a3").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  E is wrong, because a data field cannot be declared abstract. Only methods and classes can be declared abstract.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.5</em>&nbsp;
+ Suppose A is an abstract class, B is a concrete subclass of A, and both
+ A and B have a no-arg constructor. Which of the following is correct?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA4"> <span id="choicelabel">A.</span> <span id="choicestatement"> A a = new A();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB4" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement"> A a = new B();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC4"> <span id="choicelabel">C.</span> <span id="choicestatement"> B b = new A();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD4" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> B b = new B();</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a4" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a4").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  Since B is a concrete class with a no-arg constructor, d is correct. Since an instance of B is also an instance of A, b is also correct. </div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.6</em>&nbsp; What is the output of running class Test?<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span> Circle9();<br>&nbsp;&nbsp;}<br>}<br><br><span class="keyword">public</span>&nbsp;<span class="keyword">abstract</span>&nbsp;<span class="keyword">class</span>&nbsp;GeometricObject&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">protected</span> GeometricObject() {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="literal">"A"</span>);<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">protected</span> GeometricObject(String color, <span class="keyword">boolean</span> filled) {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="literal">"B"</span>);<br>&nbsp;&nbsp;}<br>}<br><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Circle9&nbsp;<span class="keyword">extends</span>&nbsp;GeometricObject&nbsp;{<br>&nbsp;&nbsp;<span class="comment">/** No-arg constructor */</span><br>&nbsp;&nbsp;<span class="keyword">public</span> Circle9() {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>(<span class="constant">1</span><span class="literal">.</span><span class="constant">0</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="literal">"C"</span>);<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="comment">/** Construct circle with a specified radius */</span><br>&nbsp;&nbsp;<span class="keyword">public</span> Circle9(<span class="keyword">double</span> radius) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>(radius, <span class="literal">"white"</span>, <span class="keyword">false</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="literal">"D"</span>);<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="comment">/** Construct a circle with specified radius, filled, and color */</span><br>&nbsp;&nbsp;<span class="keyword">public</span> Circle9(<span class="keyword">double</span> radius, String color, <span class="keyword">boolean</span> filled) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>(color, filled);<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="literal">"E"</span>);<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q5"> <span id="choicelabel">A.</span> <span id="choicestatement"> ABCD</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q5"> <span id="choicelabel">B.</span> <span id="choicestatement"> BACD</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q5"> <span id="choicelabel">C.</span> <span id="choicestatement"> CBAE</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q5"> <span id="choicelabel">D.</span> <span id="choicestatement"> AEDC</span><br>
+</div><div id="choicemargin"><input type="radio" value="E" name="Q5" checked="checked"> <span id="choicelabel">E.</span> <span id="choicestatement"> BEDC</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<span id="sectiontitle">Section 13.3 Case Study: the Abstract Number Class</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.7</em>&nbsp; The java.lang.Number and its subclasses are introduced in Chapter 11. Analyze the following code.<br><br><span style="font-family:monospace; font-size: 109%;">Number&nbsp;numberRef&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;Integer(<span class="constant">0</span>);<br>Double&nbsp;doubleRef&nbsp;=&nbsp;(Double)numberRef;<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q6"> <span id="choicelabel">A.</span> <span id="choicestatement"> There is no such class named Integer. You should use the class Int.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q6"> <span id="choicelabel">B.</span> <span id="choicestatement"> The compiler detects that numberRef is not an instance of Double.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q6" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement"> A runtime class casting exception occurs, since numberRef is not an instance of Double.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q6"> <span id="choicelabel">D.</span> <span id="choicestatement"> The program runs fine, since Integer is a subclass of Double.</span><br>
+</div><div id="choicemargin"><input type="radio" value="E" name="Q6"> <span id="choicelabel">E.</span> <span id="choicestatement"> You can convert an int to double, so you can cast an Integer instance to a Double instance.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.8</em>&nbsp; Analyze the following code.<br><br><span style="font-family:monospace; font-size: 109%;">Number[]&nbsp;numberArray&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;Integer[<span class="constant">2</span>];<br>numberArray[<span class="constant">0</span>]&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;Double(<span class="constant">1</span><span class="literal">.</span><span class="constant">5</span>);<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q7"> <span id="choicelabel">A.</span> <span id="choicestatement"> You cannot use Number as a data type since it is an abstract class.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q7"> <span id="choicelabel">B.</span> <span id="choicestatement"> Since each element of numberArray is of the Number type, you cannot assign an Integer object to it.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q7"> <span id="choicelabel">C.</span> <span id="choicestatement"> Since each element of numberArray is of the Number type, you cannot assign a Double object to it.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q7" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">
+ At runtime, new Integer[2] is assigned to numberArray. This makes each 
+element of numberArray an Integer object. So you cannot assign a Double 
+object to it.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.9</em>&nbsp; Analyze the following code. Which of the following statements is correct? <br><br><span style="font-family:monospace; font-size: 109%;"><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Number x = <span class="keyword">new</span> Integer(<span class="constant">3</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(x.intValue());<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(x.compareTo(<span class="keyword">new</span> Integer(<span class="constant">4</span>)));<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q8"> <span id="choicelabel">A.</span> <span id="choicestatement">	The program has a compile error because an Integer instance cannot be assigned to a Number variable.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q8"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program has a compile error because intValue is an abstract method in Number. </span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q8" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program has a compile error because x does not have the compareTo method.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q8"> <span id="choicelabel">D.</span> <span id="choicestatement">	The program compiles and runs fine.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.10</em>&nbsp; Analyze the following code. Which of the following statements is correct?<br><br><span style="font-family:monospace; font-size: 109%;"><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Number x = <span class="keyword">new</span> Integer(<span class="constant">3</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(x.intValue());<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println((Integer)x.compareTo(<span class="keyword">new</span> Integer(<span class="constant">4</span>)));<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q9"> <span id="choicelabel">A.</span> <span id="choicestatement">	The program has a compile error because an Integer instance cannot be assigned to a Number variable.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q9"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program has a compile error because intValue is an abstract method in Number. </span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q9"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program has a compile error because x cannot be cast into Integer.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q9" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">	The program has a compile error because the member access operator (.) is executed before the casting operator.</span><br>
+</div><div id="choicemargin"><input type="radio" value="E" name="Q9"> <span id="choicelabel">E.</span> <span id="choicestatement">	The program compiles and runs fine.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.11</em>&nbsp; Which of the following statements is incorrect?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q10" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement"> Integer i = 4.5;</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q10"> <span id="choicelabel">B.</span> <span id="choicestatement"> Double i = 4.5;</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q10"> <span id="choicelabel">C.</span> <span id="choicestatement"> Object i = 4.5;</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q10"> <span id="choicelabel">D.</span> <span id="choicestatement"> Number i = 4.5;</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a10" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a10").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  i is an Integer. You cannot assign 4.5 to i. A is incorrect. B, C, and D are correct. 4.5 is autoboxed to new Double(4.5). A Double object is an instance of Object and Double.</div><br>");});});</script> 
+</div>
+</div>
+<span id="sectiontitle">Section 13.4 Case Study: Calendar and GregorianCalendar</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.12</em>&nbsp;
+  The java.util.Calendar and java.util.GregorianCalendar classes are 
+introduced in Chapter 11. Analyze the following code. Which of the 
+following statements is correct?<br><span style="font-family:monospace; font-size: 109%;"><br><span class="constant">1</span>.&nbsp;<span class="keyword">import</span>&nbsp;java.util.*;<br><span class="constant">2</span>.&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br><span class="constant">3</span>.&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String[]&nbsp;args)&nbsp;{<br><span class="constant">4</span>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar[]&nbsp;calendars&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;Calendar[<span class="constant">10</span>];<br><span class="constant">5</span>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;calendars[<span class="constant">0</span>]&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;Calendar();<br><span class="constant">6</span>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;calendars[<span class="constant">1</span>]&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;GregorianCalendar();<br><span class="constant">7</span>.&nbsp;&nbsp;&nbsp;}<br><span class="constant">8</span>.&nbsp;}<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q11"> <span id="choicelabel">A.</span> <span id="choicestatement"> The program has a compile error on Line 4 because java.util.Calendar is an abstract class.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q11" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement"> The program has a compile error on Line 5 because java.util.Calendar is an abstract class. </span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q11"> <span id="choicelabel">C.</span> <span id="choicestatement"> The program has a compile error on Line 6 because Calendar[1] is not of a GregorianCalendar type.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q11"> <span id="choicelabel">D.</span> <span id="choicestatement"> The program has no compile errors.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a11" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a11").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  (A) is incorrect since it is OK to use abstract class as data type for arrays. new Calendar[10] does not create Calendar objects. It just creates an array with 10 elements, each of which can reference to a Calendar object. (B) is correct since you cannot create an object from an abstract class. (C) is incorrect since it is fine to create a GregorianCalendar object and assign its reference to a variable of its superclass type. </div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.13</em>&nbsp; Assume Calendar calendar = new GregorianCalendar(). __________ returns the month of the year.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q12" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement"> calendar.get(Calendar.MONTH)</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q12"> <span id="choicelabel">B.</span> <span id="choicestatement"> calendar.get(Calendar.MONTH_OF_YEAR)</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q12"> <span id="choicelabel">C.</span> <span id="choicestatement"> calendar.get(Calendar.WEEK_OF_MONTH)</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q12"> <span id="choicelabel">D.</span> <span id="choicestatement"> calendar.get(Calendar.WEEK_OF_YEAR)</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a12" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a12").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  B is wrong since Calendar.MONTH_OF_YEAR is not a valid field.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.14</em>&nbsp; Assume Calendar calendar = new GregorianCalendar(). __________ returns the week of the year.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q13"> <span id="choicelabel">A.</span> <span id="choicestatement"> calendar.get(Calendar.MONTH)</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q13"> <span id="choicelabel">B.</span> <span id="choicestatement"> calendar.get(Calendar.MONTH_OF_YEAR)</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q13"> <span id="choicelabel">C.</span> <span id="choicestatement"> calendar.get(Calendar.WEEK_OF_MONTH)</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q13" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> calendar.get(Calendar.WEEK_OF_YEAR)</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.15</em>&nbsp; Assume Calendar calendar = new GregorianCalendar(). __________ returns the number of days in a month.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q14"> <span id="choicelabel">A.</span> <span id="choicestatement"> calendar.get(Calendar.MONTH)</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q14"> <span id="choicelabel">B.</span> <span id="choicestatement"> calendar.get(Calendar.MONTH_OF_YEAR)</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q14"> <span id="choicelabel">C.</span> <span id="choicestatement"> calendar.get(Calendar.WEEK_OF_MONTH)</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q14"> <span id="choicelabel">D.</span> <span id="choicestatement"> calendar.get(Calendar.WEEK_OF_YEAR)</span><br>
+</div><div id="choicemargin"><input type="radio" value="E" name="Q14" checked="checked"> <span id="choicelabel">E.</span> <span id="choicestatement"> calendar.getActualMaximum(Calendar.DAY_OF_MONTH)</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<span id="sectiontitle">Section 13.5 Interfaces</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.16</em>&nbsp;	Which of the following is a correct interface?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q15"> <span id="choicelabel">A.</span> <span id="choicestatement"> interface A { void print() { }; }</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q15"> <span id="choicelabel">B.</span> <span id="choicestatement"> abstract interface A { print(); }</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q15"> <span id="choicelabel">C.</span> <span id="choicestatement"> abstract interface A { abstract void print() { };}</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q15" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> interface A { void print();}</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a15" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a15").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  In A, the print() method in the interface is a concrete method. In B and C, the abstract keyword is used before the interface, which is wrong. The correct answer is D.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.17</em>&nbsp; Which of the following are incorrect?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA16"> <span id="choicelabel">A.</span> <span id="choicestatement"> An abstract class contains constructors.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB16"> <span id="choicelabel">B.</span> <span id="choicestatement"> The constructors in an abstract class should be protected.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC16" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement"> The constructors in an abstract class are private.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD16" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> You may declare a final abstract class.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="E" name="QE16" checked="checked"> <span id="choicelabel">E.</span> <span id="choicestatement"> An interface may contain constructors.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a16" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a16").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  A and B are correct. C is wrong. D is wrong. E is wrong because an interface does not have constructors.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.18</em>&nbsp; _______ is not a reference type.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q17"> <span id="choicelabel">A.</span> <span id="choicestatement"> A class type</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q17"> <span id="choicelabel">B.</span> <span id="choicestatement"> An interface type</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q17"> <span id="choicelabel">C.</span> <span id="choicestatement"> An array type</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q17" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> A primitive type</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a17" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a17").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  Objects and arrays are reference types. Primitive types are not.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.19</em>&nbsp;	Show the output of running the class Test in the following code lines:<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">interface</span>&nbsp;A&nbsp;{<br>}<br><br><span class="keyword">class</span>&nbsp;C&nbsp;{&nbsp;&nbsp;<br>}<br><br><span class="keyword">class</span>&nbsp;B&nbsp;<span class="keyword">extends</span>&nbsp;D&nbsp;<span class="keyword">implements</span>&nbsp;A&nbsp;{<br>}<br><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;B b = <span class="keyword">new</span> B();<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (b <span class="keyword">instanceof</span> A)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="literal">"b is an instance of A"</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (b <span class="keyword">instanceof</span> C)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="literal">"b is an instance of C"</span>);<br>&nbsp;&nbsp;}<br>}<br><br><span class="keyword">class</span>&nbsp;D&nbsp;<span class="keyword">extends</span>&nbsp;C&nbsp;{&nbsp;&nbsp;<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q18"> <span id="choicelabel">A.</span> <span id="choicestatement">	Nothing.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q18"> <span id="choicelabel">B.</span> <span id="choicestatement">	b is an instance of A.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q18"> <span id="choicelabel">C.</span> <span id="choicestatement">	b is an instance of C.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q18" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">	b is an instance of A followed by b is an instance of C.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.20</em>&nbsp;
+ Suppose A is an interface, B is a concrete class with a no-arg 
+constructor that implements A. Which of the following is correct?<br><br><span style="font-family:monospace; font-size: 109%;">&nbsp;&nbsp;&nbsp;&nbsp;<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA19"> <span id="choicelabel">A.</span> <span id="choicestatement"> A a = new A();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB19" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement"> A a = new B();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC19"> <span id="choicelabel">C.</span> <span id="choicestatement"> B b = new A();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD19" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> B b = new B();</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a19" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a19").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  Since B is a concrete class with a no-arg constructor, d is correct. Since an instance of B is also an instance of A, b is also correct. </div><br>");});});</script> 
+</div>
+</div>
+<span id="sectiontitle">Section 13.6 The Comparable Interface</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.21</em>&nbsp; Analyze the following code:<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test1&nbsp;&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> Object max(Object o1, Object o2) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> ((Comparable)o1.compareTo(o2) &gt;= <span class="constant">0</span>) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> o1;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span> {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> o2;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA20"> <span id="choicelabel">A.</span> <span id="choicestatement">	The program has a compile error because Test1 does not have a main method.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB20" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program has a compile error because o1 is an Object instance and it does not have the compareTo method. </span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC20"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program has a compile error because you cannot cast an Object instance o1 into Comparable.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD20" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">	The program would compile if ((Comparable)o1.compareTo(o2) &gt;= 0) is replaced by (((Comparable)o1).compareTo(o2) &gt;= 0).</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a20" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a20").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  The . operator is performed before casting. </div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.22</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA21" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement">	The String class implements Comparable.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB21" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement">	The Date class implements Comparable.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC21" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement">	The Double class implements Comparable.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD21" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">	The BigInteger class implements Comparable.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a21" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a21").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  Many classes in the Java API implements the Comparable interface if the objects of the class can be compared. Strings, Dates, Doubles, and BigIntegers can all be compared. These classes implement the Comparable interface.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.23</em>&nbsp;	Analyze the following code.<br><span style="font-family:monospace; font-size: 109%;"><br><span class="constant">1</span>.&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;&nbsp;{<br><span class="constant">2</span>.&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String[]&nbsp;args)&nbsp;{<br><span class="constant">3</span>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fruit[]&nbsp;fruits&nbsp;=&nbsp;{<span class="keyword">new</span>&nbsp;Fruit(<span class="constant">2</span>),&nbsp;<span class="keyword">new</span>&nbsp;Fruit(<span class="constant">3</span>),&nbsp;<span class="keyword">new</span>&nbsp;Fruit(<span class="constant">1</span>)};<br><span class="constant">4</span>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.util.Arrays.sort(fruits);<br><span class="constant">5</span>.&nbsp;&nbsp;&nbsp;}<br><span class="constant">6</span>.&nbsp;}<br><br><span class="keyword">class</span>&nbsp;Fruit&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">private</span> <span class="keyword">double</span> weight;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<span class="keyword">public</span> Fruit(<span class="keyword">double</span> weight) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.weight = weight;<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q22"> <span id="choicelabel">A.</span> <span id="choicestatement"> The program has a compile error because the Fruit class does not have a no-arg constructor.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q22"> <span id="choicelabel">B.</span> <span id="choicestatement"> The program has a runtime error on Line 3 because the Fruit class does not have a no-arg constructor.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q22"> <span id="choicelabel">C.</span> <span id="choicestatement">
+ The program has a compile error on Line 4 because the Fruit class does 
+not implement the java.lang.Comparable interface and the Fruit objects 
+are not comparable.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q22" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">
+ The program has a runtime error on Line 4 because the Fruit class does 
+not implement the java.lang.Comparable interface and the Fruit objects 
+are not comparable.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a22" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a22").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  (A) and (B) are incorrect since it is OK to define a class without a no-arg constructor. (C) is incorrect since it is OK to pass fruits to Arrays.sort(Object[]) without compile errors. (D) is correct because the Arrays.sort method requires the objects in the array to be comparable and their class must implement the java.lang.Comparable interface.</div><br>");});});</script> 
+</div>
+</div>
+<span id="sectiontitle">Section 13.7 The Cloneable Interface</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.24</em>&nbsp; Analyze the following code.<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Date x = <span class="keyword">new</span> java.util.Date();<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Date y = x.clone();<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(x = y);<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q23"> <span id="choicelabel">A.</span> <span id="choicestatement"> A java.util.Date object is not cloneable.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q23"> <span id="choicelabel">B.</span> <span id="choicestatement"> x = y in System.out.println(x = y) causes a compile error because you cannot have an assignment statement inside a statement.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q23"> <span id="choicelabel">C.</span> <span id="choicestatement"> x = y in System.out.println(x = y) causes a runtime error because you cannot have an assignment statement inside a statement. </span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q23" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> The program has a compile error because the return type of the clone() method is java.lang.Object. </span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a23" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a23").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  (A) is wrong because Date implements and Cloneable and overrides the clone() method. (B) and (C) are wrong because x = y is an assignment expression, which assigns y to x. (D) is correct. You have to cast it into Date in order to assign it to y.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.25</em>&nbsp; The output from the following code is __________.<br><span style="font-family:monospace; font-size: 109%;"><br>java.util.ArrayList&lt;String&gt;&nbsp;list&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;java.util.ArrayList&lt;String&gt;();<br>list.add(<span class="literal">"New&nbsp;York"</span>);&nbsp;<br>java.util.ArrayList&lt;String&gt;&nbsp;list1&nbsp;=&nbsp;(java.util.ArrayList&lt;String&gt;)(list.clone());<br>list.add(<span class="literal">"Atlanta"</span>);&nbsp;<br>list1.add(<span class="literal">"Dallas"</span>);&nbsp;<br>System.out.println(list1);<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q24"> <span id="choicelabel">A.</span> <span id="choicestatement"> [New York]</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q24"> <span id="choicelabel">B.</span> <span id="choicestatement"> [New York, Atlanta]</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q24"> <span id="choicelabel">C.</span> <span id="choicestatement"> [New York, Atlanta, Dallas]</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q24" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> [New York, Dallas]</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a24" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a24").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  The code added New York to list and cloned list1 from list. list1 now contains New York. Dallas is added to list1. So list1 contains New Your and Dallas.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.26</em>&nbsp;
+	The GeometricObject and Circle classes are defined in this chapter. 
+Analyze the following code. Which statements are correct?<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;GeometricObject x = <span class="keyword">new</span> Circle(<span class="constant">3</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;GeometricObject y = (Circle)(x.clone());<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(x);<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(y);<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA25" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement"> The program has a compile error because the clone() method is protected in the Object class. </span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB25" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement">
+ After you override the clone() method and make it public in the Circle 
+class, the problem can compile and run just fine, but y is null if 
+Circle does not implement the Cloneable interface.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC25" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement">
+ To enable a Circle object to be cloned, the Circle class has to 
+override the clone() method and implement the java.lang.Cloneable 
+interface.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD25" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">
+ If GeometricObject implements Cloneable and Circle overrides the 
+clone() method, the clone() method will work fine to clone Circle 
+objects.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<span id="sectiontitle">Section 13.8 Interfaces vs. Abstract Classes</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.27</em>&nbsp; Which of the following statements is false?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q26"> <span id="choicelabel">A.</span> <span id="choicestatement"> If you compile an interface without errors, a .class file is created for the interface.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q26"> <span id="choicelabel">B.</span> <span id="choicestatement"> If you compile a class without errors but with warnings, a .class file is created.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q26" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement"> If you compile a class with errors, a .class file is created for the class.</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q26"> <span id="choicelabel">D.</span> <span id="choicestatement"> If you compile an interface without errors, but with warnings, a .class file is created for the interface.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a26" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a26").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  A .class file is created for each Java class and interface. But if it has a compile error, no .class file is created.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.28</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA27" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement"> Inheritance models the is-a relationship between two classes. </span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB27" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement"> A strong is-a relationship describes a direct inheritance relationship between two classes. </span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC27" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement"> A weak is-a relationship describes that a class has certain properties. </span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD27" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> A strong is-a relationship can be represented using class inheritance. </span><br>
+</div><div id="choicemargin"><input type="checkbox" value="E" name="QE27" checked="checked"> <span id="choicelabel">E.</span> <span id="choicestatement"> A weak is-a relationship can be represented using interfaces.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.29</em>&nbsp;	What is the best suitable relationship between Employee and Faculty?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q28"> <span id="choicelabel">A.</span> <span id="choicestatement">	Composition</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q28"> <span id="choicelabel">B.</span> <span id="choicestatement">	Aggregation</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q28" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement">	Inheritance</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q28"> <span id="choicelabel">D.</span> <span id="choicestatement">	None.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.30</em>&nbsp;	Assume an employee can work for only one company. What is the best suitable relationship between Company and Employee?<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q29"> <span id="choicelabel">A.</span> <span id="choicestatement">	None</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q29"> <span id="choicelabel">B.</span> <span id="choicestatement">	Aggregation</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q29"> <span id="choicelabel">C.</span> <span id="choicestatement">	Inheritance</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q29" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">	Composition</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.31</em>&nbsp;	The relationship between an interface and the class that implements it is<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q30"> <span id="choicelabel">A.</span> <span id="choicestatement">	Composition</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q30"> <span id="choicelabel">B.</span> <span id="choicestatement">	Aggregation</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q30" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement">	Inheritance</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q30"> <span id="choicelabel">D.</span> <span id="choicestatement">	None</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<span id="sectiontitle">Section 13.9 Case Study: The Rational Class</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.32</em>&nbsp;
+	The Rational class in this chapter is defined as a subclass of 
+java.lang.Number. Which of the following expressions is correct?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA31"> <span id="choicelabel">A.</span> <span id="choicestatement">	Rational.doubleValue();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB31"> <span id="choicelabel">B.</span> <span id="choicestatement">	Rational.doubleValue("5/4");</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC31" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement">	new Rational(5, 4).doubleValue();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD31"> <span id="choicelabel">D.</span> <span id="choicestatement">	new Rational(5, 4).toDoubleValue();</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="E" name="QE31" checked="checked"> <span id="choicelabel">E.</span> <span id="choicestatement">      new Rational(5, 4).intValue();</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a31" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a31").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  A is wrong, because the doubleValue() method is an instance method. B is wrong for two reasons: 1. the doubleValue() method is an instance method; 2. the doubleValue() method does not have arguments. D is wrong becasue there is no method named toDoubleValue().</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.33</em>&nbsp;
+	The Rational class in this chapter extends java.lang.Number and 
+implements java.lang.Comparable. Analyze the following code.<br><span style="font-family:monospace; font-size: 109%;"><br><span class="constant">1</span>.&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br><span class="constant">2</span>.&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String[]&nbsp;args)&nbsp;{<br><span class="constant">3</span>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number[]&nbsp;numbers&nbsp;=&nbsp;{<span class="keyword">new</span>&nbsp;Rational(<span class="constant">1</span>,&nbsp;<span class="constant">2</span>),&nbsp;<span class="keyword">new</span>&nbsp;Integer(<span class="constant">4</span>),&nbsp;<span class="keyword">new</span>&nbsp;Double(<span class="constant">5</span><span class="literal">.</span><span class="constant">6</span>)};<br><span class="constant">4</span>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.util.Arrays.sort(numbers);<br><span class="constant">5</span>.&nbsp;&nbsp;&nbsp;}<br><span class="constant">6</span>.&nbsp;}&nbsp;<br></span></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q32"> <span id="choicelabel">A.</span> <span id="choicestatement">
+	The program has a compile error because numbers is declared as 
+Number[], so you cannot assign {new Rational(1, 2), new Integer(4), new 
+Double(5.6)} to it.</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q32"> <span id="choicelabel">B.</span> <span id="choicestatement">
+	The program has a runtime error because numbers is declared as 
+Number[], so you cannot assign {new Rational(1, 2), new Integer(4), new 
+Double(5.6)} to it.</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q32"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program has a compile error because numbers is declared as Number[], so you cannot pass it to Arrays.sort(Object[]).</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q32" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement">
+	The program has a runtime error because the compareTo methods in 
+Rational, Integer, and Double classes do not compare the value of one 
+type with a value of another type.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a32" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a32").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  (A) and (B) are incorrect because Rational, Integer, and Double are subclasses of Number and any instances of these classes can be elements of the Number[] array. (C) is incorrect because it is fine to pass an instance of Number[] to a parameter of the Object[] type. (D) is correct because the compareTo method in Rational, Integer, Double only compare two Rational objects, two Integer objects, or two Double objects.</div><br>");});});</script> 
+</div>
+</div>
+<span id="sectiontitle">Section 13.10 Class Design Guidelines</span><div id="question"><div id="questionstatement"><em id="questionnumber">13.34</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA33" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement">
+ A class should describe a single entity and all the class operations 
+should logically fit together to support a coherent purpose.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB33"> <span id="choicelabel">B.</span> <span id="choicestatement"> A class should always contain a no-arg constructor.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC33"> <span id="choicelabel">C.</span> <span id="choicestatement"> The constructors must always be public.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD33" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> The constructors may be protected.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a33" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a33").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  (B) is not true. Most classes have a no-arg constructor. But sometimes, it does not make any sense to provide a no-arg constructor. For example, StringTokenizer does not have a no-arg constructor. (C) is not true. For example, the constructor in the Math class is private to prevent creating instances from the class, because there is no need to create instances for the Math class since all methods are static in Math. The constructors for abstract classes should be protected in most cases.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.35</em>&nbsp; Which of the following is poor design?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA34" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement"> A data field is derived from other data fields in the same class.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="B" name="QB34" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement"> A method must be invoked after/before invoking another method in the same class.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="C" name="QC34" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement"> A method is an instance method, but it does not reference any instance data fields or invoke instance methods.</span><br>
+</div><div id="choicemargin"><input type="checkbox" value="D" name="QD34" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> A parameter is passed from a constructor to initialize a static data field.</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+<div id="a34" style="color: green"> Click here to show an explanation</div>
+<script type="text/javascript">$(document).ready(function() {$("#a34").click(function() {$(this).html("<div style = 'color: purple'> Explanation:  A is not good because there is no need to define the data field if it can be derived from other data fields. B is not good because it is highly problematic to impose any order for invoking the methods. C is a bad design because in this case the method should be defined as static. D is not good because a static data field is now tied to the creation of a specific object, which should not be the case.</div><br>");});});</script> 
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.36</em>&nbsp; Polymorphism means ______________.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q35"> <span id="choicelabel">A.</span> <span id="choicestatement"> that data fields should be declared private</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q35"> <span id="choicelabel">B.</span> <span id="choicestatement"> that a class can extend another class</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q35" checked="checked"> <span id="choicelabel">C.</span> <span id="choicestatement"> that a variable of supertype can refer to a subtype object</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q35"> <span id="choicelabel">D.</span> <span id="choicestatement"> that a class can contain another class</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.37</em>&nbsp; Encapsulation means ______________.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q36" checked="checked"> <span id="choicelabel">A.</span> <span id="choicestatement"> that data fields should be declared private</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q36"> <span id="choicelabel">B.</span> <span id="choicestatement"> that a class can extend another class</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q36"> <span id="choicelabel">C.</span> <span id="choicestatement"> that a variable of supertype can refer to a subtype object</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q36"> <span id="choicelabel">D.</span> <span id="choicestatement"> that a class can contain another class</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.38</em>&nbsp; Inheritance means ______________.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q37"> <span id="choicelabel">A.</span> <span id="choicestatement"> that data fields should be declared private</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q37" checked="checked"> <span id="choicelabel">B.</span> <span id="choicestatement"> that a class can extend another class</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q37"> <span id="choicelabel">C.</span> <span id="choicestatement"> that a variable of supertype can refer to a subtype object</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q37"> <span id="choicelabel">D.</span> <span id="choicestatement"> that a class can contain another class</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">13.39</em>&nbsp; Composition means ______________.<br></div>
+<div id="choices">
+<div id="choicemargin"><input type="radio" value="A" name="Q38"> <span id="choicelabel">A.</span> <span id="choicestatement"> that data fields should be declared private</span><br>
+</div><div id="choicemargin"><input type="radio" value="B" name="Q38"> <span id="choicelabel">B.</span> <span id="choicestatement"> that a class extends another class</span><br>
+</div><div id="choicemargin"><input type="radio" value="C" name="Q38"> <span id="choicelabel">C.</span> <span id="choicestatement"> that a variable of supertype refers to a subtype object</span><br>
+</div><div id="choicemargin"><input type="radio" value="D" name="Q38" checked="checked"> <span id="choicelabel">D.</span> <span id="choicestatement"> that a class contains a data field that references another object</span><br>
+</div><br><span style="color: green"> Your answer is correct  <img src="Introduction%20to%20Java%20Programming13_files/correct.jfif" width="42" height="30" border="0"></span><br>
+</div>
+</div>
+
+</div></div></body></html>

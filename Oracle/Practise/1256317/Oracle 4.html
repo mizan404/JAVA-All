@@ -1,0 +1,117 @@
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> create table emp(eid number(4), salary number(7,2));
+
+Table created.
+
+SQL> alter table emp add primary key(eid);
+
+Table altered.
+
+SQL> create table dept (dept_id number(4) primary key, dept_name varchar2(20), eid number(4), foreign key(eid) references emp(eid));
+
+Table created.
+
+SQL>create table emp_backup as select * from emp;
+
+CREATE OR REPLACE TRIGGER department_after_insert AFTER INSERT ON department 
+for each row
+DECLARE 
+BEGIN
+insert into dept_backup values(:new.dep_id, :new.dep_name);
+END;
+/ 
+
+insert into department values(111, 'a');
+
+CREATE OR REPLACE TRIGGER department_after_update AFTER UPDATE ON department 
+for each row
+DECLARE 
+BEGIN
+update dept_backup set dep_name=:old.dep_name where dep_id=:old.dep_id; 
+END;
+/ 
+
+update department set dep_name='AAAA' where dep_id=111; 
+
+CREATE OR REPLACE TRIGGER department_after_delete AFTER DELETE ON department 
+for each row
+DECLARE 
+BEGIN
+delete dept_backup where dep_id=:old.dep_id; 
+END;
+/ 
+
+delete department where dep_id=111; 
+
+
+create sequence dep_seq increment by 1 start with 10 maxvalue 100000 nocache nocycle; 
+
+CREATE OR REPLACE PROCEDURE insertDepartment(
+p_dep_id IN department.dep_id%type,
+p_dep_name IN department.dep_name%type)
+IS
+BEGIN
+insert into department (dep_id, dep_name) values(p_dep_id, p_dep_name);
+commit;
+end;
+/
+
+BEGIN
+insertDepartment (111,'aaa');
+END;
+
+CREATE OR REPLACE PROCEDURE updateDepartment(
+p_dep_id IN department.dep_id%type,
+p_dep_name IN department.dep_name%type)
+IS
+BEGIN
+update department set dep_name=p_dep_name where dep_id=p_dep_id;
+commit;
+end;
+/
+
+
+
+BEGIN
+update department set dep_name='fjhf' where dep_id=111;
+END;
+
+
+CREATE OR REPLACE PROCEDURE deleteDepartment(
+p_dep_id IN department.dep_id%type,
+p_dep_name IN department.dep_name%type)
+IS
+BEGIN
+delete department where dep_id=p_dep_id;
+commit;
+end;
+/
+
+BEGIN
+delete department where dep_id=111;
+END;
+/
+
+update department set dep_name= 'Mizan' where dep_id=5; 
+
+update employee set dep_id = (select dep_id from department where dep_name = 'Sales') where rownum=2; 
+
+update employee set dep_id = (select dep_id from department where dep_name = 'Mizan') where rownum = 1;
+
+select * from department where rownum = 1; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

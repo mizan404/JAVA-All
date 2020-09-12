@@ -1,0 +1,175 @@
+SQL> connect hr
+Enter password:
+Connected.
+SQL> connect hr as sysdba
+Enter password:
+Connected.
+SQL> creat user bd identified by bd;
+SP2-0734: unknown command beginning "creat user..." - rest of line ignored.
+SQL> create user bd identified by bd;
+
+User created.
+
+SQL> grant dba to bd;
+
+Grant succeeded.
+
+SQL> connect
+Enter user-name: bd
+Enter password:
+Connected.
+SQL>  create table test(id number(3) primary key, name varchar2(22));
+
+Table created.
+
+SQL> create user dhaka identified by dhaka;
+
+User created.
+
+SQL> create role manager;
+
+Role created.
+
+SQL> create role accountant;
+
+Role created.
+
+SQL> create role humanResource;
+
+Role created.
+
+SQL> grant create table, create view to humanResource;
+
+Grant succeeded.
+
+SQL> grant create view to accountant;
+
+Grant succeeded.
+
+SQL> grant create synonym to manager;
+
+Grant succeeded.
+
+SQL> create user habib identified by habib;
+
+User created.
+
+SQL> grant unlimited tablespace to habib;
+
+Grant succeeded.
+
+SQL> create user mijan identified by mijan;
+
+User created.
+
+SQL> grant unlimited tablespace to mijan;
+
+Grant succeeded.
+
+SQL> grant manager to mijan;
+
+Grant succeeded.
+
+SQL> create user bari identified by bari;
+
+User created.
+
+SQL> grant unlimited tablespace to bari;
+
+Grant succeeded.
+
+SQL> grant accountant to habib;
+
+Grant succeeded.
+
+SQL> grant manager to mijan;
+
+Grant succeeded.
+
+SQL> grant accountant, manager, humanResource to bari;
+
+Grant succeeded.
+
+SQL> connect
+Enter user-name: habib
+Enter password:
+ERROR:
+ORA-01045: user HABIB lacks CREATE SESSION privilege; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> grant create session to habib, mijan, bari;
+SP2-0640: Not connected
+SQL> connect hr as sysdba
+Enter password:
+Connected.
+SQL> grant create session to habib, mijan, bari;
+
+Grant succeeded.
+
+SQL> connect habib
+Enter password:
+Connected.
+SQL> create table demo(id number(2), name varchar2(30));
+create table demo(id number(2), name varchar2(30))
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> connect bari
+Enter password:
+Connected.
+SQL> create table demo(id number(2), name varchar2(30));
+
+Table created.
+
+SQL> create view demo_view select * from demo;
+create view demo_view select * from demo
+                      *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> create view demo_view as  select * from demo;
+
+View created.
+
+SQL> connect hr as sysdba
+Enter password:
+Connected.
+SQL> grant select on bari.demo to habib with grant option;
+
+Grant succeeded.
+
+SQL> connect habib
+Enter password:
+Connected.
+SQL> create view demo_view as select * from bari.demo;
+
+View created.
+
+SQL> select * demo_view;
+select * demo_view
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select * from  demo_view;
+
+no rows selected
+
+SQL> commit
+  2  commit;
+commit
+*
+ERROR at line 2:
+ORA-02185: a token other than WORK follows COMMIT
+
+
+SQL> commit;
+
+Commit complete.
+
+SQL>

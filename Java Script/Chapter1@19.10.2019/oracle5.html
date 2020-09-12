@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+   <head>
+      <title>Oracle Cloud Account Signup</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="UTF-8">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="theme-color" content="#11859F">
+
+      <!-- This is the main css file for the default Alta theme -->
+     <link rel="stylesheet" href="/console-cloud/CPSS.19.3.3_191017.1400//css/libs/oj/v2.3.0/alta/oj-alta-min.css" type="text/css"/>
+
+      <!-- This is where you would add any app specific styling -->
+      <link rel="stylesheet" href="/console-cloud/CPSS.19.3.3_191017.1400//css/dashboardPrimary.css" type="text/css"/>
+      <link rel="stylesheet" href="/console-cloud/CPSS.19.3.3_191017.1400//css/cloudportal.css" type="text/css"/>
+      <link rel="stylesheet" href="/console-cloud/CPSS.19.3.3_191017.1400//css/signup.css" type="text/css"/>
+
+      <!-- RequireJS bootstrap file -->
+      <script data-main="/console-cloud/CPSS.19.3.3_191017.1400//js/main" src="/console-cloud/CPSS.19.3.3_191017.1400//js/libs/require/require.js"></script>
+      <script src="/console-cloud/CPSS.19.3.3_191017.1400//js/config.js"></script>
+      <script src="/console-cloud/CPSS.19.3.3_191017.1400//js/config.js"></script>
+
+      <!--TRUSTe lib  -->
+      <script async="async" type="text/javascript" src="//consent.truste.com/notice?domain=oracle.com&c=teconsent&text=true&gtm=1" crossorigin></script>
+
+      <!-- DTM Header -->
+      <script src="//assets.adobedtm.com/6f37a0dc9cdbe818dc4979828b58b88e3f060ea4/satelliteLib-f1e3754ff63192d18992615ba21fd8b18619747e.js"></script>
+
+      <script language="javascript" type="text/javascript">
+        function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+        }
+        var s_pageName = "cloud:";
+        var language = getURLParameter("language");
+        s_pageName += language ? language.toLowerCase() : "en-us";
+        var promotion = getURLParameter("promotion");
+        var promoString = ":/cloud promotion 300 dollars / 30 days";
+
+        var promoMap = {
+          "Developer" : ":/cloud promotion 500 dollars / 30 days",
+          "Student" : ":/cloud promotion 5000 dollars / 365 days",
+          "Startup" : ":/cloud promotion 100000 dollars / 365 days",
+          "Educator" : ":/cloud promotion 25000 dollars / 365 days"
+	};
+        if( promotion && promoMap[promotion]) {
+            promoString = promoMap[promotion];
+        }
+        s_pageName += promoString;
+      </script>
+   </head>
+   <body>
+      
+
+      <script> var _token={"CSRF_TOKEN" : "A4A9D6A4FAF994594DCA017A3AF3F6AD94EF38C6E111F6554878D2443750AB95EA10FDD16126976AB38634C1E2C4DE4E70FD",}</script>
+      <script> var _jsessionid={"ID" : "KGruUAVzwsZ8tUv-z8BTX8TNlB2ULfSwpZHiRDDoGejbWT7y87Cq!-1261970355!1571661284723",}</script>
+      <!-- This is where your main page content will be loaded -->
+      <!-- Unlike the Navigation and Complementary sections, this ojModule binding is using "name" instead of "viewName".
+      This tells the binding to look for and load the JavaScript module of the same name, before loading the view template file -->
+      <div id="mainContent" data-bind="ojModule: { name: mainContent}"></div>
+      <script src="https://www.oracleimg.com/us/assets/metrics/ora_cloud.js"></script>
+
+      <p style="background:url(/mycloud/rest/public/cybersource/v1/df/img/US?m=1&pageload=true)"></p>
+      <img style="width:1px;height:1px" src="/mycloud/rest/public/cybersource/v1/df/img/US?m=2&pageload=true" alt>
+
+      <object type="application/x-shockwave-flash" data="/mycloud/rest/public/cybersource/v1/df/flash/US?pageload=true" width="1" height="1" id="thm_fp">
+         <param name="movie" value="/mycloud/rest/public/cybersource/v1/df/flash/US?pageload=true" />
+         <div></div>
+      </object>
+
+      <script type="text/javascript"></script>
+      <noscript> <iframe style="width: 100px; height: 100px; border: 0;position: absolute; top: -5000px;" src="/mycloud/rest/public/cybersource/v1/df/noscript/US?pageload=true" > </iframe>
+      </noscript>
+      <!--DTM embed code - Footer -->
+      <script type="text/javascript">_satellite.pageBottom();</script>
+   <script type="text/javascript" >var _cf = _cf || []; _cf.push(['_setFsp', true]); _cf.push(['_setBm', true]); _cf.push(['_setAu', '/assets/a02b3c9c15190ffe3740ee358e64']);</script><script type="text/javascript"  src="/assets/a02b3c9c15190ffe3740ee358e64"></script></body>
+</html>

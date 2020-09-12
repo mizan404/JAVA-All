@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        //////////////way 1
+        var student = ['Mizan', 'Maria', 'Zaman', 50, 60, 70];
+        document.write([student]);
+
+        document.write("<hr>");
+        //////////// way 2
+        document.write("<hr>");
+        var stds = new Array(9)
+        document.write(stds.length);
+        document.write("<hr>");
+        stds[0] = 'Bari1';
+        stds[1] = 'Bari2';
+        stds[2] = 'Bari3';
+        stds[3] = 'Bari4';
+        stds[4] = 'Bari5';
+        stds[5] = 'Bari6';
+        stds[6] = 'Bari7';
+        stds[7] = 'Bari8';
+        stds[8] = 'Bari9';
+        document.write("<br>");
+        document.write([stds] + "<br>");
+        document.write("<hr>");
+        document.write(stds.length);
+        document.write("<hr>");
+        stds[9] = 'Bari10';
+        document.write(stds.length);
+        document.write("<hr>");
+        /////////// way 3
+        var student = {
+            firstName: 'Arefin',
+            lastName: "Islam",
+            age: 23,
+            gender: 'male'
+        };
+        document.write(student.firstName + "<br>");
+        document.write(student.lastName + "<br>");
+        document.write(student.age + "<br>")
+
+        document.write("<hr/>");
+        document.write("<hr/>");
+        document.write("<hr/>");
+        //////////////// Array: Join
+        var trees = ["Banana", "Mango", "Orange"];
+        var bigBush = trees.join("_ ");
+        document.write(bigBush);
+        document.write("<hr/>");
+        document.write(typeof trees + "<br>");
+        document.write(typeof bigBush);
+		//////// Array Concat
+		document.write("<hr/>");
+		var trees1 = ["Apple", "Orange","Kola"]; 
+		var trees2 = ["Apple2", "Orange2","Kola2"]; 
+		var trees3 = ["Apple3", "Orange3","Kola3"]; 
+		var bigTrees = trees1.concat(trees2); 
+		document.write(bigTrees);
+		document.write("<hr/>");
+		var sundori = bigTrees.concat(trees3);
+		document.write("<hr/>");
+		document.write(sundori + "<br>" );
+		document.write(typeof sundori); 
+		document.write("<hr/>");
+		///////// Array Sort///////////
+		var country = [ "BD", "PK", "SL", "AG", "CN"]; 
+		document.write(country); 
+		document.write("<hr/>");
+		country.sort(); 
+		document.write(country);
+		document.write("<hr/>");
+		country.reverse(); 
+		document.write(country); 
+		document.write("<hr/>");
+		
+
+    </script>
+
+</body>
+
+</html>

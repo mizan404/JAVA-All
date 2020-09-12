@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> </title>
+		<meta charset="url-8">
+		
+		
+	</head>
+	<body>
+	<div>
+        <form name="myForm"> 
+        <table cellspacing="15" cellpadding="10"> 
+        <tr> 
+        <td> Name: </td>    
+        <td><input type="text" name="name">  </td>    
+        </tr>  
+            <tr> 
+        <td> Contact: </td>    
+        <td><input type="number" name="contact">  </td>    
+        </tr>  
+            <tr> 
+        <td> Gender:</td>    
+        <td><input type="radio" name="gender" value="Male"> Male
+		<input type="radio" name="gender" value="Female"> Female</td>    
+        </tr>  
+            <tr> 
+        <td> Location: </td>    
+        <td><select name="location">
+        <option value="Selected a location" selected="selected">Selected a location </option> 
+            <option value="Banani">Banani </option> 
+            <option value="Mirpur"> Mirpur</option> 
+            <option value="Dhanmondi"> Dhanmondi</option> 
+            <option value="New Market"> New Market</option> 
+            <option value="Uttara">Uttara </option> 
+		</select>   </td>    
+        </tr>  
+            <tr> 
+        <td> Course: </td>    
+        <td><input type="checkbox" name="nt" value="NT">NT
+                <input type="checkbox" name="java" value="JAVA">JAVA
+                <input type="checkbox" name="c_sharp" value="C#">C#
+                <input type="checkbox" name="ddd" value="DDD">DDD
+                <input type="checkbox" name="acad" value="ACAD">ACAD
+                <input type="checkbox" name="php" value="PHP">PHP
+                </td>    
+        </tr>  
+            <tr> 
+        <td> Remark:</td>    
+                <td><textarea placeholder="Write here." name="remark"></textarea>  </td>    
+        </tr>  
+        
+            
+        </table>
+            
+        </form>
+        <button onClick="openWindow()"> Open </button>
+        <button onClick="validationForm()">Submit </button>
+        <button onClick="closeWindow()">Close </button>
+        
+        
+        
+	</div> 
+	
+	
+	
+	
+<script> 
+    var win; 
+    function openWindow(){
+        
+        win=window.open("","","width=500");
+        win.document.write("<h2><center>Form Output</center></h2>"+"<hr>");
+    }
+function closeWindow(){
+    win.close();
+}
+    
+    function validationForm(){
+        
+        var name=document.forms["myForm"]["name"].value; 
+        var contact=document.forms["myForm"]["contact"].value; 
+        var gender=document.forms["myForm"]["gender"].value; 
+        var location=document.forms["myForm"]["location"].value; 
+        var course="";
+		if(document.forms["myForm"].nt.checked){
+			course+= document.forms["myForm"]["nt"].value;} 
+		if(document.forms["myForm"].java.checked){
+			course+= ", "+document.forms["myForm"]["java"].value;} 
+		if(document.forms["myForm"].c_sharp.checked){
+			course+=", "+document.forms["myForm"]["c_sharp"].value;} 
+		if(document.forms["myForm"].ddd.checked){
+			course+=", "+document.forms["myForm"]["ddd"].value;} 
+		if(document.forms["myForm"].acad.checked){
+			course+=", "+document.forms["myForm"]["acad"].value;} 
+		if(document.forms["myForm"].php.checked){
+			course+=", "+document.forms["myForm"]["php"].value;} 
+		var remark=document.forms["myForm"]["remark"].value;
+		
+		win.document.write(""+name +"<br>");
+		win.document.write(""+contact +"<br>");
+		win.document.write(""+gender +"<br>");
+		win.document.write(""+location+"<br>");
+		win.document.write(""+course+"<br>");
+		win.document.write(""+remark +"<br>");
+		win.document.write("<hr>" );
+    }
+</script> 
+
+
+	</body>
+
+
+</html>

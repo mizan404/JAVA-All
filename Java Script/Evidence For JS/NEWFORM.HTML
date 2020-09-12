@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> </title>
+		<meta charset="url-8">
+		<style> 
+			.main {
+            width: 500px;
+			height: 500px;
+            padding: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+			border: 2px solid black;
+            border-radius: 30px;}
+			
+			h1{
+			text-align: center;}
+		
+		</style> 
+		
+	</head>
+	<body>
+	<div> 
+		<h1> Form Validation </h1>
+    <div class="main">
+        <form name="myForm">
+            <table cellspacing="15" cellpadding="10">
+                <tr> <td> Name:</td>
+                    <td>
+                        <input type="text" name="fname">
+                        <label id="fnamex"> </label> 
+                    </td>
+                </tr>
+				<tr> <td> Contact:</td>
+                    <td>
+                        <input type="number" name="contact">
+                        <label id="contact"> </label> 
+                    </td>
+                </tr>
+				<tr> <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="Male"> Male
+                        <input type="radio" name="gender" value="Female"> Female
+                        <label id="gender"> </label> 
+                    </td>
+                </tr> 
+				<tr> <td> Locations:</td>
+                    <td>
+                        <input type="checkbox" name="mirpur" value="mirpur"> Mirpur
+                        <input type="checkbox" name="dhanmondi" Value="dhanmondi"> Dhanmondi
+                        <input type="checkbox" name="mohammadpur" Value="mohammadpur"> Mohammadpur
+                        <input type="checkbox" name="banani" Value="banani"> Banani
+                        <input type="checkbox" name="songkor" Value="songkor"> Songkor
+                        <label id="locations"> </label>
+                    </td>
+                </tr>
+				<tr> <td> Courses Name:</td>
+                    <td>
+                        <select name="courses_name">
+                            <option value="Select A Course" selected="selected">Select A Course</option>
+                            <option value="NT">NT</option>
+                            <option value="DDD">DDD</option>
+                            <option value="GAVA">GAVA</option>
+                            <option value="JAVA">JAVA</option>
+                        </select>
+                        <label id="courses_name"> </label>
+                    </td>
+                </tr>
+				<tr> <td> </td>
+                    <td>
+                        <textarea name="msg" placeholder="Enter At Least 10 Characters"> </textarea>
+                        <label id="msg"> </label>
+
+                    </td>
+                </tr> 
+				<tr> <td> </td>
+                    <td>
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+			</form> 
+		<button onclick="openWindow()"> Open </button> 
+		<button onClick="validationForm()"> Submit </button> 
+		<button onClick="closeWindow()"> Close </button> 
+		</div> 
+		<script> 
+			var win;
+			function openWindow(){
+			win=window.open("", "", "width=500");
+			win.document.write("<h2><center> Form Output</center>  </h2>"+"<hr/>");
+			}
+			function closeWindow(){
+			win.close();
+			}
+		function validationForm(){
+		var fname = document.forms["myForm"]["fname"].value; 
+		var contact= document.forms["myForm"]["contact"].value; 
+		var gender= document.forms["myForm"]["gender"].value; 
+		var locations= "";
+		if(document.forms["myForm"].mirpur.checked)
+			locations += document.forms["myForm"]["mirpur"].value;
+		if(document.forms["myForm"].dhanmondi.checked)
+			locations += ", "+document.forms["myForm"]["dhanmondi"].value;
+		if(document.forms["myForm"].mohammadpur.checked)
+			locations += ", "+document.forms["myForm"]["mohammadpur"].value;
+		if(document.forms["myForm"].banani.checked)
+			locations += ", "+document.forms["myForm"]["banani"].value;
+		if(document.forms["myForm"].songkor.checked)
+			locations += ", "+document.forms["myForm"]["songkor"].value;
+
+			
+		var courses_name= document.forms["myForm"]["courses_name"].value; 
+		var msg= document.forms["myForm"]["msg"].value; 
+		win.document.write("Name: "+ fname+"<br>");
+		win.document.write("Contact: "+ contact+"<br>");
+		win.document.write("Gender: "+ gender+"<br>");
+		win.document.write("location: "+ locations+"<br>");
+		win.document.write("Course: "+ courses_name+"<br>");
+		win.document.write("Remark: "+ msg+"<br>");
+		win.document.write("<hr>");
+		
+		}
+		
+		</script> 
+	
+	
+	
+	
+	</body>
+
+
+</html>

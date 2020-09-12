@@ -1,0 +1,112 @@
+create table bangladesh(
+id number(5) primary key,
+name varchar2(15) not null,
+continent varchar2(15) default 'Asia'
+);
+==============================================================
+create or replace procedure insertBangladesh(
+p_id in bangladesh.id%type,
+p_name in bangladesh.name%type,
+p_continent in bangladesh.continent%type
+)
+IS
+begin
+insert into bangladesh(id, name, continent)
+values (p_id, p_name, p_continent)
+end;
+/
+
+begin
+insertBangladesh(1,'Jihad','Europe');
+insertBangladesh(2,'Munar','Africa');
+insertBangladesh(3,'Zareen','North America');
+insertBangladesh(4,'Amrin','South America');
+insertBangladesh(5,'Ramin','Asia');  
+end;
+/
+
+======================================================================
+create or replace procedure updateBangladesh(
+p_id in bangladesh.id%type,
+p_name in bangladesh.name%type
+)
+is 
+begin
+update bangladesh set name=p_name where id=p_id;
+commit;
+end;
+/
+
+
+begin
+  updateBangladesh(10,'Jihad Ahmed');
+  updateBangladesh(20,'Estiyak Nur Munar');
+  updateBangladesh(30,'Noumi Jahan Amrin');
+  updateBangladesh(40,'Meher Sultana Zareen');
+  updateBangladesh(50,'Mehek Sultana Ramin');
+  end;
+  /
+================================================================
+create or replace procedure deleteBangladesh(
+p_id in bangladesh.id%type
+)
+is 
+begin
+delete from bangladesh where id=p_id;
+commit;
+end;
+/
+begin 
+deleteBangladesh(1);
+deleteBangladesh(2);
+deleteBangladesh(3);
+deleteBangladesh(4);
+deleteBangladesh(5);
+end; 
+/
+==================================================
+create table bangladesh_backup as select * from bangladesh;
+
+create or replace trigger bangladesh_after_insert 
+after insert on bangladesh
+for each row
+declare 
+begin
+insert into bangladesh_backup values(:new.id, :new.name, :new.continent);
+dbms_output.put_line('Record successfully inserted into bangaldesh_backup table');
+end; 
+/
+
+insert into bangladesh values (100,'Jihad Ahmed','Bangladesh');
+=========================================================================
+
+create or replace trigger bangladesh_after_update
+after update on bangladesh
+for each row
+declare 
+begin
+update bangladesh_backup
+set id=:new.id
+where id=:old.id;
+dbms_output.put_line('Record successfully updated into bangladesh table');
+end;
+/
+
+update bangladesh set id=100
+where id=1;
+=============================================================
+create or replace trigger bangladesh_after_delete
+after delete on bangladesh
+for each row
+declare 
+begin
+delete bangladesh_backup
+where id=:old.id;
+dbms_output.put_line('Record successfully delered from bangladesh table');
+end;
+/
+delete bangladesh_backup where id=100;
+
+
+
+

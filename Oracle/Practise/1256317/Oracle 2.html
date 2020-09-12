@@ -1,0 +1,111 @@
+create table emp_backup as select * from emp;
+
+
+create or replace trigger emp_after_insert AFTER INSERT ON emp
+for each row
+declare
+BEGIN
+insert into emp_backup values(:new.eid, :new.ename, :new.salary, :new.hire_date, :new.address, :new.phone, :new.job_title, :new.dept_no); 
+dbms_output.put_line('Records successfully inserted into emp_backup table');
+end;
+/
+
+
+insert into emp_backup values(1,'a'...................);
+
+
+create or replace trigger emp_after_update AFTER UPDATE ON emp
+for each row
+declare
+BEGIN
+update emp_backup set eid=:new.eid where ename=:old.ename; 
+dbms_output.put_line('Records successfully updated into emp_backup table');
+end;
+/
+
+
+update emp_backup set eid=2 where ename='a'; 
+
+
+
+create or replace trigger emp_after_delete AFTER DELETE ON emp
+for each row
+declare
+BEGIN
+delete emp_backup where ename=:old.ename; 
+dbms_output.put_line('Records successfully updated into emp_backup table');
+end;
+/
+
+
+update emp_backup where ename='a';
+
+
+
+create or replace procedure insertEmp(
+p_eid IN emp.eid%type,
+p_ename IN emp.ename%type,
+p_salary IN emp.salary%type,
+p_hire_date IN emp.hire_date%type,
+p_address IN emp.address%type,
+p_phone IN emp.phone%type,
+p_job_title IN emp.job_title%type,
+p_dept_no IN emp.dept_no%type)
+IS
+BEGIN
+insert into emp(eid, ename, salary, hire_date, address, phone, job_title, dept_no) values(p_eid, p_ename, p_salary, p_hire_date, p_address, p_phone, p_job_title, p_dept_no);
+commit; 
+end;
+/
+
+BEGIN
+insertEmp(1,'a', 1000, '11-jan-2020', 123456, 'manager', 123);
+end;
+
+
+create or replace procedure updateEmp(
+p_eid IN emp.eid%type,
+p_ename IN emp.ename%type)
+IS
+BEGIN
+update emp set eid=p_eid where  ename=p_ename;
+commit; 
+end;
+/
+
+BEGIN
+updateEmp(101, 'a');
+end;
+
+
+create or replace procedure deleteEmp(
+p_eid IN emp.eid%type)
+IS
+BEGIN
+delete emp  whwere eid=p_eid; 
+commit; 
+end;
+/
+
+BEGIN
+updateEmp(101);
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dept_id number(20), foreign key (dept_id) references department(dept_id)
+
+alter table emp add constraint emp_id_pk primary key(emp_id); 

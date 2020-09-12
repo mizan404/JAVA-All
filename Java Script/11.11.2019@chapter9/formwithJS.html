@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Form </title>
+		  <style type="text/css">
+            label{
+                color: red;
+                padding: 3px 10px;
+            }
+        </style>
+		
+		
+	</head>
+
+    <body> 
+		<h1>Form Validation</h1>
+		
+    <form name="myForm"> 
+			<table> 
+                <tr> 
+                    <td> Name:
+                    </td> 
+                    <td>  <input type="text" name="fname"> 
+							<label id="fnamex"></label> <br/>
+                    </td>
+                </tr>
+                <tr> 
+                    <td>  Gender:
+                    </td> 
+                    <td>  
+                       <input type="radio" name="gender" value="Male"> Male
+					   <input type="radio" name="gender" value="Female"> Female
+						  <label id="gender"></label> <br/>
+                    </td>
+                </tr>
+              
+        
+             <tr> 
+                    <td>  Education:
+                    </td> 
+                    <td>  
+                        <input type="checkbox" name="ssc" value="ssc"> SSC
+						<input type="checkbox" name="hsc" value="hsc"> HSC
+							<label id="education"></label> <br/>
+                       
+                    </td>
+                </tr>
+            
+             <tr> 
+                    <td>  Round:
+                    </td> 
+                    <td>  
+                        <select name="round"> 
+                    <option value="Select A Round" selected="selected"> Select A Round</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+							<label id="round"></label> <br/>
+                    </td>
+                </tr>
+             	
+        
+			 <tr> 
+                    <td>  
+                    </td> 
+                    <td>  
+                        <textarea rows="5" cols="20" name="msg" placeholder="Enter At least 10 letters"> </textarea> 
+							<label id="msg"></label> <br/>
+                    </td>
+                </tr>
+        <tr> 
+                    <td>  
+                    </td> 
+                    <td>  
+                        <input type="reset" value="Reset"> 
+                    </td>
+                </tr>
+				
+					
+				
+			</table>
+		</form>
+				<button onClick="openWindow()">Open Window</button>
+				<button onClick="validationForm()">Submit</button>
+				<button onClick="closeWindow()">Close Window</button>
+        
+			<script> 
+					/////////////Script////////////
+            var win; 
+            function openWindow(){
+                win = window.open("", "", "width=500"); 
+                win.document.write("<h2><center> Form output </center></h2>");
+				win.document.write("<hr/>"); 
+            }
+            function closeWindow(){
+                win.close(); 
+            }
+            function validationForm(){
+                ///////For Name//////
+                var fname = document.forms["myForm"]["fname"].value;
+                ////////for Gender////////
+                var gender = document.forms["myForm"]["gender"].value; 
+				////////For Education/////////
+                var education = "";             
+                if (document.forms["myForm"].ssc.checked){
+                    education += document.forms["myForm"]["ssc"].value;
+                }
+                if (document.forms["myForm"].hsc.checked){
+                    education += ", " + document.forms["myForm"] ["hsc"].value;
+                }
+                 var round = document.forms["myForm"]["round"].value;
+                 var msg = document.forms["myForm"]["msg"].value;
+				 
+                ///////Validation For Name Field//////
+                if (fname == ""){
+                    document.getElementById("fnamex").innerHTML="Name must be filled out"; 
+                    return false; 
+                } else if (fname.length <3){
+                    document.getElementById("fnamex").innerHTML="Name Lenght at least 3 Characters";
+                    return false; 
+                } else {
+                     document.getElementById("fnamex").innerHTML= ""; 
+                }
+                /////Gender//////
+                if (gender== ""){
+                    document.getElementById("gender").innerHTML="Tell me Your Gender"; 
+                    return false; 
+                    
+                } else {
+                     document.getElementById("gender").innerHTML= ""; 
+                }
+                ///////Validation For Education Field//////
+                if (!document.forms["myForm"].ssc.checked && !document.forms["myForm"].hsc.checked ){
+                    document.getElementById("education").innerHTML="Education must be filled"; 
+                    return false; 
+                
+                } else {
+                     document.getElementById("education").innerHTML= ""; 
+                }
+                if (round== "Select A Round"){
+                    document.getElementById("round").innerHTML="Tell me Your Round"; 
+                    return false; 
+                    
+                } else {
+                     document.getElementById("round").innerHTML= ""; 
+                }
+                if (msg.length< 10){
+                    document.getElementById("msg").innerHTML="Tell me Your Gender"; 
+                    return false; 
+                    
+                } else { document.getElementById("msg").innerHTML= ""; 
+                    
+					win.document.write("Name: " + fname + "<br/>");
+                    win.document.write("Gender: " + gender + "<br/>");
+                    win.document.write("Education: " + education + "<br/>");
+                    win.document.write("Round: " + round + "<br/>");
+                    win.document.write("Comments: " + msg + "<br/>");
+					win.document.write("<hr/>");
+                    
+                }
+            }
+        
+        </script>
+    </body>
+</html>

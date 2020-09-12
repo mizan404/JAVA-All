@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0088)https://liveexample-ppe.pearsoncmg.com/selftest/selftest11e?chapter=32&username=liang11e -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Introduction to Java Programming</title>
+
+<meta content="Introduction to Java Programming, Java Multiple-choice questions" name="description">
+<meta content="Java Multiple-choice questions, Test, Java, Liang, Y. Daniel Liang, Introduction to Java Programming, Brief, Comprehensive" name="keywords">
+<link rel="stylesheet" type="text/css" href="./Introduction to Java Programming32_files/intro6e.css">
+<link rel="stylesheet" type="text/css" href="./Introduction to Java Programming32_files/intro6eselftest.css">
+  <style> 
+    @media print {
+      body {font-size: 12px}
+      h3 {font-size: 13px}
+    }      
+  </style>
+
+<script type="text/javascript" defer="" async="" src="./Introduction to Java Programming32_files/uaest.js.download"></script><script type="text/javascript" src="./Introduction to Java Programming32_files/jquery-1.8.3.min.js.download"></script>
+
+<style>@font-face{font-family:uc-nexus-iconfont;src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}</style></head>
+
+<body>
+
+<div style="text-align: center; margin-bottom: 0em">
+	<h3 style="text-align: center; margin-bottom: 0.2em; color: navy; font-family: Verdana, Helvetica, sans-serif">
+	Introduction to Java Programming, Includes Data Structures, Eleventh Edition, 
+	<a href="http://www.pearsonhighered.com/liang" style="text-decoration: none; color: green">Y. Daniel Liang</a></h3>
+</div>
+<div id="subtabextendline">
+</div>
+<div style="margin-top:0.2em; text-align: center;">This quiz is for students to practice. A large number 
+of additional quiz questions is available for instructors from the Instructor's Resource Website.
+</div>
+<!-- main content -->
+<div id="maincontentstyle" ;="" style="margin-top: -1em; text-align : center; color: #edc100">
+	<div id="boxstyle" style="width: 90%; max-width: 800px; margin-left: auto; margin-right: auto;
+       text-align: left; border-color: #edc100">
+<style> 
+#sectiontitle {background-color: yellow; color: navy; font-style: italic; padding-left: 0.7em}#question {font-family: "Courier New", Courier, Verdana, Helvetica, sans-serif; font-size: 100%; 
+color: #8000f0; color: black; margin-left: 2.15em}
+#questionstatement {font-family: 
+Times New Roman, monospace, Courier, Verdana, Helvetica, sans-serif; font-size: 85%; color: #8000f0; 
+color: black; margin-left:0.5em; margin-top:0.5em; margin-bottom:0.5em;  }
+#choicemargin {margin-left:45px;text-indent:-45px;}
+#choicestatement {margin-left:5px; text-indent:-90px;}
+#choices {font-family: Times New Roman, monospace, Verdana, Helvetica, sans-serif; font-size: 85%; 
+color: #8000f0; color: black; margin-left:25.0pt; margin-left:0.5em; margin-bottom:0.5em; }
+.preBlock {margin-left:0px;text-indent:0.0px; font-family:monospace; font-size: 120%}
+.keyword {color: #000fd6 !important; font-weight: bold;}
+.comment {color: #005500 !important;}
+.literal {color: #007d9f !important;}
+.constant {color: #007d9f !important;}
+#h3style {color: white; font-family: Helvetica, sans-serif;  border-color: #6193cb; text-align: center;margin-bottom: 0.5em; background-color: #6193cb;}  </style>
+
+<form method="post" action="https://liveexample-ppe.pearsoncmg.com/selftest/selftest11e">
+<h3 id="h3style">Chapter 32 Multithreading and Parallel Programming</h3><div style="text-align: right; margin-right: 1em"><input type="submit" value="Check Answer for All Questions" style="background: goldenrod; color: white"> </div>
+<br><span id="sectiontitle">Section 32.3 Creating Tasks and Threads</span><div id="question"><div id="questionstatement"><em id="questionnumber">32.1</em>&nbsp; Analyze the following code:<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;<span class="keyword">implements</span>&nbsp;Runnable&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Thread t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;t.start();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="literal">"test"</span>);<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q0"> <span id="choicelabel">A.</span> <span id="choicestatement">	The program does not compile because this cannot be referenced in a static method.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q0"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program compiles fine, but it does not print anything because t does not invoke the run() method.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q0"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program compiles and runs fine and displays test on the console.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q0"> <span id="choicelabel">D.</span> <span id="choicestatement">	None of the above.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 1"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.2</em>&nbsp;	What is the output of the following code?<br><span style="font-family:monospace; font-size: 109%;"><br><span class="comment">//&nbsp;Test.java:&nbsp;Define&nbsp;threads&nbsp;using&nbsp;the&nbsp;Thread&nbsp;class</span><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="comment">/** Main method */</span><br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span> Test();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> Test() {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Create threads</span><br>&nbsp;&nbsp;&nbsp;&nbsp;PrintChar printA = <span class="keyword">new</span> PrintChar(<span class="literal">'a'</span>, <span class="constant">4</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;PrintChar printB = <span class="keyword">new</span> PrintChar(<span class="literal">'b'</span>, <span class="constant">4</span>);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Start threads</span><br>&nbsp;&nbsp;&nbsp;&nbsp;printA.run();<br>&nbsp;&nbsp;&nbsp;&nbsp;printB.run();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">class</span> PrintChar <span class="keyword">implements</span> Runnable {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="keyword">char</span> charToPrint; <span class="comment">// The character to print</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="keyword">int</span> times; <span class="comment">// The times to repeat</span><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/** Construct a thread with specified character and number of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;times to print the character<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> PrintChar(<span class="keyword">char</span> c, <span class="keyword">int</span> t) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charToPrint = c;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;times = t;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/** Override the run() method to tell the system<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what the thread will do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="constant">0</span>; i &lt; times; i++)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(charToPrint);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q1"> <span id="choicelabel">A.</span> <span id="choicestatement">	aaaaabbbbb</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q1"> <span id="choicelabel">B.</span> <span id="choicestatement">	bbbbbaaaaa</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q1"> <span id="choicelabel">C.</span> <span id="choicestatement">      character a and b are randomly printed</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q1"> <span id="choicelabel">D.</span> <span id="choicestatement">	ababababab</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 2"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.3</em>&nbsp;	Analyze the following code:<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">abstract</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;<span class="keyword">implements</span>&nbsp;Runnable&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> doSomething()  {<br>&nbsp;&nbsp;};<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q2"> <span id="choicelabel">A.</span> <span id="choicestatement">	The program will not compile because it does not implement the run() method.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q2"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program will not compile because it does not contain abstract methods.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q2"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program compiles fine.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q2"> <span id="choicelabel">D.</span> <span id="choicestatement">	None of the above.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 3"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.4</em>&nbsp;	Analyze the following code:<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;<span class="keyword">implements</span>&nbsp;Runnable&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Test t = <span class="keyword">new</span> Test();<br>&nbsp;&nbsp;&nbsp;&nbsp;t.start();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q3"> <span id="choicelabel">A.</span> <span id="choicestatement">	The program does not compile because the start() method is not defined in the Test class.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q3"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program compiles, but it does not run because the start() method is not defined.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q3"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program compiles, but it does not run because the run() method is not implemented.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q3"> <span id="choicelabel">D.</span> <span id="choicestatement">	The program compiles and runs fine.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 4"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.5</em>&nbsp;	Analyze the following code:<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;<span class="keyword">implements</span>&nbsp;Runnable&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Test t = <span class="keyword">new</span> Test();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> Test() {<br>&nbsp;&nbsp;&nbsp;&nbsp;Thread t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;t.start();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="literal">"test"</span>);<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q4"> <span id="choicelabel">A.</span> <span id="choicestatement">	The program has a compilation error because t is defined in both the main() method and the constructor Test().</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q4"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program compiles fine, but it does not run because you cannot use the keyword this in the constructor.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q4"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program compiles and runs and displays nothing.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q4"> <span id="choicelabel">D.</span> <span id="choicestatement">	The program compiles and runs and displays test.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 5"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.4 The Thread Class </span><div id="question"><div id="questionstatement"><em id="questionnumber">32.6</em>&nbsp;	Why does the following class have a syntax error?<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">import</span>&nbsp;java.applet.*;<br><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;<span class="keyword">extends</span>&nbsp;Applet&nbsp;<span class="keyword">implements</span>&nbsp;Runnable&nbsp;{<br>&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> init() <span class="keyword">throws</span> InterruptedException {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.sleep(<span class="constant">1000</span>);<br>&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q5"> <span id="choicelabel">A.</span> <span id="choicestatement">	The sleep() method is not invoked correctly; it should be invoked as Thread.sleep(1000).</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q5"> <span id="choicelabel">B.</span> <span id="choicestatement">	You cannot put the keyword synchronized in the run() method.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q5"> <span id="choicelabel">C.</span> <span id="choicestatement">	The init() method is defined in the Applet class, and it is overridden incorrectly because it cannot claim exceptions in the subclass.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q5"> <span id="choicelabel">D.</span> <span id="choicestatement">	The sleep() method should be put in the try-catch block. This is the only reason for the compilation failure.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 6"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.7</em>&nbsp;	Which of the following expressions must be true if you create a thread using Thread =  new Thread(object)?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q6"> <span id="choicelabel">A.</span> <span id="choicestatement">	object instanceof Thread</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q6"> <span id="choicelabel">B.</span> <span id="choicestatement">	object instanceof Frame</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q6"> <span id="choicelabel">C.</span> <span id="choicestatement">	object instanceof Applet</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q6"> <span id="choicelabel">D.</span> <span id="choicestatement">	object instanceof Runnable</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 7"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.8</em>&nbsp;	Which of the following methods in the Thread class are deprecated?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA7"> <span id="choicelabel">A.</span> <span id="choicestatement">	yield()</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB7"> <span id="choicelabel">B.</span> <span id="choicestatement">	stop();</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC7"> <span id="choicelabel">C.</span> <span id="choicestatement">	resume();</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD7"> <span id="choicelabel">D.</span> <span id="choicestatement">	suspend();</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 8"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.9</em>&nbsp; You can use the _________ method to temporarily release time for other threads.<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA8"> <span id="choicelabel">A.</span> <span id="choicestatement"> sleep(long milliseconds)</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB8"> <span id="choicelabel">B.</span> <span id="choicestatement"> yield()</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC8"> <span id="choicelabel">C.</span> <span id="choicestatement"> stop()</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD8"> <span id="choicelabel">D.</span> <span id="choicestatement"> suspend()</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 9"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.10</em>&nbsp; Which of the following statements are defined in the Object class?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA9"> <span id="choicelabel">A.</span> <span id="choicestatement"> sleep(long milliseconds)</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB9"> <span id="choicelabel">B.</span> <span id="choicestatement"> wait()</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC9"> <span id="choicelabel">C.</span> <span id="choicestatement"> notify()</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD9"> <span id="choicelabel">D.</span> <span id="choicestatement"> notifyAll()</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="E" name="QE9"> <span id="choicelabel">E.</span> <span id="choicestatement"> toString()</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 10"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.11</em>&nbsp; You can use the ________ method to force one thread to wait for another thread to finish. <br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q10"> <span id="choicelabel">A.</span> <span id="choicestatement"> sleep(long milliseconds)</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q10"> <span id="choicelabel">B.</span> <span id="choicestatement"> yield()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q10"> <span id="choicelabel">C.</span> <span id="choicestatement"> stop()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q10"> <span id="choicelabel">D.</span> <span id="choicestatement"> suspend()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="E" name="Q10"> <span id="choicelabel">E.</span> <span id="choicestatement"> join()</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 11"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.12</em>&nbsp;	When you run the following program, what will happen?<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;<span class="keyword">extends</span>&nbsp;Thread&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Test t = <span class="keyword">new</span> Test();<br>&nbsp;&nbsp;&nbsp;&nbsp;t.start();<br>&nbsp;&nbsp;&nbsp;&nbsp;t.start();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="literal">"test"</span>);<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q11"> <span id="choicelabel">A.</span> <span id="choicestatement">	Nothing is displayed.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q11"> <span id="choicelabel">B.</span> <span id="choicestatement">	The program displays test twice.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q11"> <span id="choicelabel">C.</span> <span id="choicestatement">	The program displays test once.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q11"> <span id="choicelabel">D.</span> <span id="choicestatement">	An illegal java.lang.IllegalThreadStateException may be thrown because you just started thread and thread might have not yet finished before you start it again.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 12"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.13</em>&nbsp;	Which of the following method is a static in java.lang.Thread?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q12"> <span id="choicelabel">A.</span> <span id="choicestatement">	run()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q12"> <span id="choicelabel">B.</span> <span id="choicestatement">	sleep(long)</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q12"> <span id="choicelabel">C.</span> <span id="choicestatement">	start()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q12"> <span id="choicelabel">D.</span> <span id="choicestatement">	join()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="E" name="Q12"> <span id="choicelabel">E.</span> <span id="choicestatement">	setPriority(int)</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 13"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.14</em>&nbsp;	Which of the following methods in Thread throws InterruptedException?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q13"> <span id="choicelabel">A.</span> <span id="choicestatement">	run()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q13"> <span id="choicelabel">B.</span> <span id="choicestatement">	sleep(long)</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q13"> <span id="choicelabel">C.</span> <span id="choicestatement">	start()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q13"> <span id="choicelabel">D.</span> <span id="choicestatement">	yield()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="E" name="Q13"> <span id="choicelabel">E.</span> <span id="choicestatement">	setPriority(int)</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 14"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.15</em>&nbsp;	Given the following code, which set of code can be used to replace the comment so that the program displays time to the console every second?<br><span style="font-family:monospace; font-size: 109%;"><br><span class="keyword">import</span>&nbsp;java.applet.*;<br><span class="keyword">import</span>&nbsp;java.util.*;<br><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;<span class="keyword">extends</span>&nbsp;Applet&nbsp;<span class="keyword">implements</span>&nbsp;Runnable&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> init() {<br>&nbsp;&nbsp;&nbsp;&nbsp;Thread t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;t.start();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>(; ;) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//display time every second<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">new</span> Date().toString());<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q14"> <span id="choicelabel">A.</span> <span id="choicestatement"> try { sleep(1000); } catch(InterruptedException e) { }</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q14"> <span id="choicelabel">B.</span> <span id="choicestatement"> try { t.sleep(1000); } catch(InterruptedException e) { }</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q14"> <span id="choicelabel">C.</span> <span id="choicestatement"> try { Thread.sleep(1000); } catch(RuntimeException e) { }</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q14"> <span id="choicelabel">D.</span> <span id="choicestatement"> try { Thread.sleep(1000); } catch(InterruptedException e) { }</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 15"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.5 Case Study: Flashing Text</span><div id="question"><div id="questionstatement"><em id="questionnumber">32.16</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA15"> <span id="choicelabel">A.</span> <span id="choicestatement"> You can use a timer or a thread to control animation. </span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB15"> <span id="choicelabel">B.</span> <span id="choicestatement"> A timer is a source component that fires an ActionEvent at a 'fixed rate.'</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC15"> <span id="choicelabel">C.</span> <span id="choicestatement"> The timer and event-handling run on the same event dispatcher thread. If it takes a long time to handle the event, the actual delay time between two events will be longer than the requested delay time.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD15"> <span id="choicelabel">D.</span> <span id="choicestatement"> In general, threads are more reliable and responsive than timers. </span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 16"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.6 GUI Event Dispatcher Thread</span><div id="question"><div id="questionstatement"><em id="questionnumber">32.17</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA16"> <span id="choicelabel">A.</span> <span id="choicestatement"> The javax.swing.SwingUtilities.invokeLater method creates a thread.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB16"> <span id="choicelabel">B.</span> <span id="choicestatement"> The javax.swing.SwingUtilities.invokeAndWait method runs the code in the event dispatcher thread.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC16"> <span id="choicelabel">C.</span> <span id="choicestatement"> The javax.swing.SwingUtilities.invokeLater method runs the code in the event dispatcher thread and doesn't return until the event-dispatching thread has executed the specified code.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD16"> <span id="choicelabel">D.</span> <span id="choicestatement"> GUI event handling is executed in the event dispatcher thread. </span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 17"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.8 Thread Pools</span><div id="question"><div id="questionstatement"><em id="questionnumber">32.18</em>&nbsp; Suppose there are three Runnable tasks, task1, task2, task3. How do you run them in a thread pool with 2 fixed threads?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q17"> <span id="choicelabel">A.</span> <span id="choicestatement">	new Thread(task1).start(); new Thread(task2).start(); new Thread(task3).start(); </span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q17"> <span id="choicelabel">B.</span> <span id="choicestatement">	ExecutorService executor = Executors.newFixedThreadPool(3); executor.execute(task1); executor.execute(task2); executor.execute(task3);</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q17"> <span id="choicelabel">C.</span> <span id="choicestatement">	ExecutorService executor = Executors.newFixedThreadPool(2); executor.execute(task1); executor.execute(task2); executor.execute(task3);</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q17"> <span id="choicelabel">D.</span> <span id="choicestatement">	ExecutorService executor = Executors.newFixedThreadPool(1); executor.execute(task1); executor.execute(task2); executor.execute(task3);</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 18"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.19</em>&nbsp; How do you create a cached thread pool?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q18"> <span id="choicelabel">A.</span> <span id="choicestatement">	ExecutorService executor = Executors.newCachedThreadPool(); </span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q18"> <span id="choicelabel">B.</span> <span id="choicestatement">	ExecutorService executor = Executors.newCachedThreadPool(1);</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q18"> <span id="choicelabel">C.</span> <span id="choicestatement">	ExecutorService executor = Executors.newCachedThreadPool(2);</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q18"> <span id="choicelabel">D.</span> <span id="choicestatement">	ExecutorService executor = Executors.newCachedThreadPool(3);</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 19"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.9 Thread Synchronization</span><div id="question"><div id="questionstatement"><em id="questionnumber">32.20</em>&nbsp;	The keyword to synchronize methods in Java is __________.<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q19"> <span id="choicelabel">A.</span> <span id="choicestatement">	synchronize</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q19"> <span id="choicelabel">B.</span> <span id="choicestatement">	synchronizing</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q19"> <span id="choicelabel">C.</span> <span id="choicestatement">	synchronized</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q19"> <span id="choicelabel">D.</span> <span id="choicestatement">  Synchronized</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 20"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.21</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA20"> <span id="choicelabel">A.</span> <span id="choicestatement"> A synchronized instance method acquires a lock on the object for which the method was invoked.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB20"> <span id="choicelabel">B.</span> <span id="choicestatement"> A synchronized instance method acquires a lock on the class of the object for which the method was invoked.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC20"> <span id="choicelabel">C.</span> <span id="choicestatement"> A synchronized statement can be used to acquire a lock on any object, not just this object, when executing a block of the code in a method. </span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD20"> <span id="choicelabel">D.</span> <span id="choicestatement"> A synchronized statement is placed inside a synchronized block.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 21"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.10 Synchronization Using Locks</span><div id="question"><div id="questionstatement"><em id="questionnumber">32.22</em>&nbsp;	Which of the following are correct statements to create a Lock?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA21"> <span id="choicelabel">A.</span> <span id="choicestatement">	Lock lock = new Lock();</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB21"> <span id="choicelabel">B.</span> <span id="choicestatement">	Lock lock = new ReentrantLock();</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC21"> <span id="choicelabel">C.</span> <span id="choicestatement">	Lock lock = new ReentrantLock(true);</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD21"> <span id="choicelabel">D.</span> <span id="choicestatement">  	Lock lock = new ReentrantLock(false);</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 22"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.23</em>&nbsp;	Which of the following are correct statements to create a Lock so the longest-wait thread will obtain the lock first?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q22"> <span id="choicelabel">A.</span> <span id="choicestatement">	Lock lock = new Lock();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q22"> <span id="choicelabel">B.</span> <span id="choicestatement">	Lock lock = new ReentrantLock();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q22"> <span id="choicelabel">C.</span> <span id="choicestatement">	Lock lock = new ReentrantLock(true);</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q22"> <span id="choicelabel">D.</span> <span id="choicestatement">  	Lock lock = new ReentrantLock(false);</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 23"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.24</em>&nbsp;	You should always invoke the unlock method in the finally clause.<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q23"> <span id="choicelabel">A.</span> <span id="choicestatement"> true</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q23"> <span id="choicelabel">B.</span> <span id="choicestatement"> false</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 24"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.11 Cooperation Among Threads </span><div id="question"><div id="questionstatement"><em id="questionnumber">32.25</em>&nbsp;	How do you create a condition on a lock?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q24"> <span id="choicelabel">A.</span> <span id="choicestatement">	Condition condition = lock.getCondition();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q24"> <span id="choicelabel">B.</span> <span id="choicestatement">	Condition condition = lock.newCondition();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q24"> <span id="choicelabel">C.</span> <span id="choicestatement">	Condition condition = Lock.newCondition();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q24"> <span id="choicelabel">D.</span> <span id="choicestatement">  	Condition condition = Lock.getCondition();</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 25"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.26</em>&nbsp;	Which method on a condition should you invoke to causes the current thread to wait until the condition is signaled?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q25"> <span id="choicelabel">A.</span> <span id="choicestatement">	condition.await();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q25"> <span id="choicelabel">B.</span> <span id="choicestatement">	condition.wait();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q25"> <span id="choicelabel">C.</span> <span id="choicestatement">	condition.waiting();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q25"> <span id="choicelabel">D.</span> <span id="choicestatement">  	condition.waited();</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 26"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.27</em>&nbsp;	Which method on a condition should you invoke to wake all waiting threads?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q26"> <span id="choicelabel">A.</span> <span id="choicestatement">	condition.wake();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q26"> <span id="choicelabel">B.</span> <span id="choicestatement">	condition.signal();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q26"> <span id="choicelabel">C.</span> <span id="choicestatement">	condition.wakeAll();</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q26"> <span id="choicelabel">D.</span> <span id="choicestatement">  	condition.signalAll();</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 27"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.28</em>&nbsp;	Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA27"> <span id="choicelabel">A.</span> <span id="choicestatement">	A condition is associated with a lock.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB27"> <span id="choicelabel">B.</span> <span id="choicestatement">	To invoke methods on a condition, the lock must be obtained first.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC27"> <span id="choicelabel">C.</span> <span id="choicestatement">	Once you invoke the await method on a condition, the lock is automatically released. Once the condition is right, the thread re-acquires the lock and continues executing.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD27"> <span id="choicelabel">D.</span> <span id="choicestatement">  	The signal method on a condition causes the lock for the condition to be released.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 28"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.29</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q28"> <span id="choicelabel">A.</span> <span id="choicestatement">	The wait(), notify(), and notifyAll() methods must be invoked from a synchronized method or a synchronized block.  </span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q28"> <span id="choicelabel">B.</span> <span id="choicestatement">	When wait() is invoked, it pauses the thread and releases the lock on the object simultaneously. When the thread is restarted after being notified, the lock is automatically reacquired. </span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q28"> <span id="choicelabel">C.</span> <span id="choicestatement">	The notify() method can wake only one waiting thread.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q28"> <span id="choicelabel">D.</span> <span id="choicestatement">	An exception would occur if no thread is waiting on the object when the notify() method is invoked on the object.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 29"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.30</em>&nbsp;	Analyze the following code.<br><span style="font-family:monospace; font-size: 109%;"><br><span class="comment">//&nbsp;Test.java:&nbsp;Define&nbsp;threads&nbsp;using&nbsp;the&nbsp;Thread&nbsp;class</span><br><span class="keyword">import</span>&nbsp;java.util.*;<br><br><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Test&nbsp;{<br>&nbsp;&nbsp;<span class="keyword">private</span> Stack stack = <span class="keyword">new</span> Stack();<br>&nbsp;&nbsp;<span class="keyword">private</span> <span class="keyword">int</span> i = <span class="constant">0</span>;<br><br>&nbsp;&nbsp;<span class="comment">/** Main method */</span><br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span> Test();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">public</span> Test() {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Start threads</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span> Producer().start();<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span> Consumer().start();<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">class</span> Producer <span class="keyword">extends</span> Thread {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (<span class="keyword">true</span>) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="literal">"Producer: put "</span> + i);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack.push(<span class="keyword">new</span> Integer(i++));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">synchronized</span> (stack) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notifyAll();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;<span class="keyword">class</span> Consumer <span class="keyword">extends</span> Thread {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (<span class="keyword">true</span>) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">synchronized</span> (stack) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span> {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (stack.isEmpty())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack.wait();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="literal">"Consumer: get "</span> + stack.pop());<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">catch</span> (InterruptedException ex) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex.printStackTrace();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}<br></span></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q29"> <span id="choicelabel">A.</span> <span id="choicestatement"> The program creates two threads: one to add data to the stack and the other to get data from the stack.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q29"> <span id="choicelabel">B.</span> <span id="choicestatement"> The program has a compilation error on the notifyAll() method in the Producer class because it is not invoked from the stack object.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q29"> <span id="choicelabel">C.</span> <span id="choicestatement"> The program will throw an exception because the notifyAll() method in the Producer class is not invoked from the stack object.</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q29"> <span id="choicelabel">D.</span> <span id="choicestatement"> The program has a logic error because the lock obtained by the synchronized block for notifyAll in the Producer class is stack and it should be this (i.e., synchronized (this) { notifyAll(); }).</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 30"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.13 Blocking Queues </span><div id="question"><div id="questionstatement"><em id="questionnumber">32.31</em>&nbsp; You can create a blocking queue using _____________.<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA30"> <span id="choicelabel">A.</span> <span id="choicestatement"> ArrayBlockingQueue </span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB30"> <span id="choicelabel">B.</span> <span id="choicestatement"> LinkedBlockingQueue</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC30"> <span id="choicelabel">C.</span> <span id="choicestatement"> PriorityBlockingQueue</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD30"> <span id="choicelabel">D.</span> <span id="choicestatement"> PriorityQueue</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 31"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.32</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA31"> <span id="choicelabel">A.</span> <span id="choicestatement"> a blocking queue has a capacity.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB31"> <span id="choicelabel">B.</span> <span id="choicestatement"> A blocking queue causes a thread to block when you try to add an element to a full queue.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC31"> <span id="choicelabel">C.</span> <span id="choicestatement"> A blocking queue causes a thread to block when you try to remove an element from an empty queue. </span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD31"> <span id="choicelabel">D.</span> <span id="choicestatement"> The BlockingQueue interface is the base interface for all concrete blocking queue classes.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="E" name="QE31"> <span id="choicelabel">E.</span> <span id="choicestatement"> The BlockingQueue interface provides the synchronized put and take methods for adding an element to the head of the queue and for removing an element from the tail of the queue, </span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 32"> </div>
+<br></div></div>
+<span id="sectiontitle">Section 32.14 Semaphores</span><div id="question"><div id="questionstatement"><em id="questionnumber">32.33</em>&nbsp; Which of the following statements are true?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="checkbox" value="A" name="QA32"> <span id="choicelabel">A.</span> <span id="choicestatement"> Semaphores can be used to restrict the number of threads that access a shared resource.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="B" name="QB32"> <span id="choicelabel">B.</span> <span id="choicestatement"> Before accessing the resource, a thread must acquire a permit from the semaphore.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="C" name="QC32"> <span id="choicelabel">C.</span> <span id="choicestatement"> After finishing with the resource, the thread must return the permit back to the semaphore.</span><br>
+</div>
+<div id="choicemargin">
+<input type="checkbox" value="D" name="QD32"> <span id="choicelabel">D.</span> <span id="choicestatement"> You can create a Semaphore with a specified number of permits.</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 33"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.34</em>&nbsp; Which of the following methods can be used to obtain a permit from a Semaphore s?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q33"> <span id="choicelabel">A.</span> <span id="choicestatement"> get()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q33"> <span id="choicelabel">B.</span> <span id="choicestatement"> ask()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q33"> <span id="choicelabel">C.</span> <span id="choicestatement"> acquire()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q33"> <span id="choicelabel">D.</span> <span id="choicestatement"> delete()</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 34"> </div>
+<br></div></div>
+<div id="question"><div id="questionstatement"><em id="questionnumber">32.35</em>&nbsp; Which of the following methods can be used to return a permit to a Semaphore s?<br></div>
+<div id="choices">
+<div id="choicemargin">
+<input type="radio" value="A" name="Q34"> <span id="choicelabel">A.</span> <span id="choicestatement"> return()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="B" name="Q34"> <span id="choicelabel">B.</span> <span id="choicestatement"> release()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="C" name="Q34"> <span id="choicelabel">C.</span> <span id="choicestatement"> send()</span><br>
+</div>
+<div id="choicemargin">
+<input type="radio" value="D" name="Q34"> <span id="choicelabel">D.</span> <span id="choicestatement"> add()</span><br>
+</div>
+<div style="text-align: left; margin-right: 1em"><input type="submit" style="background: green; color: white; font-size: 85%; margin-top: 5px; margin-left: 5px; border: none" name="buttonName" value=" Check Answer for Question 35"> </div>
+<br></div></div>
+<p><input type="hidden" value="32" name="chapter">
+</p><p><input type="hidden" value="liang11e" name="username">
+</p><p><input type="hidden" value="35" name="totalQuestion">
+</p><div style="margin-left: 2em; text-align: center; margin-top: 1em">
+<p><input type="submit" value="Check Answer for All Questions" style="background: goldenrod; color: white" name="B1">
+</p>
+</div></form></div></div></body></html>

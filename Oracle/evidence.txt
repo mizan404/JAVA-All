@@ -1,0 +1,32 @@
+create table employee (eid number(4), ename varchar2(30), salary number(9,2), hire_date date, address varchar2(50));
+
+alter table employee add constraint employee_eid_pk primary key(eid);
+
+insert into employee (eid, ename, salary, hire_date, address) values ('&eid', '&ename', '&salary', '&hire_date', '&address');
+
+alter table employee add (phone varchar2(14), job_title varchar2(30));
+
+select ename, job_title, salary, salary + (salary * 30) from employee;
+
+select ename, salary from employee where salary = (select MIN(salary) from employee);
+
+update employee set job_title = 'Manager';
+
+create view employee_view as select * from employee;
+
+create sequence employee_seq increment by 1 start with 50 nocache nocycle;
+
+create index emplo_eid_idx On employee(eid);
+
+create table employee_backup as select * from employee;
+
+CREATE OR REPLACE TRIGGER employee_after_insert AFTER INSERT ON employee
+FOR EACH ROW
+DECLARE
+BEGIN
+insert into employee_backup values (:new.eid, :new.ename, :new.salary, :new.hire_date, :new.address);
+DBMS_OUTPUT.PUT_LINE('Records successfully inserted into employee_backup table');
+END;
+/
+
+c

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Frame</title>
+	<style type="text/css">
+        #container{
+            width: 900px; 
+            height: 600px; 
+            background-color: aquamarine; 
+            margin: 0 auto; 
+            border-radius: 15px; 
+        }
+        .header, .footer{
+            width: 900px; 
+            height: 100px; 
+            background-color: cornflowerblue; 
+        }
+        .body{
+            width: 900px; 
+            height: 400px; 
+         }
+        .footer{
+            width: 900px; 
+            height: 100px; 
+            background-color: cornflowerblue; 
+           
+        }
+        .hd-left, .ft-left {
+            width: 300px; 
+            height: 100px; 
+            background-color: darkgray; 
+            float: left; 
+            position:relative; 
+        }
+        .hd-right, .ft-right{
+            width: 600px; 
+            height: 100px;  
+            float: left; 
+            position:relative; 
+        }
+        .bd-left{
+            width: 300px; 
+            height: 400px; 
+            float:left; 
+            background-color: burlywood; 
+        }
+        .bd-right{
+            width: 600px; 
+            height: 400px; 
+            float:left; 
+            background-color:darkkhaki; 
+        }
+        h3{
+            text-align: center; 
+            top: 50%
+            position:relative; 
+            transform: translateY(-50%)
+        }
+        a{
+            text-decoration: none;
+            color: #fff; 
+        }
+        a:hover{
+            color: chartreuse; 
+        }
+	</style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="header"> 
+            <div class="hd-left"><h3> LOGO</h3> </div>
+            <div class="hd-right"><h3> Welcome To IsDB, Bangladesh</h3> </div>
+        </div>
+        <div class="body"> 
+            <div class="bd-left"> 
+                <div class="bd-left1"> <h3><a href="Table2.html" target="main" >Table</a></h3></div>
+                <div class="bd-left2"> <h3><a href="FORM2.html" target="main">Form</a> </h3></div>
+                <div class="bd-left3"> <h3><a href="list.html" target="main">list</a></h3></div>
+            </div>
+            <div class="bd-right"> 
+               <iframe name="main" style="width:100%; height:100%" scrolling="no"> </iframe>
+            </div>
+            
+        </div>
+        <div class="footer"> 
+            <div class="ft-left"><h3> Copyright@2019</h3> </div>
+            <div class="ft-right"> <h3>Mizan </h3></div>
+        </div>
+    </div>
+</body>
+</html>

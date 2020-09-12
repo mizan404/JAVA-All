@@ -1,0 +1,43 @@
+CREATE TABLE CUSTOMER(id number(5) primary key, 
+name varchar2(20) not null, 
+mobile varchar2(11) not null, 
+country varchar2(50) default 'BD');
+
+CREATE OR REPLACE PROCEDURE insertCustomer(
+p_id IN CUSTOMER.id%TYPE,
+p_name IN CUSTOMER.name%TYPE,
+p_mobile IN CUSTOMER.mobile%TYPE,
+p_country IN CUSTOMER.country%TYPE)
+
+IS 
+
+BEGIN
+insert into CUSTOMER (id, name, mobile, country)
+values (p_id, p_name, p_mobile, p_country);
+commit;
+end; 
+/
+
+Begin 
+insertCustomer(100, 'Mizan', '01680225343', 'CANADA');
+end;
+/
+
+CREATE OR REPLACE PROCEDURE updateCustomer(
+p_id IN CUSTOMER.id%TYPE,
+p_name IN CUSTOMER.name%TYPE)
+
+is 
+
+begin 
+update CUSTOMER set name=p_name where id=p_id;
+commit;
+end;
+/
+
+begin 
+updateCustomer(100, 'Mohammad');
+end; 
+/
+
+

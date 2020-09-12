@@ -1,0 +1,186 @@
+SQL> connect mizan
+Enter password:
+Connected.
+SQL> select table_name from user_tables;
+
+no rows selected
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> drop table bdcric;
+
+Table dropped.
+
+SQL> connect mizan
+Enter password:
+Connected.
+SQL> create table bdcric (id number(3) primary key, name varchar2(20), location varchar2(10));
+
+Table created.
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+BDCRIC
+
+SQL> create table pkcric (id number(3) primary key, name varchar2(20), location varchar2(10));
+
+Table created.
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+BDCRIC
+PKCRIC
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+
+
+
+SQL> create user rahman identified by rahman;
+
+User created.
+
+SQL> create role icc;
+
+Role created.
+
+SQL> grant create session, create table, create view to icc;
+
+Grant succeeded.
+
+SQL> grant icc to rahman;
+
+Grant succeeded.
+
+SQL> alter user rahman quota 500m on system;
+
+User altered.
+
+SQL> connect
+Enter user-name: rahman
+Enter password:
+Connected.
+SQL> create table dhaka (id number(3) primary key, name varchar2(20), location varchar2(10));
+
+Table created.
+
+SQL> create table khulna(id number(3) primary key, name varchar2(20), location varchar2(10));
+
+Table created.
+
+SQL> create view dhaka_view as select id, name, location from dhaka where id= 1;
+
+View created.
+
+SQL> desc dhaka_view;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(3)
+ NAME                                               VARCHAR2(20)
+ LOCATION                                           VARCHAR2(10)
+
+SQL> desc dhaka;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(3)
+ NAME                                               VARCHAR2(20)
+ LOCATION                                           VARCHAR2(10)
+
+
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> revoke create view from icc;
+
+Revoke succeeded.
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+
+
+
+SQL> grant select on mizan.bdcric to rahman;
+
+Grant succeeded.
+
+
+SQL> connect rahman
+Enter password:
+Connected.
+SQL> select * from mizan.bdcric;
+
+no rows selected
+
+
+
+
+
+SQL> connect
+Enter user-name: mizan
+Enter password:
+Connected.
+
+
+
+SQL> connect
+Enter user-name: rahman
+Enter password:
+Connected.
+SQL> alter table bdcric add age number(2);
+alter table bdcric add age number(2)
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> connect
+Enter user-name: mizan
+Enter password:
+Connected.
+SQL> alter table bdcric add age number(2);
+
+Table altered.
+
+SQL> desc bdcric;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(3)
+ NAME                                               VARCHAR2(20)
+ LOCATION                                           VARCHAR2(10)
+ AGE                                                NUMBER(2)
+
+
+
+
+SQL> insert into bdcric values (1, 'mohammad','dhaka', 24);
+
+1 row created.
+
+
+
+
+SQL> select * from bdcric;
+
+        ID NAME                 LOCATION          AGE
+---------- -------------------- ---------- ----------
+         1 mohammad             dhaka              24
+
+SQL> connect
+Enter user-name: rahman
+Enter password:
+Connected.
+SQL> select * from mizan.bdcric;
+
+        ID NAME                 LOCATION          AGE
+---------- -------------------- ---------- ----------
+         1 mohammad             dhaka              24
+
+SQL>

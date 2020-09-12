@@ -1,0 +1,118 @@
+==========================================
+connect sys as sysdba
+==========================================
+
+create user eid identified by eid;
+==========================================
+
+grant dba to eid;
+==========================================
+
+connect eid
+==========================================
+
+
+create table departments(dep_id number(5) primary key, department_name varchar2(20));
+==========================================
+
+create table employees(emp_id number(5) primary key, emp_name varchar2(20) not null, 
+mobile number(11) unique, salary number(6,2) check (salary >= 25000), joining_date date default sysdate, 
+country varchar2(15) default 'BD', dep_id number(15));
+
+alter table employees add constraint employees_dep_id_fk foreign key(dep_id) references departments(dep_id);
+
+==========================================
+
+
+desc departments;
+
+desc employees;
+==========================================
+
+create table emp_backup as select * from employees; 
+==========================================
+
+
+
+create or replace trigger employees_after_insert after insert ON employees
+for each row
+declare
+begin
+insert into emp_backup values(:new.emp_id, :new.emp_name, :new.mobile, 
+:new.salary, :new.joining_date, :new.country, :new.dep_id);
+dbms_output.put_line('Record successfully inserted into emp_backup table');
+end;
+/
+
+
+insert into employees values(1,'Mizan', 01680225343, 10001, '01.12.2019', 'Bangladesh', 101);
+==========================================
+
+
+create or replace trigger employees_after_update after update on employees
+for each row
+declare
+begin
+update emp_backup
+set emp_id= :new.emp_id
+where emp_id= :old.emp_id; 
+dbms_output.put_line('Record successfully inserted into emp_backup table');
+end;
+/
+
+update emp_backup set id=11
+where id=1; 
+
+==========================================
+
+create or replace trigger employees_after_delete after delete on employees
+for each row
+declare
+begin
+delete emp_backup
+where emp_id= :old.emp_id; 
+dbms_output.put_line('Record successfully inserted into emp_backup table');
+end;
+/
+
+==========================================
+
+create sequence dep_id_seq
+increment by 10
+start with 5
+maxvalue 100000
+nocache
+nocycle;
+===========================================
+create sequence emp_id_seq
+increment by 5
+start with 5
+maxvalue 100000
+nocache
+nocycle;
+===========================================
+create index dep_name_idx ON departments(department_name);
+===========================================
+create or replace procedure insertDepartments(
+p_dep_id in departments.dep_id%type,
+p_department_name in departments.department_name%type
+)
+IS 
+begin
+insert into departments(dep_id, department_name)
+values(p_dep_id, p_department_name);
+end;
+/
+
+begin 
+insertDepartments(dep_id_seq.nextval, 'Admin');
+
+end;
+/
+
+begin 
+insertDepartments(dep_id_seq.nextval, 'Software');
+insertDepartments(dep_id_seq.nextval, 'Marketing');
+end;
+/
+========================================

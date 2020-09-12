@@ -1,0 +1,75 @@
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> CREATE TABLE CUSTOMER(id number(5) primary key,
+  2  name varchar2(20) not null,
+  3  mobile varchar2(11) not null,
+  4  country varchar2(50) default 'BD');
+
+Table created.
+
+SQL>
+SQL> CREATE OR REPLACE PROCEDURE insertCustomer(
+  2  p_id IN CUSTOMER.id%TYPE,
+  3  p_name IN CUSTOMER.name%TYPE,
+  4  p_mobile IN CUSTOMER.mobile%TYPE,
+  5  p_country IN CUSTOMER.country%TYPE)
+  6  IS
+  7  BEGIN
+  8  insert into CUSTOMER (id, name, mobile, country)
+  9  values (p_id, p_name, p_mobile, p_country);
+ 10  commit;
+ 11  end;
+ 12  /
+
+Procedure created.
+
+SQL> begin
+  2  insertCustomer(100, 'Mizan', '01680225343', 'CANADA');
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from customer;
+
+        ID NAME                 MOBILE
+---------- -------------------- -----------
+COUNTRY
+--------------------------------------------------
+       100 Mizan                01680225343
+CANADA
+
+
+SQL>
+SQL> CREATE OR REPLACE PROCEDURE updateCustomer(
+  2  p_id IN CUSTOMER.id%TYPE,
+  3  p_name IN CUSTOMER.name%TYPE)
+  4
+  5  is
+  6
+  7  begin
+  8  update CUSTOMER set name=p_name where id=p_id;
+  9  commit;
+ 10  end;
+ 11  /
+
+Procedure created.
+
+SQL>
+SQL> begin
+  2  updateCustomer(100, 'Mohammad');
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from customer;
+
+        ID NAME                 MOBILE
+---------- -------------------- -----------
+COUNTRY
+--------------------------------------------------
+       100 Mohammad             01680225343
+CANADA

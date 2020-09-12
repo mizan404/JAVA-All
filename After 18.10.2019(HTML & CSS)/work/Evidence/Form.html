@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+	<style type="text/css">
+		*{ padding: 0; margin: 0; 	}
+		#main{ width: 800px; height: 600px; margin: 0 auto; background-color:aqua; }
+		.row{ width: 750px; height: 30px; margin: 0 auto; }
+		.left{ width: 150px; height: 25px; float: left; text-align: left; background-color:aqua;}
+		.right{ width: 550px; height: 25px; float: left; background-color: gray;}
+	</style>
+</head>
+
+<body>
+	<div id="main"> 
+		<div class="row" > 
+		<div class="left"> 
+				<label> Name:  </label>
+				</div>
+			<div class="right">
+				<input type="text"> 
+				</div>
+		</div> 
+		<div class="row"> 
+			<div class="left"> 
+				<label> ID:  </label>
+			</div>
+			<div class="right">
+				<input type="text"> 
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="left"> 
+				<label> Gender:  </label>
+			</div>
+			<div class="right">
+				 <input type="radio" name="gender"> Mele
+				 <input type="radio" name="gender"> Female
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="left"> 
+				<label> Completed Module:  </label>
+			</div>
+			<div class="right">
+				 <input type="checkbox" > 1
+				 <input type="checkbox" > 2
+				 <input type="checkbox" > 3
+				 <input type="checkbox" > 4
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="left"> 
+				<label> Round:  </label>
+			</div>
+			<div class="right">
+				<select>
+					<option>Select A Round </option>
+					<option> 40 </option>
+					<option> 41</option>
+					<option> 42</option>
+					<option> 43</option>
+					<option> 44</option>
+				</select>
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="left"> 
+				<label> Comment:   </label>
+			</div>
+			<div class="right">
+				<textarea width:"5px" height="10px"> </textarea>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

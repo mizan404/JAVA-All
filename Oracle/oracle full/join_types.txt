@@ -1,0 +1,22 @@
+-------- Types of Joins ----
+
+1. Inner Join (All Matched Rows)
+	a. Natural Join (same column name & data type)
+	b. Join Using Clause (same column name diff. data type)
+	c. Join ON (column name diff.)
+	d. EquiJoin
+	e. self join
+	f. Non-equijoin
+
+2. Outer Join (Matched + Unmatched rows)
+	a. Left Outer Join
+	b. Right Outer Join
+	c. Full Outer Join
+
+3. Cross Join
+
+
+SELECT e.employee_id, e.last_name, e.department_id,
+d.department_id, d.location_id
+FROM employees e , departments d
+where e.department_id = d.department_id);

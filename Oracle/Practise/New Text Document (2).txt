@@ -1,0 +1,25 @@
+create table bangladesh_backup as select * from bangladesh;
+
+create or replace trigger bangladesh_after_insert after insert on bangladesh
+for each row
+declare
+begin 
+insert into bangladesh_backup values(:new.id, :new.name, :new.continent);
+dbms_output.put_line('Record successfully inserted into bangladesh_backup table');
+end;
+
+insert into bangladesh values(1, 'Ramin', 'America');
+
+create or replace trigger bangladesh_after_update after update on bangladesh
+for each row 
+declare 
+begin
+update bangladesh_backup
+set id = :new.id
+where id=:old.id;
+dbms_output.put_line('Record successfully updated into bangladesh table');
+end; 
+
+
+update bangladesh set id =100
+where id=1;

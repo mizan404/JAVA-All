@@ -1,0 +1,122 @@
+=====================Creation of table called 'bangladesh'===================================
+
+create table bangladesh (id number(5) primary key, name varchar2(30), continent varchar2(15) default Asia);
+
+insert into bangladesh values (186, 'United States of America', 'North America');
+insert into bangladesh values (102, 'Brazil', 'South America');
+insert into bangladesh (id, name) values (10, 'Japan');
+
+create table bangla_backup as select * from bangladesh;
+
+
+====================Create Trigger=========================
+CREATE or REPLACE TRIGGER bangladesh_after_insert AFTER INSERT ON bangladesh
+FOR EACH ROW 
+DECLARE
+BEGIN
+insert into bangla_backup values (:new.id, :new.name, :new.continent);
+DBMS_OUTPUT.PUT_LINE ('Record successfully inserted into bangla_backup');
+END;
+/
+
+insert into bangladesh values (56, 'New Zealand', 'Australia');
+
+
+===============Trigger update============
+CREATE or REPLACE TRIGGER bangladeh_after_update AFTER UPDATE ON bangladesh
+FOR EACH ROW
+DECLARE
+BEGIN
+update bangla_backup set id = :new.id where id = :old.id;
+DBMS_OUTPUT.PUT_LINE('Record successfully updated into bangladesh table');
+END;
+/
+
+update bangladesh set id = 59 where id = 186;
+
+
+===================Delete trigger=============
+CREATE or REPLACE TRIGGER bangladesh_after_delete AFTER DELETE ON bangladesh
+FOR EACH ROW
+DECLARE
+BEGIN
+delete bangla_backup where id = :old.id;
+DBMS_OUTPUT.PUT_LINE ('Record successfully deleted into bangladesh table');
+END;
+/
+
+delete bangla_backup where id = 102;
+
+
+/* If I delete a data from backup table, it gets deleted only from it. But If I
+dlete any data from main table, both table get affected. */
+
+
+==============Trigger is successfully completed===========================
+
+
+
+=================Create Procedure=============================
+CREATE OR REPLACE PROCEDURE insert_bangladesh (
+	p_id IN bangladesh.id%TYPE,
+	p_name IN bangladesh.name%TYPE,
+	p_continent IN bangladesh.continent%TYPE)
+IS
+BEGIN
+  INSERT INTO bangladesh (id, name, continent) values (p_id, p_name, p_continent);
+  COMMIT;
+END;
+/
+ 
+BEGIN
+  insert_bangladesh (258, 'Spain', 'Europe');
+END;
+/
+
+====================Update Procedure============================
+CREATE OR REPLACE PROCEDURE update_bangladeh (
+	p_id IN bangladesh.id%type,
+	p_name IN bangladesh.name%type)
+IS
+BEGIN
+  update bangladesh set name = p_name where id = p_id;
+  COMMIT;
+END;
+/
+
+BEGIN
+  update_bangladeh(258,'Russsia'); 		///............ not completed
+END;
+/
+
+===============Delete Procedure===================
+CREATE OR REPLACE PROCEDURE delete_bangladesh (
+	p_id IN bangladesh.id%type)
+IS
+BEGIN
+  delete from bangladesh where id = p_id;
+COMMIT;
+END;
+/
+
+BEGIN
+  delete_bangladesh (102);
+END;
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

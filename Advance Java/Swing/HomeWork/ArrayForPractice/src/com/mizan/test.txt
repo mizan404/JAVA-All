@@ -1,0 +1,4 @@
+Reading a File
+
+The Scanner class inherits from the Iterator, so it behaves like one.
+We can use the Scanner object's next() method to read the file's contents.

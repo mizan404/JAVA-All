@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>জাভাস্ক্রিপ্ট উদাহরণ</title>
+</head>
+<body bgcolor="pink" onUnload="lastOne()">
+    
+<center>
+    <P> <h1> How many mouse moves</h1></P>
+    <form name="viewer">
+    <input type="text" name="spot" size=3> 
+    </form>
+    <a href=javascript:void onMouseMove="moveIt()">Tickle this spot</a>
+</center>
+<script>
+    var fullName = "Willie B. Goode";
+    var address = "123 Polar Bear Drive";
+    address = address.toLocaleLowerCase(); 
+    document.write(fullName+"<br>"+address); 
+    document.write("<hr>")
+    
+    function reallyMethod(){
+        document.write("I\m really a method");
+    }
+    reallyMethod();
+    document.write("<hr>")
+    
+    function shedWalls(front,side){
+        var front = prompt("How many");
+        var side = prompt("Bangladesh");
+        var numFront = (front * 4 * 2 )/8;
+        var numSide = (side* 4 * 2 )/8; 
+        var total = numFront+ numSide; 
+        var message ="You will need " + total + " Ok"; 
+        document.write(message); 
+    }
+    shedWalls(); 
+    document.write("<hr>"); 
+    
+    var recordIt = 0; 
+    function moveIt (){
+        recordIt +=1; 
+        document.viewer.spot.value= recordIt; 
+        }
+     document.write("<hr>"); 
+</script>
+    
+
+    
+    <script> 
+    function lastOne(){
+        var message="mizan"; 
+        alert(message); 
+    }
+    
+    </script>
+</body>
+</html>
