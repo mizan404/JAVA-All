@@ -6,6 +6,9 @@
 package com.mizan.view;
 
 import com.mizan.connection.DBConnection;
+import com.mizan.pojo.Voter;
+import com.mizan.service.CommonService;
+import com.mizan.serviceimpl.VoterServiceImple;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -146,19 +149,11 @@ public class VoterDataDelete extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
   static Connection connect = DBConnection.getConnection();
+    CommonService commonService = new VoterServiceImple();
     private void jIndividualDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIndividualDataActionPerformed
         int p = JOptionPane.showConfirmDialog(null, "Are you sure delete ALL DATA!", "WORNING", JOptionPane.YES_NO_OPTION);
         if (p == 0) {
-            try {
-                String sql = "delete from addvoter where voterid=?";
-                PreparedStatement ps = connect.prepareStatement(sql);
-                ps.setString(1, jtxt_search.getText());
-                ps.execute();
-                JOptionPane.showMessageDialog(null, "Selected data is deleted");
-            } catch (SQLException ex) {
-
-            }
-
+            commonService.delete(jtxt_search.getText().trim());
         }
         jtxt_search.setText(null);
         jVoterName.setText(null);
@@ -178,14 +173,8 @@ public class VoterDataDelete extends javax.swing.JFrame {
     private void jAllDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAllDataActionPerformed
         int p = JOptionPane.showConfirmDialog(null, "Are you sure delete ALL DATA!", "WORNING", JOptionPane.YES_NO_OPTION);
         if (p == 0) {
-            try {
-                String sql = "delete from addvoter";
-                PreparedStatement ps = connect.prepareStatement(sql);
-                ps.execute();
-                JOptionPane.showMessageDialog(null, "All Data are deleted");
-            } catch (SQLException ex) {
+            commonService.delete();
 
-            }
         }
 
 
@@ -195,7 +184,7 @@ public class VoterDataDelete extends javax.swing.JFrame {
         if (!jtxt_search.getText().equals("")) {
             String str = jtxt_search.getText();
             try {
-                String url = "select * from addvoter where voterid=?";
+                String url = "select * from addvoter where id=?";
                 PreparedStatement ps = connect.prepareStatement(url);
                 ps.setString(1, str);
                 ResultSet rs = ps.executeQuery();

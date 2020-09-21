@@ -1,6 +1,9 @@
 package com.mizan.view;
 
 import com.mizan.connection.DBConnection;
+import com.mizan.pojo.Voter;
+import com.mizan.service.CommonService;
+import com.mizan.serviceimpl.VoterServiceImple;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -186,6 +189,7 @@ public class UpdateVoter extends javax.swing.JFrame {
         jPanel7.add(jClear);
         jClear.setBounds(480, 0, 50, 60);
 
+        jButton1.setIcon(new javax.swing.ImageIcon("G:\\IT Files\\OneDrive\\Secure\\Document\\JAVA\\Advance Java\\Swing\\HomeWork\\vote_management\\src\\com\\mizan\\pic\\image.png")); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +198,7 @@ public class UpdateVoter extends javax.swing.JFrame {
             }
         });
         jPanel7.add(jButton1);
-        jButton1.setBounds(100, 0, 80, 70);
+        jButton1.setBounds(100, 0, 80, 60);
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 510, 600, 80));
 
@@ -300,6 +304,7 @@ public class UpdateVoter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     static Connection connect = DBConnection.getConnection();
+    CommonService commonService = new VoterServiceImple();
     private void jBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackActionPerformed
         Home home = new Home();
         home.setVisible(true);
@@ -308,20 +313,25 @@ public class UpdateVoter extends javax.swing.JFrame {
 
     private void jVoterUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVoterUpdateActionPerformed
 
-        try {
-//            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vote_management", "root", "12345");
-//            String sql = "update addvoter set name=? ,fathername=? ,address=? ,sex=? ,age=? , voter_image=? where voterid=?";
-            String sql = "update addvoter set mobile_number='" + jMobileNumber.getText() + "',name='" + jName.getText() + "',fathername='" + jFathername.getText() + "',address='" + jAddress.getText() + "',sex='" + jSex.getText() + "',age='" + jAge.getText() + "' where voterid='" + jVoterid.getText() + "'";
-            PreparedStatement ps = connect.prepareStatement(sql);
-
-            ps.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "Data Updated Successfully");
-            new Home().setVisible(true);
-            dispose();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdateVoter.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Voter voter = new Voter(jVoterid.getText().trim(), jMobileNumber.getText().trim(), jName.getText().trim(), jFathername.getText().trim(), jAddress.getText().trim(), jSex.getText().trim(), Integer.parseInt(jAge.getText().trim()), voter_image);
+        commonService.update(voter);
+        JOptionPane.showMessageDialog(null, "Voter information is updated");
+        new Home().setVisible(true);
+        dispose();
+//        try {
+////            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vote_management", "root", "12345");
+////            String sql = "update addvoter set name=? ,fathername=? ,address=? ,sex=? ,age=? , voter_image=? where voterid=?";
+//            String sql = "update addvoter set mobile_number='" + jMobileNumber.getText() + "',name='" + jName.getText() + "',fathername='" + jFathername.getText() + "',address='" + jAddress.getText() + "',sex='" + jSex.getText() + "',age='" + jAge.getText() + "',voter_image='" + voter_image + "' where voterid='" + jVoterid.getText() + "'";
+//            PreparedStatement ps = connect.prepareStatement(sql);
+//
+//            ps.executeUpdate(sql);
+//            JOptionPane.showMessageDialog(null, "Data Updated Successfully");
+//            new Home().setVisible(true);
+//            dispose();
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(UpdateVoter.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jVoterUpdateActionPerformed
 
     private void jClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jClearActionPerformed
@@ -340,7 +350,7 @@ public class UpdateVoter extends javax.swing.JFrame {
         try {
             String str = jVoterid.getText();
 //            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vote_management", "root", "12345");
-            PreparedStatement ps = connect.prepareStatement("select * from addvoter where voterid=?");
+            PreparedStatement ps = connect.prepareStatement("select * from addvoter where id=?");
             ps.setString(1, str);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -372,28 +382,28 @@ public class UpdateVoter extends javax.swing.JFrame {
     }//GEN-LAST:event_jSearchjSeachActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        int p = JOptionPane.showConfirmDialog(null, "Are you sure change picture", "WORNING", JOptionPane.YES_NO_OPTION);
-//        if (p == 0) {
-//            JFileChooser chooser = new JFileChooser();
-//            chooser.showOpenDialog(null);
-//            File f = chooser.getSelectedFile();
-//            filename = f.getAbsolutePath();
-//            ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jImage.getWidth(), jImage.getHeight(), Image.SCALE_SMOOTH));
-//            jImage.setIcon(imageIcon);
-//            try {
-//                File voterimage = new File(filename);
-//                FileInputStream fis = new FileInputStream(voterimage);
-//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//                byte[] buff = new byte[1024];
-//                for (int readNum; (readNum = fis.read(buff)) != -1;) {
-//                    bos.write(buff, 0, readNum);
-//                }
-//                voter_image = bos.toByteArray();
-//
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(null, e);
-//            }
-//        }
+        int p = JOptionPane.showConfirmDialog(null, "Are you sure change picture", "WORNING", JOptionPane.YES_NO_OPTION);
+        if (p == 0) {
+            JFileChooser chooser = new JFileChooser();
+            chooser.showOpenDialog(null);
+            File f = chooser.getSelectedFile();
+            filename = f.getAbsolutePath();
+            ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jImage.getWidth(), jImage.getHeight(), Image.SCALE_SMOOTH));
+            jImage.setIcon(imageIcon);
+            try {
+                File voterimage = new File(filename);
+                FileInputStream fis = new FileInputStream(voterimage);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                byte[] buff = new byte[1024];
+                for (int readNum; (readNum = fis.read(buff)) != -1;) {
+                    bos.write(buff, 0, readNum);
+                }
+                voter_image = bos.toByteArray();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

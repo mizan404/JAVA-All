@@ -6,6 +6,9 @@
 package com.mizan.view;
 
 import com.mizan.connection.DBConnection;
+import com.mizan.pojo.Admin;
+import com.mizan.service.CommonService;
+import com.mizan.serviceimpl.AdminServiceImple;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -50,6 +53,8 @@ public class CreateAdmin extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jShow = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(72, 201, 176));
 
@@ -204,6 +209,15 @@ public class CreateAdmin extends javax.swing.JFrame {
         jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 56, 50));
         jPanel5.add(jShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 230, 40));
 
+        txtId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jPanel5.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 230, 30));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel15.setText("Admin Id");
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 150, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,34 +233,28 @@ public class CreateAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 static Connection connect = DBConnection.getConnection();
+    CommonService commonService = new AdminServiceImple();
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int id = 0;
+        String name = "";
+        String password = "";
+//        if (name.isEmpty() && password.equals("")) {
+//            JOptionPane.showMessageDialog(null, "Name Or Password is empty");
+//
+//        }
+//        else{
+//        
+//        }
+        Admin admin = new Admin(Integer.parseInt(txtId.getText().trim()), jName.getText().trim(), jPassword.getText().trim());
+        commonService.save(admin);
+        JOptionPane.showMessageDialog(null, "Admin Data Inserted");
+        new adminlogin().setVisible(true);
+        dispose();
 
-        String Name = jName.getText().trim();
-        String Password = jPassword.getText().trim();
-        try {
-//            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vote_management", "root", "12345");
-            String sql = "insert into admin values(?,?)";
-            PreparedStatement ps = connect.prepareStatement(sql);
-            if (Name.equals("") && Password.equals("")) {
-                JOptionPane.showMessageDialog(null, "Field's must be filled");
-            } else {
-                ps.setString(1, jName.getText());
-                ps.setString(2, String.valueOf(jPassword.getPassword()));
-
-            }
-
-            ps.execute();
-            JOptionPane.showMessageDialog(null, "Data Inserted Sucessfully");
-
-            new adminlogin().setVisible(true);
-            dispose();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        txtId.setText(null);
         jName.setText(null);
         jPassword.setText(null);
 
@@ -305,6 +313,7 @@ static Connection connect = DBConnection.getConnection();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -314,5 +323,6 @@ static Connection connect = DBConnection.getConnection();
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JLabel jShow;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

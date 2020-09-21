@@ -6,6 +6,9 @@
 package com.mizan.view;
 
 import com.mizan.connection.DBConnection;
+import com.mizan.pojo.Voter;
+import com.mizan.service.CommonService;
+import com.mizan.serviceimpl.VoterServiceImple;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -298,6 +301,7 @@ public class Addvoter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     static Connection connect = DBConnection.getConnection();
+    CommonService commonService = new VoterServiceImple();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Home home = new Home();
         home.setVisible(true);
@@ -341,35 +345,13 @@ public class Addvoter extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        try {
-//            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vote_management", "root", "12345");
-            String sql = "insert into addvoter values(?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = connect.prepareStatement(sql);
-            ps.setString(1, jVoterid.getText());
-            ps.setString(2, jMobileNumber.getText());
-            ps.setString(3, jName.getText());
-            ps.setString(4, jFathername.getText());
-            ps.setString(5, jAddress.getText());
-            ps.setString(6, jSex.getText());
-            String s = jAge.getText();
-            int i = Integer.parseInt(s);
-            if (i >= 18) {
-                ps.setString(7, jAge.getText());
+        Voter voter = new Voter(jVoterid.getText().trim(), jMobileNumber.getText().trim(), jName.getText().trim(), jFathername.getText().trim(), jAddress.getText().trim(), jSex.getText().trim(), Integer.parseInt(jAge.getText().trim()), voter_image);
+        commonService.save(voter);
+        JOptionPane.showMessageDialog(null, "Voter data is inserted");
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Age must be greater than 18");
-            }
-            ps.setBytes(8, voter_image);
-            ps.execute();
-            JOptionPane.showMessageDialog(null, "Data Inserted Sucessfully");
+        new Home().setVisible(true);
+        dispose();
 
-            Home home = new Home();
-            home.setVisible(true);
-            dispose();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Addvoter.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

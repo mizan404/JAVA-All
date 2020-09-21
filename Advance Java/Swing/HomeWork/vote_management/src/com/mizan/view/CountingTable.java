@@ -6,6 +6,9 @@
 package com.mizan.view;
 
 import com.mizan.connection.DBConnection;
+import com.mizan.pojo.Winner;
+import com.mizan.service.CommonService;
+import com.mizan.serviceimpl.ResultServiceImpl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -244,35 +247,38 @@ public class CountingTable extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 static Connection connect = DBConnection.getConnection();
+    CommonService commonService = new ResultServiceImpl();
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (!jPartyID.getText().equals("") && !jPartyName.getText().equals("")) {
             String str = jPartyID.getText();
-            try {
+            Winner winner = new Winner(Integer.parseInt(jPartyID.getText().trim()), jPartyName.getText().trim(), Integer.parseInt(jCount.getText().trim()));
+            commonService.save(winner);
+            JOptionPane.showMessageDialog(null, "Counting ID is inserted");
+//            try {
 //                Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vote_management", "root", "12345");
-                String sql = "insert into result values(?,?,?)";
-                PreparedStatement ps = connect.prepareStatement(sql);
-                String s = jPartyID.getText();
-                ps.setString(1, s);
-
-                ps.setString(2, jPartyName.getText());
-                String s2 = jCount.getText();
-                ps.setString(3, s2);
-
-                ps.execute();
-                JOptionPane.showMessageDialog(null, "Data Inserted Sucessfully");
-
-                new Home().setVisible(true);
-                dispose();
-
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Party Name has inserted already");
-                jPartyName.setText(null);
-            }
-
+//                String sql = "insert into result values(?,?,?)";
+//                PreparedStatement ps = connect.prepareStatement(sql);
+//                String s = jPartyID.getText();
+//                ps.setString(1, s);
+//                
+//                ps.setString(2, jPartyName.getText());
+//                String s2 = jCount.getText();
+//                ps.setString(3, s2);
+//                
+//                ps.execute();
+//                JOptionPane.showMessageDialog(null, "Data Inserted Sucessfully");
+//                
+//                new Home().setVisible(true);
+//                dispose();
+//                
+//            } catch (SQLException ex) {
+//                JOptionPane.showMessageDialog(null, "Party Name has inserted already");
+//                jPartyName.setText(null);
+//            }
         } else {
             JOptionPane.showMessageDialog(null, "Party ID is empty OR Party Name is empty");
         }
-
+        
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -294,7 +300,7 @@ static Connection connect = DBConnection.getConnection();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        
         try {
             String str = jPartyID.getText();
 //            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vote_management", "root", "12345");
@@ -304,15 +310,15 @@ static Connection connect = DBConnection.getConnection();
             if (rs.next()) {
                 String s = rs.getString(2);
                 jPartyName.setText(s);
-
+                
             } else {
                 JOptionPane.showMessageDialog(null, "This ID is not present");
                 jPartyName.setText(null);
-
+                
             }
-
+            
         } catch (SQLException ex) {
-
+            
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed

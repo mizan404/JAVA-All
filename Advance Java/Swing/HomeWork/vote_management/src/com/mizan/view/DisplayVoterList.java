@@ -45,7 +45,7 @@ public class DisplayVoterList extends javax.swing.JFrame {
             Voter voter;
             while (rs.next()) {
                 voter = new Voter(
-                        rs.getString("voterid"),
+                        rs.getString("id"),
                         rs.getString("mobile_number"),
                         rs.getString("name"),
                         rs.getString("fathername"),
@@ -67,10 +67,10 @@ public class DisplayVoterList extends javax.swing.JFrame {
 
         ArrayList<Voter> list = voterlist();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
-        String[] columnName = {"VoterID", "Mobile Number", "Name", "Father Name", "Address", "Sex", "Age", "Image"};
+        String[] columnName = {"ID", "Mobile Number", "Name", "Father Name", "Address", "Sex", "Age", "Image"};
         Object[][] row = new Object[list.size()][10];
         for (int i = 0; i < list.size(); i++) {
-            row[i][0] = list.get(i).getVoterid();
+            row[i][0] = list.get(i).getid();
             row[i][1] = list.get(i).getMobileNumber();
             row[i][2] = list.get(i).getName();
             row[i][3] = list.get(i).getFathername();

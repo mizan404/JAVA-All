@@ -5,6 +5,7 @@
  */
 package com.mizan.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,13 +19,18 @@ public interface CommonService<T> {
     void save(T t);
 
     void update(T t);
-    void delete(int id); 
 
-    T get(int id);
+    void delete(String id);
+
+    void delete(int id);
+
+    void delete();
+
+    T get(String id);
 
     T getByName(String name);
 
-    List<T> getList();
+    ArrayList<T> getList();
 
     T getUserByUsernameAndPassword(String username, String password);
 }

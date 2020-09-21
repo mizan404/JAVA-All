@@ -11,7 +11,7 @@ package com.mizan.pojo;
  */
 public class Voter {
 
-    private String voterid;
+    private String id;
     private String mobileNumber;
 
     private String name;
@@ -21,8 +21,8 @@ public class Voter {
     private int age;
     private byte[] voterImage;
 
-    public Voter(String voterid, String mobileNumber, String name, String fathername, String address, String sex, int age, byte[] voterimage) {
-        this.voterid = voterid;
+    public Voter(String id, String mobileNumber, String name, String fathername, String address, String sex, int age, byte[] voterimage) {
+        this.id = id;
         this.mobileNumber = mobileNumber;
 
         this.name = name;
@@ -33,8 +33,8 @@ public class Voter {
         this.voterImage = voterimage;
     }
 
-    public String getVoterid() {
-        return voterid;
+    public String getid() {
+        return id;
     }
 
     public String getMobileNumber() {
@@ -65,8 +65,8 @@ public class Voter {
         return voterImage;
     }
 
-    public void setVoterid(String voterid) {
-        this.voterid = voterid;
+    public void setid(String voterid) {
+        this.id = voterid;
     }
 
     public void setMobileNumber(String password) {

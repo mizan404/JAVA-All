@@ -10,12 +10,19 @@ package com.mizan.pojo;
  * @author mohdm
  */
 public class Admin {
-    private String name; 
-    private String password; 
 
-    public Admin(String name, String password) {
+    private int id;
+    private String name;
+    private String password;
+
+    public Admin(int id, String name, String password) {
+        this.id = id;
         this.name = name;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -26,6 +33,10 @@ public class Admin {
         return password;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -33,6 +44,5 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
+
 }
