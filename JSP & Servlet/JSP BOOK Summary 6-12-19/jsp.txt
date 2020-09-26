@@ -1,0 +1,49 @@
+1. JSP vs Servlet
+
+2. JSP Lifecycle
+
+3. JSP Application Architecture
+	• Model 1 Architecture- page-centric
+	• Model 2 Architecture (Model-View-Controller)
+
+4. Basic Deployment
+	• Expanded directory format
+	• Web ARchive file (WAR)
+
+5. JSP Programmatic Logic
+	• Scripting elements
+		• Comments <%-- This is a JSP comment --%>
+		• Declarations <%! Date now = new Date(); %>
+		• Scriptlets <% any java code %>
+		• Expressions <%= expression %>
+		• Expression language expressions ${anObject.aProperty}
+	• Directives
+		• page directives <%@ page session="true" %>
+		• include directives <%@ include file="ralativeURL" %>
+		• taglib directives <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	• Action elements
+		• Standard actions
+			<jsp:include>, <jsp:useBean>
+			<jsp:getProperty> and <jsp:setProperty>
+			<jsp:forward>
+		• Custom actions
+			<myPrefix:foo>...</myPrefix:foo>
+		• JSTL actions
+			• Core
+			• Internationalization (I18n) and Formatting
+			• XML
+			• SQL
+
+
+6. JSP Implicit Objects
+Object		Type
+------------------------
+1) out		JspWriter
+2) request	HttpServletRequest
+3) response	HttpServletResponse
+4) config	ServletConfig
+5) session	HttpSession
+6) application	ServletContext
+7) pageContext	PageContext
+8) page		Object
+9) exception	Throwable
